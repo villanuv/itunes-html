@@ -1,0 +1,99 @@
+<!doctype html>
+<html ng-app='RdioApp'>
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:600,400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+  <meta charset="UTF-8">
+  <title>iTunes HTML v0.4</title>
+  <bash href="/">
+</head>
+<body ng-controller="TrackController">
+  <div id="api"></div>
+  <div id="osBar">
+    <div>iTunes HTML</div><div id="date"></div>
+  </div>
+
+  <div class="container">
+    <div class="topBar">
+      <div id="windowBtns">
+        <img src="images/btn-red.gif" />
+        <img src="images/btn-yel.gif" />
+        <img src="images/btn-green.gif" />
+      </div>
+      <div id="itunesController">
+        <button id="previous"></button>
+        <button id="play"></button>
+        <button id="pause"></button>
+        <button id="next"></button>
+      </div>
+      <div id="volume">
+        <div id="slider"></div>
+      </div>
+      <div id="coverArt"></div>
+      <div id="info">
+        <div id="repeatContainer"><img src="images/repeat-off.jpg" />
+          <div id="time1">0:00</div>
+        </div>
+        <div class="mainText">
+          <p id="trackName"></p>
+          <p id="artistAlbum"></p>
+        </div>
+        <div id="shuffleContainer"><img src="images/shuffle-off.jpg"><img src="images/shuffle-on.jpg" style="display:none;" />
+          <div id="time2">0:00</div>
+        </div>
+        <div id="scrobble"><div id="progress"></div></div>  
+      </div>
+      <div id="searchContainer">
+        <form id="searchForm" ng-submit="submit()">
+          <input type="search" id="searchField" placeholder="Search Rdio" autocomplete="off">
+        </form>
+      </div>
+    </div>
+    <div class="mainWindow">
+      <div class="currentPlaylist droppableItem" style="height:300px;" data-drop="true" ng-model='playlist' jqyoui-droppable="{multiple:true, onDrop:'addThis()'}">
+        <table border="0" cellspacing="0" class="currentPlaylist">
+          <tr><td>Playlist (Beta)</td></tr>
+          <!--
+
+          ng-repeat="song in playlist track by $index"
+          
+          data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" 
+          jqyoui-draggable="{index: {{$index}},animate:false}"
+
+          ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)"
+
+          -->
+          <tr ng-repeat="song in playlist track by $index" ng-show="song.name" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClickedPlay()" ng-model="playlist"><td>{{$index+1}}. {{song.name | limitTo:27}}{{song.name.length > 27 ? '...' : ''}}</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="searchColumn">
+      <div class="heading">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><td valign="middle">Name</td><td>Artist</td><td>Album</td><td>Time</td></tr>
+        </table>
+      </div>
+      <div class="searchPlaylist">
+        <table border="0" cellpadding="0" cellspacing="0" class="DraggableThings">
+          <tr ng-repeat="song in searchResults" ng-show="song.name" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClicked()" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" ng-model="searchResults" jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+            <td>{{song.name | limitTo:28}}{{song.name.length > 28 ? '...' : ''}}</td><td class="songArtist">{{song.artist | limitTo:18}}{{song.artist.length > 18 ? '...' : ''}}</td><td class="songAlbum">{{song.album | limitTo:24}}{{song.album.length >24 ? '...' : ''}}</td><td class="songDuration">{{song.duration}}</td>
+          </tr>
+        </table>      
+      </div>        
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js"></script>
+  <script src="angular-dragdrop.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="jquery.rdio.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

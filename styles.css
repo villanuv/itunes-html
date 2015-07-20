@@ -1,0 +1,526 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  background: url('images/bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0; padding: 0;
+}
+
+#api {
+  height: 0;
+  margin: 0; 
+  padding: 0;
+}
+
+#osBar {
+  width: 100%;
+  height: 23px;
+  margin: 0;
+  padding-left: 43px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 13px;
+  font-weight: 500;
+  background: url('images/belly.png') #fff no-repeat 15px 2px;
+  opacity: 0.7;
+  -webkit-box-shadow: 0px 6px 39px -5px rgba(0,0,0,0.9);
+  -moz-box-shadow: 0px 6px 39px -5px rgba(0,0,0,0.9);
+  box-shadow: 0px 6px 39px -5px rgba(0,0,0,0.9);
+}
+
+#osBar div:first-child {
+  font-weight: bold;
+}
+
+#osBar div {
+  float: left;
+  margin: 0;
+  padding: 5px 0 0 7px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#date {
+  float: right !important;
+  padding-right: 60px !important;
+}
+
+.container {
+  width: 803px;
+  margin: 100px auto 0;
+  padding: 0;
+  background-color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 5px 43px 0px rgba(0,0,0,0.8);
+  -moz-box-shadow: 0px 5px 43px 0px rgba(0,0,0,0.8);
+  box-shadow: 0px 5px 43px 0px rgba(0,0,0,0.8);
+}
+
+.topBar {
+  float: left;
+  width: 803px;
+  height: 44px;
+  clear: both;
+  border-bottom: 1px solid #aeaeae;
+  background: url('images/itunes-top.jpg') repeat-x; 
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+#windowBtns {
+  float: left;
+  width: 72px;
+  height: 30px;
+  padding: 6px 0 0 8px;
+}
+
+#windowBtns img {
+  padding-right: 5px;
+}
+
+#itunesController {
+  float: left;
+  padding-top: 12px;
+}
+
+#volume {
+  float: left;
+  width: 68px;
+  height: 20px;   
+  margin: 20px 25px 0 0;
+  position: relative;
+}
+
+#slider {
+  width: 52px;
+  height: 4px;
+  position: absolute;
+  /*background-color: #ababab;*/
+  background: url('images/vol-back.jpg') repeat top left;
+  margin: 0 auto;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  left: 18px; /* positions div */
+}
+
+#slider .ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+  width: 20px;
+  height: 20px;
+  cursor: default;
+  background: url('images/vol-handle.png') no-repeat 50% 50%;
+  outline: none;
+  top: -8px; /* aligns on track */
+  margin-left: -5px;
+}
+
+#slider .ui-slider-handle:active {
+  background: url('images/vol-handle-over.png') no-repeat 50% 50%;
+}
+
+#slider .ui-slider-range {
+  /*background-color: #676767;*/
+  position: absolute;
+  border: 0;
+  top: 0;
+  left: 0;
+  height: 100%;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+#coverArt {
+  float: left;
+  width: 44px;
+  height: 44px;
+  border-left: 1px solid #d5d5d5;
+  border-right: 1px solid #d5d5d5;
+  background: url('images/cover.jpg') no-repeat;
+  background-size: 100% !important;
+}
+
+#info {
+  float: left;
+  width: 250px;
+  height: 44px;
+  text-align: center;
+  font-weight: normal;
+  overflow-y: hidden;
+  background-color: #eaeaea;
+  border-right: 1px solid #d5d5d5;
+  /*border-bottom: 4px solid #bcbcbc;*/
+}
+
+#shuffleContainer {
+  float: left;
+  width: 29px;
+  height: 25px;
+  padding-top: 4px;
+}
+
+#repeatContainer {
+  float: left;
+  width: 27px;
+  height: 25px;
+  padding-top: 4px; 
+}
+
+#time1, #time2 {
+  float: left;
+  color: #a5a5a5;
+  font-size: 9px;
+  height: 8px;
+  padding: 0 2px 0;
+  text-align: center;
+}
+
+#time1 {
+  width: 23px;
+}
+
+#time2 {
+  width: 25px;
+}
+
+.mainText {
+  background: url('images/belly-gray.png') no-repeat center center;
+  float: left;
+  width: 193px;
+  height: 40px;
+  font-weight: normal;
+  overflow-y: hidden;
+}
+
+p#trackName {
+  margin: 0 0 -1px; 
+  padding-top: 5px;
+  color: #3f3f3f;
+  white-space: nowrap;
+}
+
+p#artistAlbum {
+  margin: 0; padding: 0;
+  font-size: 10px;
+  color: #8e8e8e;
+  white-space: nowrap;
+}
+
+#scrobble, #progress {
+  float: left;
+  clear: both;
+  width: 251px;
+  height: 4px;
+}
+
+#scrobble { background-color: #c6c6c6; }
+#progress { background-color: #7f7f7f; }
+
+#scrobble .ui-slider-range { background-color: #7f7f7f; }
+#scrobble .ui-slider-handle { background-color: #000; }
+
+#searchContainer {
+  float: right;
+  width: 200px;
+  height: 44px;
+  padding: 11px 11px 0 0;
+  text-align: center;
+}
+
+.floatLeft {
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
+
+table {
+  border: 0;
+  font-weight: 400;
+}
+
+table td {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+table td:hover,
+#osBar div,
+#info {
+  cursor: default;
+}
+
+table.currentPlaylist {
+  width: 221px;
+}
+
+table.DraggableThings {
+  width: 581px;
+}
+
+table.DraggableThings tr {
+}
+
+table.DraggableThings tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+table.DraggableThings tr:first-child {
+  background-color: none;
+}
+
+table.DraggableThings td {
+  padding: 2px 0 2px 20px;
+  width: 48%;
+}
+
+.selected {
+  background-color: #006ed7 !important;
+  color: #fff !important;
+}
+
+.searchColumn {
+  float: left !important;
+  width: 581px;
+  min-height: 500px;
+  /*border-right: 1px #d9d9d9 solid;*/
+  border-bottom: 1px #d9d9d9 solid;
+  border-left: none;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.heading {
+  float: left;
+  width:100%;
+  height:23px;
+  vertical-align: middle;
+  clear: both;
+}
+
+.heading table {
+  width: 100%;
+  font-size: 10px;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.heading table td,
+.searchPlaylist table td {
+  padding: 5px 0 3px 5px;
+  vertical-align: middle;
+  border-left: 1px solid #d9d9d9;
+}
+
+.searchPlaylist table td {
+  border-left: none !important;
+}
+
+.heading table td:first-child {
+  padding: 5px 0 3px 20px;
+  border-left: none;
+  width: 38%;
+}
+
+.searchPlaylist table td:first-child {
+  padding: 3px 0 4px 20px;
+  border-left: none;
+  width: 38%;
+}
+
+.heading table td {
+  padding: 5px 0 3px 5px;
+}
+
+.searchPlaylist table td {
+  padding: 3px 0 4px 5px;
+}
+
+.heading table td:nth-child(2),
+.searchPlaylist table td:nth-child(2) {
+  width: 23%;
+}
+
+.heading table td:nth-child(3),
+.searchPlaylist table td:nth-child(3) {
+  width: 31%;
+}
+
+.heading table td:last-child,
+.searchPlaylist table td:last-child {
+  text-align: right;
+  padding-right: 7px;
+  width: 8%;
+}
+
+.searchBox {
+  float: left;
+  width: 300px;
+  height: 20px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+input:first-child {
+  border: 1px solid #ccc;
+  padding: 3px 6px 4px 20px;
+  outline: none;
+  font-size: 12px;
+  width: 180px;
+  background: url('images/mglass.jpg') #fff no-repeat scroll 8px center;
+  border-radius: 13px 13px 13px 13px;
+  -moz-border-radius: 13px 13px 13px 13px;
+  -webkit-border-radius: 13px 13px 13px 13px;
+  -webkit-box-shadow: inset 0px 0px 6px -1px rgba(0,0,0,0.5);
+  -moz-box-shadow: inset 0px 0px 6px -1px rgba(0,0,0,0.5);
+  box-shadow: inset 0px 0px 6px -1px rgba(0,0,0,0.5);
+}
+
+input:focus {
+  box-shadow: 0 0 2pt 1pt #669bcb;
+  -webkit-box-shadow: 0 0 2pt 1pt #669bcb;
+  -moz-box-shadow: 0 0 2pt 1pt #669bcb;
+}
+
+.searchPlaylist {
+  float: left;
+  height: 475px;
+  max-height: 475px;
+  min-width: 300px;
+  overflow-y: scroll;
+  border-left: none;
+  clear: both;
+  font-size: 11.75px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.mainWindow {
+  float: left;
+  width: 221px;
+  height: 488px;
+  padding: 6px 0;
+  border-right: 1px #d9d9d9 solid;
+  border-bottom: 1px #d9d9d9 solid;
+  /*border-left: 1px #d9d9d9 solid;*/
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.mainWindow tr:first-child {
+  font-size: 10px;
+  color: #9a9aa2;
+  font-weight: bold;
+}
+
+.mainWindow tr:first-child td {
+  padding: 0 13px 4px 13px !important;
+}
+
+.mainWindow tr:not(:first-child) td {
+  padding: 2px 13px 2px 13px;
+}
+
+.playerUI {
+  width: 490px;
+  height: 200px;
+  padding-right: 10px;
+  background-color: #f5f5f5;
+}
+
+.currentPlaylist {
+  width: 221px;
+  max-height: 300px;
+  overflow-y: scroll;
+  white-space: nowrap;
+  clear: both;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+h3 {
+  margin: 0;
+  padding: 20px 0 0;
+}
+
+#previous {
+  background: url('images/itunes-back.gif');
+  width: 23px;
+  height: 20px;
+  color: #fff;
+  border: none;
+}
+
+#play {
+  display: none;
+  background: url('images/itunes-play.gif');
+  margin: 0 13px 0 14px;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  border: none;
+}
+
+#pause {
+  background: url('images/itunes-pause.gif');
+  margin: 0 13px 0 14px;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  border: none;
+}
+
+#next {
+  background: url('images/itunes-next.gif');
+  width: 23px;
+  height: 20px;
+  color: #fff;
+  border: none;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:hover {
+  cursor: default;
+}
+
+.scrollThis {
+  animation-delay: 2s; /* W3C */
+  -webkit-animation-delay: 2s; /* Safari & Chrome */
+  -moz-animation-delay: 2s; /* Firefox */
+  -ms-animation-delay: 2s; /* Internet Explorer */
+  -o-animation-delay: 2s; /* Opera */
+  animation: rightThenLeft 4s linear;
+  -webkit-animation: rightThenLeft 4s linear;
+}
+
+@-webkit-keyframes rightThenLeft {
+  0%   {margin-right:0;}
+  50%  {margin-right:100%;}
+}
