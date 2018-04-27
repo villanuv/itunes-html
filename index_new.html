@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>iTunes HTML v0.5 Test</title>
+  <title>iTunes HTML v0.5 Test</title>
 </head>
 <body>
   <div id="buttons">
@@ -9,8 +9,12 @@
   </div>
   <div id="search-results">
   </div>
+  <div id="player"></div>
+
+  <div id="player-controls">back | play/<a href="#" onclick="pauseVideo()">pause</a> | forward</div>
 
   <script src="js/search.js"></script>
+  <script src="js/player.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"> </script>
 </body>

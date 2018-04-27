@@ -22,7 +22,7 @@ function makeRequest() {
     for(i=0; i<data.length; i++) {
       var vidId = data[i]['id']['videoId'];
       var vidTitle = data[i]['snippet']['title'];
-      $('#search-results').append('<a href="https://www.youtube.com/watch?v=' + vidId + '" target="_blank">' + vidTitle + '</a><br>');
+      $('#search-results').append('<a href="#" onclick="playVideo(\'' + vidId + '\');">' + vidTitle + '</a><br>');
     }
   });
 }
