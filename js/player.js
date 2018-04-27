@@ -10,10 +10,9 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
-    height: '390',
-    width: '640',
-    controls: 0,
-    fs: 0,
+    height: '134',
+    width: '220',
+    playerVars: { 'controls': 0, 'fs': 0, 'showinfo': 0 },
     //videoId: 'M7lc1UVf-VE',
     events: {
       //'onReady': onPlayerReady,
@@ -45,12 +44,21 @@ function stopVideo() {
 
 function playVideo(id) {
   player.loadVideoById(id);
+  $('.pauseButton').show();
+  $('.playButton').hide();
 }
 
 function playResumeVideo() {
   player.playVideo();
+  togglePlay();
 }
 
 function pauseVideo() {
   player.pauseVideo();
+  togglePlay();
+}
+
+function togglePlay() {
+  $('.pauseButton').toggle();
+  $('.playButton').toggle();
 }

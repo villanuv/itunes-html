@@ -11,11 +11,14 @@
   </div>
   <div id="player"></div>
 
-  <div id="player-controls">back | <a href="#" onclick="playResumeVideo()">play</a>/<a href="#" onclick="pauseVideo()">pause</a> | forward</div>
+  <div id="player-controls">back | <span class="playButton"><a href="#" onclick="playResumeVideo()">play</a></span><span class="pauseButton"><a href="#" onclick="pauseVideo()">pause</a></span> | forward</div>
 
   <script src="js/search.js"></script>
   <script src="js/player.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"> </script>
+  <script>
+    $('.pauseButton').toggle();
+  </script>
 </body>
 </html>
