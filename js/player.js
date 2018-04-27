@@ -47,6 +47,10 @@ function playVideo(id) {
   player.loadVideoById(id);
 }
 
+function playResumeVideo() {
+  player.playVideo();
+}
+
 function pauseVideo() {
   player.pauseVideo();
 }
