@@ -12,7 +12,7 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '134',
     width: '220',
-    playerVars: { 'controls': 0, 'fs': 0, 'showinfo': 0 },
+    playerVars: { 'fs': 0, 'showinfo': 0 }, //'controls': 0, 
     //videoId: 'M7lc1UVf-VE',
     events: {
       //'onReady': onPlayerReady,
@@ -47,8 +47,8 @@ function stopVideo() {
 
 function playVideo(id) {
   player.loadVideoById(id);
-  $('.pauseButton').toggle();
-  $('.playButton').toggle();
+  $('.pauseButton').show();
+  $('.playButton').hide();
 }
 
 function playResumeVideo() {
