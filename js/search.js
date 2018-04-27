@@ -11,6 +11,7 @@ function makeRequest() {
     q: q,
     maxResults: 10,
     type: 'video',
+    videoCategoryId: 10,
     part: 'snippet'                        
   });
 
