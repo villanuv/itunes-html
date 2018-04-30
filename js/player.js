@@ -47,7 +47,7 @@ function stopVideo() {
 
 function playVideo(id) {
   player.loadVideoById(id);
-  $('.pauseButton').show();
+  $1('.pauseButton').show();
   $('.playButton').hide();
 }
 
