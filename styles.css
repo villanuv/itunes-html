@@ -2,7 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
   font-weight: 600;
-  background: url('/images/bg.jpg') no-repeat center center fixed;
+  background: url('./images/bg.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -25,7 +25,7 @@ body {
   font-size: 13px;
   line-height: 13px;
   font-weight: 500;
-  background: url('/images/belly.png') #fff no-repeat 15px 2px;
+  background: url('./images/belly.png') #fff no-repeat 15px 2px;
   opacity: 0.7;
   -webkit-box-shadow: 0px 6px 39px -5px rgba(0,0,0,0.9);
   -moz-box-shadow: 0px 6px 39px -5px rgba(0,0,0,0.9);
@@ -72,7 +72,7 @@ body {
   height: 44px;
   clear: both;
   border-bottom: 1px solid #aeaeae;
-  background: url('/images/itunes-top.jpg') repeat-x; 
+  background: url('./images/itunes-top.jpg') repeat-x; 
   -webkit-border-top-left-radius: 5px;
   -webkit-border-top-right-radius: 5px;
   -moz-border-radius-topleft: 5px;
@@ -110,7 +110,7 @@ body {
   height: 4px;
   position: absolute;
   /*background-color: #ababab;*/
-  background: url('/images/vol-back.jpg') repeat top left;
+  background: url('./images/vol-back.jpg') repeat top left;
   margin: 0 auto;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -124,14 +124,14 @@ body {
   width: 20px;
   height: 20px;
   cursor: default;
-  background: url('/images/vol-handle.png') no-repeat 50% 50%;
+  background: url('./images/vol-handle.png') no-repeat 50% 50%;
   outline: none;
   top: -8px; /* aligns on track */
   margin-left: -5px;
 }
 
 #slider .ui-slider-handle:active {
-  background: url('/images/vol-handle-over.png') no-repeat 50% 50%;
+  background: url('./images/vol-handle-over.png') no-repeat 50% 50%;
 }
 
 #slider .ui-slider-range {
@@ -152,7 +152,7 @@ body {
   height: 44px;
   border-left: 1px solid #d5d5d5;
   border-right: 1px solid #d5d5d5;
-  background: url('/images/cover.jpg') no-repeat;
+  background: url('./images/cover.jpg') no-repeat;
   background-size: 100% !important;
 }
 
@@ -200,7 +200,7 @@ body {
 }
 
 .mainText {
-  background: url('/images/belly-gray.png') no-repeat center center;
+  background: url('./images/belly-gray.png') no-repeat center center;
   float: left;
   width: 193px;
   height: 40px;
@@ -387,7 +387,7 @@ input:first-child {
   outline: none;
   font-size: 12px;
   width: 180px;
-  background: url('/images/mglass.jpg') #fff no-repeat scroll 8px center;
+  background: url('./images/mglass.jpg') #fff no-repeat scroll 8px center;
   border-radius: 13px 13px 13px 13px;
   -moz-border-radius: 13px 13px 13px 13px;
   -webkit-border-radius: 13px 13px 13px 13px;
@@ -469,7 +469,7 @@ h3 {
 }
 
 #previous {
-  background: url('/images/itunes-back.gif');
+  background: url('./images/itunes-back.gif');
   width: 23px;
   height: 20px;
   color: #fff;
@@ -478,7 +478,7 @@ h3 {
 
 #play {
   display: none;
-  background: url('/images/itunes-play.gif');
+  background: url('./images/itunes-play.gif');
   margin: 0 13px 0 14px;
   width: 20px;
   height: 20px;
@@ -487,7 +487,7 @@ h3 {
 }
 
 #pause {
-  background: url('/images/itunes-pause.gif');
+  background: url('./images/itunes-pause.gif');
   margin: 0 13px 0 14px;
   width: 20px;
   height: 20px;
@@ -496,7 +496,7 @@ h3 {
 }
 
 #next {
-  background: url('/images/itunes-next.gif');
+  background: url('./images/itunes-next.gif');
   width: 23px;
   height: 20px;
   color: #fff;
