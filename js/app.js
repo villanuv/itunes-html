@@ -35,40 +35,6 @@ $('#progress').css('width', 0+'%');
 
 var playlistArray = [];
 
-// $('#api').bind('playingTrackChanged.rdio', function(e, playingTrack, sourcePosition) {
-//   if (playingTrack) {
-//     duration = playingTrack.duration;
-//     trackID = playingTrack.key;
-//     trackName = playingTrack.name;
-//     artistAlbum = playingTrack.artist + " \u2014 " + playingTrack.album;
-//     // timeMin = Math.floor(duration / 60);
-//     // timeSec = duration % 60;
-//     // if (timeSec < 10) {
-//     //   timeSec = '0' + timeSec;
-//     // }
-//     $('#coverArt').attr('style', "background:url('" + playingTrack.icon + "');");
-//     $('#coverArt').attr('alt', "Cover Art: " + playingTrack.album);
-//     $('#trackName').text(trackName);
-//     $('#artistAlbum').text(artistAlbum);
-//     // $('#time2').text(timeMin + ':' + timeSec);
-//     console.log('----------')
-//     console.log('sourcePosition: ' + sourcePosition);
-//     console.log('Currently Playing: ' + trackName + ' (' + playingTrack.artist + ')');
-
-//     console.log('key: ' + trackID);
-
-//     if ($('#artistAlbum')[0].scrollWidth > $('#artistAlbum').innerWidth()){
-//       // $('#trackName').addClass('scrollThis');
-//       $('#artistAlbum').addClass('scrollThis');
-//     }
-
-//     // $('#time2').click(function(){
-//     //   $('#time2').text(timeMin + ':' + timeSec);
-//     // });
-//   }
-
-// });
-
 function getTimes(){
   var position = player.getCurrentTime();
   var duration = player.getDuration();
@@ -130,7 +96,6 @@ function getTimes(){
 //   console.log('newQueue Note: ' + newQueueNote);
 // });
 
-// $('#api').rdio('FhhVpNKPABJQ_FRDTXEzbzQtME5xVHZkWGtvWFJwYndpdHVuZXMtaHRtbC52aWxsYW51di5jb22qVYpWlKJZfh-hf_nFvBtq');
 $('#previous').click(function() { 
   // $('#api').rdio().previous(); 
 });
@@ -157,7 +122,7 @@ $(".container").draggable({
 });
 
 function setVolume(volume) {
-  // $('#api').rdio().setVolume(volume);
+  player.setVolume(volume);
 };
 
 $('#slider').slider({
@@ -165,7 +130,7 @@ $('#slider').slider({
   max: 82,
   value: 35,
   slide: function(event, ui) {
-    setVolume(ui.value/100);
+    setVolume(Math.floor(ui.value/82*100));
   }
 });
 
