@@ -27,7 +27,7 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerStateChange(event) {
   if(event.data == 0) {
-    togglePlay();
+    // togglePlay();
   }
 }
 
@@ -300,6 +300,7 @@ App.controller('TrackController', function($scope, $http){
         var filteredTracks = [];
         var str = JSON.stringify(response.result['items']);
         var data = JSON.parse(str);
+        console.log(data);
 
         for(i=0; i<data.length; i++) {
           var vidId = data[i]['id']['videoId'];

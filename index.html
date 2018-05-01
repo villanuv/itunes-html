@@ -79,7 +79,7 @@
       <div class="searchPlaylist">
         <table border="0" cellpadding="0" cellspacing="0" class="DraggableThings">
           <tr ng-repeat="song in searchResults" ng-show="song.name" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClicked()" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" ng-model="searchResults" jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
-            <td>{{song.name}}</td>
+            <td>{{song.name | limitTo:82}}{{song.name.length > 82 ? '...' : ''}}</td>
           </tr>
         </table>      
       </div>        
