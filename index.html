@@ -5,7 +5,7 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 
   <meta charset="UTF-8">
-  <title>iTunes HTML v0.4</title>
+  <title>iTunes HTML v0.5 Beta</title>
   <bash href="/">
 </head>
 <body ng-controller="TrackController">
@@ -45,13 +45,13 @@
         <div id="scrobble"><div id="progress"></div></div>  
       </div>
       <div id="searchContainer">
-        <form id="searchForm" ng-submit="submit()">
-          <input type="search" id="searchField" placeholder="Search Rdio" autocomplete="off">
+        <form id="searchForm">
+          <input type="search" id="searchField" placeholder="Search YouTube" autocomplete="off" ng-keyup="$event.keyCode == 13 && submit()">
         </form>
       </div>
     </div>
     <div class="mainWindow">
-      <div class="currentPlaylist droppableItem" style="height:300px;" data-drop="true" ng-model='playlist' jqyoui-droppable="{multiple:true, onDrop:'addThis()'}">
+      <div class="currentPlaylist droppableItem" style="height:366px;" data-drop="true" ng-model='playlist' jqyoui-droppable="{multiple:true, onDrop:'addThis()'}">
         <table border="0" cellspacing="0" class="currentPlaylist">
           <tr><td>Playlist (Beta)</td></tr>
           <!--
@@ -67,18 +67,19 @@
           <tr ng-repeat="song in playlist track by $index" ng-show="song.name" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClickedPlay()" ng-model="playlist"><td>{{$index+1}}. {{song.name | limitTo:27}}{{song.name.length > 27 ? '...' : ''}}</td></tr>
         </table>
       </div>
+      <div id="player"></div>
     </div>
 
     <div class="searchColumn">
       <div class="heading">
         <table border="0" cellpadding="0" cellspacing="0">
-          <tr><td valign="middle">Name</td><td>Artist</td><td>Album</td><td>Time</td></tr>
+          <tr><td valign="middle">Name</td></tr>
         </table>
       </div>
       <div class="searchPlaylist">
         <table border="0" cellpadding="0" cellspacing="0" class="DraggableThings">
           <tr ng-repeat="song in searchResults" ng-show="song.name" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClicked()" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" ng-model="searchResults" jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
-            <td>{{song.name | limitTo:28}}{{song.name.length > 28 ? '...' : ''}}</td><td class="songArtist">{{song.artist | limitTo:18}}{{song.artist.length > 18 ? '...' : ''}}</td><td class="songAlbum">{{song.album | limitTo:24}}{{song.album.length >24 ? '...' : ''}}</td><td class="songDuration">{{song.duration}}</td>
+            <td>{{song.name}}</td>
           </tr>
         </table>      
       </div>        
@@ -88,12 +89,14 @@
 
   <div id="footer"></div>
 
+  <script src="js/search.js"></script>
+  <script src="js/player.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"> </script>
   <script src="jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js"></script>
   <script src="angular-dragdrop.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-  <script src="jquery.rdio.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

@@ -9,10 +9,11 @@ function makeRequest() {
   var q = $('#query').val();
   var request = gapi.client.youtube.search.list({
     q: q,
-    maxResults: 10,
+    maxResults: 20,
     type: 'video',
     videoCategoryId: 10,
-    part: 'snippet'                        
+    part: 'snippet',
+    videoEmbeddable: true                       
   });
 
   request.execute(function(response) {

@@ -369,7 +369,6 @@ table.DraggableThings td {
 
 .heading table td:last-child,
 .searchPlaylist table td:last-child {
-  text-align: right;
   padding-right: 7px;
   width: 8%;
 }
@@ -384,7 +383,7 @@ table.DraggableThings td {
 
 input:first-child {
   border: 1px solid #ccc;
-  padding: 3px 6px 4px 20px;
+  padding: 3px 6px 4px 23px;
   outline: none;
   font-size: 12px;
   width: 180px;
@@ -421,7 +420,7 @@ input:focus {
   float: left;
   width: 221px;
   height: 488px;
-  padding: 6px 0;
+  padding: 6px 0 0;
   border-right: 1px #d9d9d9 solid;
   border-bottom: 1px #d9d9d9 solid;
   /*border-left: 1px #d9d9d9 solid;*/
@@ -453,9 +452,11 @@ input:focus {
 
 .currentPlaylist {
   width: 221px;
-  max-height: 300px;
+  height: 366px;
+  max-height: 366px;
   overflow-y: scroll;
   white-space: nowrap;
+  vertical-align: top;
   clear: both;
   -webkit-border-bottom-left-radius: 5px;
   -moz-border-radius-bottomleft: 5px;
@@ -523,4 +524,8 @@ button:hover {
 @-webkit-keyframes rightThenLeft {
   0%   {margin-right:0;}
   50%  {margin-right:100%;}
+}
+
+iframe {
+  pointer-events: none;
 }
