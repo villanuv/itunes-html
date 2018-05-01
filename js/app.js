@@ -69,32 +69,34 @@ var playlistArray = [];
 
 // });
 
-// $('#api').bind('positionChanged.rdio', function(e, position) {
-//   $('#progress').css('width', Math.floor(100*position/duration)+'%');
-//   var timeString = (position/duration) * duration;
-//   var timeLeft = duration - Math.floor(position);
-//   var timeStrMin = Math.floor(timeString/60);
-//   var timeLeftMin = Math.floor(timeLeft/60);
-//   if (timeString % 60 < 10){
-//     var timeStrSec = '0' + Math.floor(timeString % 60);
-//   } else {
-//     var timeStrSec = Math.floor(timeString % 60);
-//   }
-//   if (timeLeft % 60 < 10){
-//     var timeLeftSec = '0' + Math.floor(timeLeft % 60);
-//   } else {
-//     var timeLeftSec = Math.floor(timeLeft % 60);
-//   }
-//   var timeText1 = timeStrMin + ':' + timeStrSec;
-//   var timeText2 = '-' + timeLeftMin + ':' + timeLeftSec;
-//   $('#time1').text(timeText1);
-//   $('#time2').text(timeText2); 
+function getTimes(){
+  var position = player.getCurrentTime();
+  var duration = player.getDuration();
+  $('#progress').css('width', Math.floor(100*position/duration)+'%');
 
-//   // if (timeLeft == 1){
-//   //   $('#api').rdio().queue(trackID);
-//   // }
-
-// });
+  var timeString = (position/duration) * duration;
+  var timeLeft = duration - Math.floor(position);
+  var timeStrMin = Math.floor(timeString/60);
+  var timeLeftMin = Math.floor(timeLeft/60);
+  if (timeString % 60 < 10){
+    var timeStrSec = '0' + Math.floor(timeString % 60);
+  } else {
+    var timeStrSec = Math.floor(timeString % 60);
+  }
+  if (timeLeft % 60 < 10){
+    var timeLeftSec = '0' + Math.floor(timeLeft % 60);
+  } else {
+    var timeLeftSec = Math.floor(timeLeft % 60);
+  }
+  var timeText1 = timeStrMin + ':' + timeStrSec;
+  var timeText2 = '-' + timeLeftMin + ':' + timeLeftSec;
+  if (timeText1 == "NaN:NaN") {
+    timeText1 = "0:00";
+  }
+  $('#time1').text(timeText1);
+  $('#time2').text(timeText2);   
+  setTimeout(getTimes, 500);
+}
 
 // var playStatus = 0;
 
@@ -300,13 +302,14 @@ App.controller('TrackController', function($scope, $http){
         var filteredTracks = [];
         var str = JSON.stringify(response.result['items']);
         var data = JSON.parse(str);
-        console.log(data);
+        // console.log(data);
 
         for(i=0; i<data.length; i++) {
           var vidId = data[i]['id']['videoId'];
           var vidTitle = data[i]['snippet']['title'];
-          // $('#search-results').append('<a href="#" onclick="playVideo(\'' + vidId + '\');">' + vidTitle + '</a><br>');
-          filteredTracks.push({id: vidId, name: vidTitle});
+          var vidThumb = data[i]['snippet']['thumbnails']['default']['url'];
+          var vidTitle = data[i]['snippet']['title'];
+          filteredTracks.push({id: vidId, name: vidTitle, thumb: vidThumb});
         }
 
         console.log(filteredTracks);
@@ -331,12 +334,17 @@ App.controller('TrackController', function($scope, $http){
 
   $scope.dblClickedPlay = function(){
     $('.mainText').css('background', 'none');
+    $('#trackName').html($scope.selected.name);
+    $('#coverArt').attr('style', "background:url('" + $scope.selected.thumb + "');");
     player.loadVideoById($scope.selected.id);
+    getTimes();
   };  
 
   $scope.dblClicked = function(){
     $('.mainText').css('background', 'none');
     $('#trackName').html($scope.selected.name);
+    $('#coverArt').attr('style', "background:url('" + $scope.selected.thumb + "');background-color:#000;background-repeat:no-repeat;background-size:contain;background-position:center center;");
     player.loadVideoById($scope.selected.id);
+    getTimes();
   };
 });
