@@ -308,7 +308,7 @@ App.controller('TrackController', function($scope, $http){
   $scope.dblClicked = function(){
     $('.mainText').css('background', 'none');
     $('#trackName').html($scope.selected.name);
-    $('#coverArt').attr('style', "background:url('" + $scope.selected.thumb + "');background-color:#000;background-repeat:no-repeat;background-size:contain;background-position:center center;");
+    $('#coverArt').attr('style', "background:url('" + $scope.selected.thumb + "');");
     player.loadVideoById($scope.selected.id);
     getTimes();
   };

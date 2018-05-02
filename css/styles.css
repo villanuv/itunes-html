@@ -154,6 +154,9 @@ body {
   border-right: 1px solid #d5d5d5;
   background: url('/images/cover.jpg') no-repeat;
   background-size: 100% !important;
+  background-color: #000;
+  background-size:cover !important;
+  background-position:center center;
 }
 
 #info {
