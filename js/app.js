@@ -15,14 +15,20 @@ function onYouTubeIframeAPIReady() {
       'controls': 0,
       'color': 'red',
       'modestbranding': 1,
-      'rel': 0
-    }, 
-    //videoId: 'M7lc1UVf-VE',
+      'rel': 0,
+      'start': 1,
+      'playlist': ['dQw4w9WgXcQ']
+    },
     events: {
-      //'onReady': onPlayerReady,
+      'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange
     }
   });
+}
+
+function onPlayerReady() {
+  $('#pause').hide();
+  $('#play').show();
 }
 
 function onPlayerStateChange(event) {
@@ -208,14 +214,15 @@ App.controller('TrackController', function($scope, $http){
   $scope.playlist = [];
 
   $scope.searchResults = [
-    {id: "8UVNT4wvIGY", name: "Gotye - Somebody That I Used To Know"},
-    {id: "sENM2wA_FTg", name: "Imagine Dragons - It's Time"},
-    {id: "C-dvTjK_07c", name: "Usher - DJ Got Us Fallin' in Love"},
-    {id: "U5rLz5AZBIA", name: "Timbaland - The Way I Are"},
-    {id: "oG08ukJPtR8", name: "Michael Jackson & Justin Timberlake - Love Never Felt so Good"},
-    {id: "OPf0YbXqDm0", name: "Mark Ronson feat. Bruno Mars - Uptown Funk"},
-    {id: "rog8ou-ZepE", name: "Vanilla Ice - Ice Ice Baby"},
-    {id: "9bZkp7q19f0", name: "Psy - Gangnam Style (강남스타일)"} 
+    {id: "dQw4w9WgXcQ", name: "Rick Astley - Never Gonna Give You Up", thumb: "https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg"},
+    {id: "8UVNT4wvIGY", name: "Gotye - Somebody That I Used To Know", thumb: "https://i.ytimg.com/vi/8UVNT4wvIGY/default.jpg"},
+    {id: "sENM2wA_FTg", name: "Imagine Dragons - It's Time", thumb: "https://i.ytimg.com/vi/sENM2wA_FTg/default.jpg"},
+    {id: "C-dvTjK_07c", name: "Usher - DJ Got Us Fallin' in Love", thumb: "https://i.ytimg.com/vi/C-dvTjK_07c/default.jpg"},
+    {id: "U5rLz5AZBIA", name: "Timbaland - The Way I Are", thumb: "https://i.ytimg.com/vi/U5rLz5AZBIA/default.jpg"},
+    {id: "oG08ukJPtR8", name: "Michael Jackson & Justin Timberlake - Love Never Felt so Good", thumb: "https://i.ytimg.com/vi/oG08ukJPtR8/default.jpg"},
+    {id: "OPf0YbXqDm0", name: "Mark Ronson feat. Bruno Mars - Uptown Funk", thumb: "https://i.ytimg.com/vi/OPf0YbXqDm0/default.jpg"},
+    {id: "rog8ou-ZepE", name: "Vanilla Ice - Ice Ice Baby", thumb: "https://i.ytimg.com/vi/rog8ou-ZepE/default.jpg"},
+    {id: "9bZkp7q19f0", name: "Psy - Gangnam Style (강남스타일)", thumb: "https://i.ytimg.com/vi/9bZkp7q19f0/default.jpg"} 
   ];
 
   $scope.submit = function(){
@@ -302,6 +309,8 @@ App.controller('TrackController', function($scope, $http){
     $('#trackName').html($scope.selected.name);
     $('#coverArt').attr('style', "background:url('" + $scope.selected.thumb + "');");
     player.loadVideoById($scope.selected.id);
+    $('#play').hide();
+    $('#pause').show();
     getTimes();
   };  
 
@@ -310,6 +319,8 @@ App.controller('TrackController', function($scope, $http){
     $('#trackName').html($scope.selected.name);
     $('#coverArt').attr('style', "background:url('" + $scope.selected.thumb + "');");
     player.loadVideoById($scope.selected.id);
+    $('#play').hide();
+    $('#pause').show();
     getTimes();
   };
 });
