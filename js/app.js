@@ -128,7 +128,7 @@ function setVolume(volume) {
 $('#slider').slider({
   min: 0,
   max: 82,
-  value: 35,
+  value: 65,
   slide: function(event, ui) {
     setVolume(Math.floor(ui.value/82*100));
   }

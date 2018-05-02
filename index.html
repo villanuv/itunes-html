@@ -51,9 +51,9 @@
       </div>
     </div>
     <div class="mainWindow">
-      <div class="currentPlaylist droppableItem" style="height:366px;" data-drop="true" ng-model='playlist' jqyoui-droppable="{multiple:true, onDrop:'addThis()'}">
+      <div class="currentPlaylist droppableItem" style="height:366px;">
         <table border="0" cellspacing="0" class="currentPlaylist">
-          <tr><td>Playlist (Beta)</td></tr>
+          <tr><td>Playlists (Beta)</td></tr>
           <!--
 
           ng-repeat="song in playlist track by $index"
@@ -78,7 +78,7 @@
       </div>
       <div class="searchPlaylist">
         <table border="0" cellpadding="0" cellspacing="0" class="DraggableThings">
-          <tr ng-repeat="song in searchResults" ng-show="song.name" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClicked()" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" ng-model="searchResults" jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+          <tr ng-repeat="song in searchResults" ng-show="song.name" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClicked()" ng-model="searchResults">
             <td>{{song.name | limitTo:82}}{{song.name.length > 82 ? '...' : ''}}</td>
           </tr>
         </table>      
