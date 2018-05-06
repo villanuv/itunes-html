@@ -207,6 +207,60 @@ function getDateString(){
 
 getDateString();
 
+
+function removeEmptyParams(params) {
+  for (var p in params) {
+    if (!params[p] || params[p] == 'undefined') {
+      delete params[p];
+    }
+  }
+  return params;
+}
+
+// function executeRequest(request) {
+//   request.execute(function(response) {
+//     JSON.stringify(response);
+//   });
+// }
+
+function buildApiRequest(requestMethod, path, params, properties) {
+  params = removeEmptyParams(params);
+  var request;
+  if (properties) {
+    var resource = createResource(properties);
+    request = gapi.client.request({
+        'body': resource,
+        'method': requestMethod,
+        'path': path,
+        'params': params
+    });
+  } else {
+    request = gapi.client.request({
+        'method': requestMethod,
+        'path': path,
+        'params': params
+    });
+  }
+
+  // var vidData = [];
+
+  request.execute(function(response) {
+    // vidData.push(response['items'][0]['contentDetails']['duration']);
+    // vidData.push(response['items'][0]['statistics']['viewCount']);
+    // vidData.push(response['items'][0]['statistics']['likeCount']);
+    // vidData.push(response['items'][0]['statistics']['dislikeCount']);
+    console.log('response: ' + response);
+    // window.reqVar = response;
+    // console.log('window.reqVar: ' + window.reqVar);
+  });
+
+  // setTimeout(function(){ 
+  //   return vidData;
+  // }, 2000);
+}
+
+
+
 var App = angular.module('RdioApp', ['ngDragDrop']);
 
 App.controller('TrackController', function($scope, $http){
@@ -261,6 +315,10 @@ App.controller('TrackController', function($scope, $http){
     gapi.client.load('youtube', 'v3', function() {
 
       var q = $('#searchField').val();
+      console.log(q);
+      ga('set', 'page', '/?q='+q;
+      ga('send', 'pageview');
+
       var request = gapi.client.youtube.search.list({
         q: q,
         maxResults: 20,
@@ -270,8 +328,9 @@ App.controller('TrackController', function($scope, $http){
         videoEmbeddable: true                     
       });
 
+      var filteredTracks = [];
+
       request.execute(function(response) {
-        var filteredTracks = [];
         var str = JSON.stringify(response.result['items']);
         var data = JSON.parse(str);
         // console.log(data);
@@ -284,10 +343,24 @@ App.controller('TrackController', function($scope, $http){
           filteredTracks.push({id: vidId, name: vidTitle, thumb: vidThumb});
         }
 
-        console.log(filteredTracks);
-        $scope.searchResults = filteredTracks;
+        // console.log('filteredTracks' + JSON.stringify(filteredTracks));
       });
+
+      _.each(filteredTracks, function(song){
+        // console.log('song:' + song);
+        var vData = buildApiRequest(
+          'GET', 
+          '/youtube/v3/videos', 
+          {'id': song['id'], 'part': 'contentDetails,statistics'}
+        );
+        console.log('vidData: ' + vData);
+      });
+
+
+      $scope.searchResults = filteredTracks;
     });
+
+
 
   }
 
