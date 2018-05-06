@@ -316,8 +316,9 @@ App.controller('TrackController', function($scope, $http){
 
       var q = $('#searchField').val();
       console.log(q);
-      ga('set', 'page', '/?q='+q);
-      ga('send', 'pageview');
+      // ga('set', 'page', '/?q='+q);
+      // ga('send', 'pageview');
+      gtag('config', 'UA-118583968-1', {'page_path': '/?q='+q});
 
       var request = gapi.client.youtube.search.list({
         q: q,
