@@ -64,7 +64,10 @@
     <div class="mainWindow">
       <div class="currentPlaylist droppableItem" style="height:366px;">
         <table border="0" cellspacing="0" class="currentPlaylist">
-          <tr><td>Playlists (Beta)</td></tr>
+          <tr><td>All Playlists (Beta)</td></tr>
+          <tr><td>Recently Played</td></tr>
+          <tr><td>dj.WYSIWYG Mixes</td></tr>
+          <tr><td>Cobra Kai Score</td></tr>
           <!--
 
           ng-repeat="song in playlist track by $index"
@@ -98,7 +101,7 @@
         <table border="0" cellpadding="0" cellspacing="0" class="DraggableThings">
           <tr ng-repeat="song in searchResults" ng-show="song.title" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClicked()" ng-model="searchResults">
             <td>{{song['title'] | limitTo:38}}{{song['title'].length > 38 ? '...' : ''}}</td>
-            <td>{{song['channelTitle'] | limitTo:12}}{{song['channelTitle'].length > 12 ? '...' : ''}}</td>
+            <td>{{song['channelTitle'] | limitTo:14}}{{song['channelTitle'].length > 14 ? '...' : ''}}</td>
             <td>{{song['duration'] | convertYTDuration}}</td>
             <td>{{song['viewCount']}}</td>
             <td>{{song['publishedAt'] | convertYTDate}}</td>

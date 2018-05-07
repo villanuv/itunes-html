@@ -87,7 +87,7 @@ $('#pause').click(function() {
 });
 
 $('#next').click(function() {
-  // $('#api').rdio().next(); 
+  player.seekTo(player.getCurrentTime() + 3); 
 });
 
 $(".container").draggable({
@@ -286,6 +286,10 @@ App.filter('convertYTDuration', function() {
     if (string != undefined) {
       var tString = string.replace('H', ':').replace('M', ':').replace('PT', '').replace('S', '');
       var tArray = tString.split(":");
+      var minutes = tArray[tArray.length-2];
+      if(minutes.length == 1 && tArray.length == 3){
+        tArray[tArray.length-2] = '0' + minutes;
+      }
       var seconds = tArray[tArray.length-1];
       if(seconds.length == 1){
         tArray.pop();

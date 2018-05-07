@@ -467,8 +467,8 @@ input:focus {
 }
 
 .currentPlaylist {
-  width: 221px;
-  height: 366px;
+  width: 100% !important;
+  /*height: 366px;
   max-height: 366px;
   overflow-y: scroll;
   white-space: nowrap;
@@ -476,7 +476,29 @@ input:focus {
   clear: both;
   -webkit-border-bottom-left-radius: 5px;
   -moz-border-radius-bottomleft: 5px;
-  border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;*/
+}
+
+.currentPlaylist tr:not(:first-child) {
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.currentPlaylist tr:not(:first-child) td,
+.currentPlaylist tr:not(:nth-child(2)) td {
+  padding: 2px 0 3px 42px;
+}
+
+.currentPlaylist tr:nth-child(2) td {
+  background: url('/images/playlist-recent.jpg') no-repeat !important;
+  background-size: 20px 20px;
+  background-position: 18px 0 !important;
+}
+
+.currentPlaylist tr:not(:first-child) td {
+  background: url('/images/playlist.jpg') no-repeat;
+  background-size: 20px 20px;
+  background-position: 18px 0 !important;
 }
 
 h3 {
