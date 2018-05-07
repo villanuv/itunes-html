@@ -71,7 +71,7 @@ function getTimes(){
 }
 
 $('#previous').click(function() { 
-  // $('#api').rdio().previous(); 
+  player.seekTo(0);
 });
 
 $('#play').click(function() { 
@@ -277,4 +277,49 @@ App.controller('TrackController', function($scope, $http){
     $('#pause').show();
     getTimes();
   };
+});
+
+
+App.filter('convertYTDuration', function() {
+
+  return function(string) {
+    if (string != undefined) {
+      var tString = string.replace('H', ':').replace('M', ':').replace('PT', '').replace('S', '');
+      var tArray = tString.split(":");
+      var seconds = tArray[tArray.length-1];
+      if(seconds.length == 1){
+        tArray.pop();
+        tArray.push('0' + seconds);
+      }
+      if(seconds.length == 0){
+        tArray.pop();
+        tArray.push('00');
+      }
+      return tArray.join(":");
+    } else {
+      return '';
+    }
+  }
+
+});
+
+
+App.filter('convertYTDate', function() {
+
+  return function(string) {
+    if (string != undefined) {
+      var ytArr = string.split("T")[0].split("-");
+      ytArr.push(ytArr.shift());
+      if(ytArr[0][0] == '0'){
+        ytArr[0] = ytArr[0][1];
+      }
+      if(ytArr[1][0] == '0'){
+        ytArr[1] = ytArr[1][1];
+      }
+      return ytArr.join("/");
+    } else {
+      return '';
+    }
+  }
+
 });

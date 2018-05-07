@@ -156,7 +156,7 @@ body {
   background-size: 100% !important;
   background-color: #000;
   background-size:cover !important;
-  background-position:center center;
+  background-position:center center !important;
 }
 
 #info {
@@ -345,37 +345,43 @@ table.DraggableThings td {
 .heading table td:first-child {
   padding: 5px 0 3px 20px;
   border-left: none;
-  width: 38%;
+  width: 47%;
 }
 
 .searchPlaylist table td:first-child {
   padding: 3px 0 4px 20px;
   border-left: none;
-  width: 38%;
+  width: 47%;
 }
 
 .heading table td {
-  padding: 5px 0 3px 5px;
+  padding: 5px 5px 3px 5px;
 }
 
 .searchPlaylist table td {
-  padding: 3px 0 4px 5px;
+  padding: 3px 5px 4px 5px;
 }
 
 .heading table td:nth-child(2),
 .searchPlaylist table td:nth-child(2) {
-  width: 23%;
+  width: 18%;
 }
 
 .heading table td:nth-child(3),
 .searchPlaylist table td:nth-child(3) {
-  width: 31%;
+  width: 10%;
+  text-align: right;
+}
+
+.heading table td:nth-child(4),
+.searchPlaylist table td:nth-child(4) {
+  width: 12%;
 }
 
 .heading table td:last-child,
 .searchPlaylist table td:last-child {
   padding-right: 7px;
-  width: 8%;
+  width: 13%;
 }
 
 .searchBox {

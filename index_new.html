@@ -16,7 +16,7 @@
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 
   <meta charset="UTF-8">
-  <title>iTunes HTML v0.5 Beta</title>
+  <title>iTunes HTML v0.51 Beta</title>
   <bash href="/">
 </head>
 <body ng-controller="TrackController">
@@ -57,7 +57,7 @@
       </div>
       <div id="searchContainer">
         <form id="searchForm">
-          <input type="search" id="searchField" placeholder="Search YouTube" autocomplete="off" ng-keyup="$event.keyCode == 13 && submit()">
+          <input type="search" id="searchField" placeholder="Search YouTube" autocomplete="off" spellcheck="false" ng-keyup="$event.keyCode == 13 && submit()">
         </form>
       </div>
     </div>
@@ -84,13 +84,24 @@
     <div class="searchColumn">
       <div class="heading">
         <table border="0" cellpadding="0" cellspacing="0">
-          <tr><td valign="middle">Name</td></tr>
+          <tr>
+            <td valign="middle">Name</td>
+            <td>Channel</td>
+            <td>Time</td>
+            <td>Plays</td>
+            <td>Date Added</td>
+            <!-- <td>Channel</td> -->
+          </tr>
         </table>
       </div>
       <div class="searchPlaylist">
         <table border="0" cellpadding="0" cellspacing="0" class="DraggableThings">
           <tr ng-repeat="song in searchResults" ng-show="song.title" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClicked()" ng-model="searchResults">
-            <td>{{song['title'] | limitTo:82}}{{song['title'].length > 82 ? '...' : ''}}</td>
+            <td>{{song['title'] | limitTo:38}}{{song['title'].length > 38 ? '...' : ''}}</td>
+            <td>{{song['channelTitle'] | limitTo:12}}{{song['channelTitle'].length > 12 ? '...' : ''}}</td>
+            <td>{{song['duration'] | convertYTDuration}}</td>
+            <td>{{song['viewCount']}}</td>
+            <td>{{song['publishedAt'] | convertYTDate}}</td>
           </tr>
         </table>      
       </div>        
