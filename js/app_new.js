@@ -286,19 +286,27 @@ App.filter('convertYTDuration', function() {
     if (string != undefined) {
       var tString = string.replace('H', ':').replace('M', ':').replace('PT', '').replace('S', '');
       var tArray = tString.split(":");
-      var minutes = tArray[tArray.length-2];
-      if(minutes.length == 1 && tArray.length == 3){
-        tArray[tArray.length-2] = '0' + minutes;
-      }
-      var seconds = tArray[tArray.length-1];
-      if(seconds.length == 1){
-        tArray.pop();
-        tArray.push('0' + seconds);
-      }
-      if(seconds.length == 0){
-        tArray.pop();
-        tArray.push('00');
-      }
+
+        if(tArray.length == 1) {
+          tArray.unshift("0");
+        }
+
+        if(tArray.length > 1) {
+          var minutes = tArray[tArray.length-2];
+          if(minutes.length == 1 && tArray.length == 3){
+            tArray[tArray.length-2] = '0' + minutes;
+          }
+          var seconds = tArray[tArray.length-1];
+          if(seconds.length == 1){
+            tArray.pop();
+            tArray.push('0' + seconds);
+          }
+          if(seconds.length == 0){
+            tArray.pop();
+            tArray.push('00');
+          }
+        }
+
       return tArray.join(":");
     } else {
       return '';

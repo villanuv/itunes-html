@@ -347,6 +347,8 @@ table.DraggableThings td {
 
 .searchPlaylist table td {
   border-left: none !important;
+  padding: 3px 5px 4px 5px;
+  white-space: nowrap;
 }
 
 .heading table td:first-child {
@@ -363,10 +365,6 @@ table.DraggableThings td {
 
 .heading table td {
   padding: 5px 5px 3px 5px;
-}
-
-.searchPlaylist table td {
-  padding: 3px 5px 4px 5px;
 }
 
 .heading table td:nth-child(2),
