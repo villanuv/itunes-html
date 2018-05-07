@@ -20,20 +20,27 @@ body {
   width: 100%;
   height: 23px;
   margin: 0;
-  padding-left: 43px;
+  padding-left: 15px;
   font-family: Arial, sans-serif;
   font-size: 13px;
   line-height: 13px;
   font-weight: 500;
-  background: url('/images/belly.png') #fff no-repeat 15px 2px;
+  /*background: url('/images/belly.png') no-repeat 15px 2px;*/
+  background-color: #fff;
   opacity: 0.7;
   -webkit-box-shadow: 0px 6px 39px -5px rgba(0,0,0,0.9);
   -moz-box-shadow: 0px 6px 39px -5px rgba(0,0,0,0.9);
   box-shadow: 0px 6px 39px -5px rgba(0,0,0,0.9);
 }
 
-#osBar div:first-child {
+.apl-logo {
+  font-size: 19px;
+  padding-right: 18px;
+}
+
+#osBar div:nth-child(2) {
   font-weight: bold;
+  padding-left: 18px;
 }
 
 #osBar div {
@@ -50,7 +57,7 @@ body {
 
 #date {
   float: right !important;
-  padding-right: 60px !important;
+  padding-right: 30px !important;
 }
 
 .container {
@@ -203,7 +210,7 @@ body {
 }
 
 .mainText {
-  background: url('/images/belly-gray.png') no-repeat center center;
+  background: url('/images/apl.jpg') no-repeat center center;
   float: left;
   width: 193px;
   height: 40px;
