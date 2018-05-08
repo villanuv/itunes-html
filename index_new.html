@@ -66,9 +66,9 @@
       <div class="currentPlaylist droppableItem" style="height:366px;">
         <table border="0" cellspacing="0" class="currentPlaylist">
           <tr><td>All Playlists (Beta)</td></tr>
-          <tr><td>Recently Played</td></tr>
-          <tr><td>dj.WYSIWYG Mixes</td></tr>
-          <tr><td>Cobra Kai Score</td></tr>
+          <tr ng-repeat="playlist in playlists" ng-show="playlist.name" ng-class="{selected : isSelected(playlist)}" ng-click="setMasterPlaylist(playlist)" ng-dblclick="dblClickedPlaylist()" ng-model="playlists">
+            <td>{{playlist.name}}</td>
+          </tr>
           <!--
 
           ng-repeat="song in playlist track by $index"
@@ -79,7 +79,7 @@
           ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)"
 
           -->
-          <tr ng-repeat="song in playlist track by $index" ng-show="song.name" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClickedPlay()" ng-model="playlist"><td>{{$index+1}}. {{song.name | limitTo:27}}{{song.name.length > 27 ? '...' : ''}}</td></tr>
+
         </table>
       </div>
       <div id="player"></div>
@@ -121,6 +121,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js"></script>
   <script src="js/angular-dragdrop.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="js/playlists.js"></script>
   <script src="js/app_new.js"></script>
 </body>
 </html>

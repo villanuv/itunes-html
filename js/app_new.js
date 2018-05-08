@@ -181,19 +181,9 @@ var App = angular.module('RdioApp', ['ngDragDrop']);
 
 App.controller('TrackController', function($scope, $http){
 
-  $scope.playlist = [];
+  $scope.playlists = [recentlyPlayedList, wysPlaylist, ninetiesHousePlaylist, cobrakaiPlaylist];
 
-  $scope.searchResults = [
-    {id: "dQw4w9WgXcQ", title: "Rick Astley - Never Gonna Give You Up", thumb: "https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg"},
-    {id: "8UVNT4wvIGY", title: "Gotye - Somebody That I Used To Know", thumb: "https://i.ytimg.com/vi/8UVNT4wvIGY/default.jpg"},
-    {id: "sENM2wA_FTg", title: "Imagine Dragons - It's Time", thumb: "https://i.ytimg.com/vi/sENM2wA_FTg/default.jpg"},
-    {id: "C-dvTjK_07c", title: "Usher - DJ Got Us Fallin' in Love", thumb: "https://i.ytimg.com/vi/C-dvTjK_07c/default.jpg"},
-    {id: "U5rLz5AZBIA", title: "Timbaland - The Way I Are", thumb: "https://i.ytimg.com/vi/U5rLz5AZBIA/default.jpg"},
-    {id: "oG08ukJPtR8", title: "Michael Jackson & Justin Timberlake - Love Never Felt so Good", thumb: "https://i.ytimg.com/vi/oG08ukJPtR8/default.jpg"},
-    {id: "OPf0YbXqDm0", title: "Mark Ronson feat. Bruno Mars - Uptown Funk", thumb: "https://i.ytimg.com/vi/OPf0YbXqDm0/default.jpg"},
-    {id: "rog8ou-ZepE", title: "Vanilla Ice - Ice Ice Baby", thumb: "https://i.ytimg.com/vi/rog8ou-ZepE/default.jpg"},
-    {id: "9bZkp7q19f0", title: "Psy - Gangnam Style (강남스타일)", thumb: "https://i.ytimg.com/vi/9bZkp7q19f0/default.jpg"} 
-  ];
+  $scope.searchResults = [defaultPlaylist];
 
   $scope.submit = function(){
     gapi.client.setApiKey("AIzaSyD89Rr5p7H20AI-YqPIDS5AxTEWNwWwDd4");
@@ -251,6 +241,10 @@ App.controller('TrackController', function($scope, $http){
     return $scope.selected === song;
   }
 
+  $scope.setMasterPlaylist = function(playlist){
+    $scope.searchResults = playlist['tracks'];
+  }
+
   $scope.addThis = function(){
     var newSong = $scope.playlist[$scope.playlist.length-1].id;
     playlistArray.unshift(newSong);
@@ -262,6 +256,7 @@ App.controller('TrackController', function($scope, $http){
     $('#artistAlbum').html($scope.selected.channelTitle);
     $('#coverArt').attr('style', "background:url('" + $scope.selected.thumb + "');");
     player.loadVideoById($scope.selected.id);
+    recentlyPlayedList['tracks'].push($scope.selected);
     $('#play').hide();
     $('#pause').show();
     getTimes();
@@ -273,6 +268,7 @@ App.controller('TrackController', function($scope, $http){
     $('#artistAlbum').html($scope.selected.channelTitle);
     $('#coverArt').attr('style', "background:url('" + $scope.selected.thumb + "');");
     player.loadVideoById($scope.selected.id);
+    recentlyPlayedList['tracks'].push($scope.selected);
     $('#play').hide();
     $('#pause').show();
     getTimes();
