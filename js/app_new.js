@@ -32,16 +32,14 @@ function onPlayerReady() {
 }
 
 function onPlayerStateChange(event) {
-  if(event.data == 0) {
-    // togglePlay();
+  if(event.data == 1) {
+    updateTrackData();
   }
 }
 
 $('#progress').css('width', 0+'%');
 
-var playlistArray = [];
-
-function getTimes(){
+function getTimes() {
   var position = player.getCurrentTime();
   var duration = player.getDuration();
   $('#progress').css('width', Math.floor(100*position/duration)+'%');
@@ -69,6 +67,23 @@ function getTimes(){
   $('#time2').text(timeText2);   
   setTimeout(getTimes, 500);
 }
+
+
+function updateTrackData() {
+  var playlistData = window.currentPlaylist['tracks'];
+  var playerCurrentIndex = player.getPlaylistIndex();
+  var nowPlayingObj = playlistData[playerCurrentIndex];
+  recentlyPlayedList['tracks'].push(nowPlayingObj);
+
+  $('.mainText').css('background', 'none');
+  $('#trackName').html(nowPlayingObj.title);
+  $('#artistAlbum').html(nowPlayingObj.channelTitle);
+  $('#coverArt').attr('style', "background:url('" + nowPlayingObj.thumb + "');");
+  $('#play').hide();
+  $('#pause').show();
+  getTimes();
+}
+
 
 $('#previous').click(function() { 
   player.seekTo(0);
@@ -115,36 +130,32 @@ $('#scrobble').slider({
   value: 20
 });
 
-var repeatImg = ['images/repeat-off.jpg', 'images/repeat-one.jpg', 'images/repeat-all.jpg'];
+var repeatImg = ['images/repeat-off.jpg', 'images/repeat-all.jpg']; //'images/repeat-one.jpg'
 var clickImg = 0;
+var loop = false;
 
 function setRepeatImg(){
   $("#repeatContainer img").click(changeImage);
 }
 
 function changeImage(){
-  if (clickImg == 2){
+  if (clickImg == 1){
     clickImg = 0;
   } else {
-    clickImg++;
+    clickImg = 1;
   }
   img = repeatImg[clickImg];
   $("#repeatContainer img").attr("src", img);
-  // $("#api").rdio().setRepeat(clickImg);
+  player.setLoop(!loop);
 }
 
 setRepeatImg();
 
-var toggle = 0;
+var shuffle = false;
 
 $('#shuffleContainer img').click(function(){
-  if (toggle == 0){
-    toggle = 1;
-  } else {
-    toggle = 0;
-  }
   $('#shuffleContainer img').toggle();
-  // $("#api").rdio().setShuffle(toggle);
+  player.setShuffle(!shuffle);
 });
 
 function getDateString(){
@@ -183,7 +194,7 @@ App.controller('TrackController', function($scope, $http){
 
   $scope.playlists = [recentlyPlayedList, wysPlaylist, ninetiesHousePlaylist, cobrakaiPlaylist];
 
-  $scope.searchResults = [defaultPlaylist];
+  $scope.searchResults = defaultPlaylist;
 
   $scope.submit = function(){
     gapi.client.setApiKey("AIzaSyD89Rr5p7H20AI-YqPIDS5AxTEWNwWwDd4");
@@ -231,36 +242,40 @@ App.controller('TrackController', function($scope, $http){
       });
 
     });
-  }
+  };
 
   $scope.setMaster = function(song){
     $scope.selected = song;
-  }
+  };
 
   $scope.isSelected = function(song){
     return $scope.selected === song;
-  }
+  };
 
-  $scope.setMasterPlaylist = function(playlist){
+  $scope.setMasterPL = function(playlist){
     $scope.searchResults = playlist['tracks'];
-  }
+  };
 
-  $scope.addThis = function(){
-    var newSong = $scope.playlist[$scope.playlist.length-1].id;
-    playlistArray.unshift(newSong);
-  }
+  $scope.isSelectedPL = function(playlist){
+    return $scope.selectedPL === playlist;
+  };
 
-  $scope.dblClickedPlay = function(){
-    $('.mainText').css('background', 'none');
-    $('#trackName').html($scope.selected.title);
-    $('#artistAlbum').html($scope.selected.channelTitle);
-    $('#coverArt').attr('style', "background:url('" + $scope.selected.thumb + "');");
-    player.loadVideoById($scope.selected.id);
-    recentlyPlayedList['tracks'].push($scope.selected);
-    $('#play').hide();
-    $('#pause').show();
-    getTimes();
-  };  
+
+  // $scope.addThis = function(){
+  //   var newSong = $scope.playlist[$scope.playlist.length-1].id;
+  //   playlistArray.unshift(newSong);
+
+// for new playlist
+// a = player.getPlaylist();
+// a.push('dQw4w9WgXcQ');
+// b = player.getPlaylistIndex();
+// player.pauseVideo();
+// c = player.getCurrentTime();
+// player.loadPlaylist(a);
+// player.playVideoAt(b);
+// player.seekTo(c);
+
+  // };
 
   $scope.dblClicked = function(){
     $('.mainText').css('background', 'none');
@@ -273,6 +288,17 @@ App.controller('TrackController', function($scope, $http){
     $('#pause').show();
     getTimes();
   };
+
+  $scope.dblClickedPL = function(playlist){
+    window.currentPlaylist = playlist;
+    var allTrackIDs = [];
+    var tracks = playlist['tracks'];
+    for(i=0;i<tracks.length;i++){
+      allTrackIDs.push(tracks[i]['id']);
+    }
+    player.loadPlaylist(allTrackIDs);
+  };
+
 });
 
 

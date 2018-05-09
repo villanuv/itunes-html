@@ -1,14 +1,23 @@
 var defaultPlaylist = [
-  {id: "dQw4w9WgXcQ", title: "Rick Astley - Never Gonna Give You Up", thumb: "https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg"},
-  {id: "8UVNT4wvIGY", title: "Gotye - Somebody That I Used To Know", thumb: "https://i.ytimg.com/vi/8UVNT4wvIGY/default.jpg"},
-  {id: "sENM2wA_FTg", title: "Imagine Dragons - It's Time", thumb: "https://i.ytimg.com/vi/sENM2wA_FTg/default.jpg"},
-  {id: "C-dvTjK_07c", title: "Usher - DJ Got Us Fallin' in Love", thumb: "https://i.ytimg.com/vi/C-dvTjK_07c/default.jpg"},
-  {id: "U5rLz5AZBIA", title: "Timbaland - The Way I Are", thumb: "https://i.ytimg.com/vi/U5rLz5AZBIA/default.jpg"},
-  {id: "oG08ukJPtR8", title: "Michael Jackson & Justin Timberlake - Love Never Felt so Good", thumb: "https://i.ytimg.com/vi/oG08ukJPtR8/default.jpg"},
-  {id: "OPf0YbXqDm0", title: "Mark Ronson feat. Bruno Mars - Uptown Funk", thumb: "https://i.ytimg.com/vi/OPf0YbXqDm0/default.jpg"},
-  {id: "rog8ou-ZepE", title: "Vanilla Ice - Ice Ice Baby", thumb: "https://i.ytimg.com/vi/rog8ou-ZepE/default.jpg"},
-  {id: "9bZkp7q19f0", title: "Psy - Gangnam Style (강남스타일)", thumb: "https://i.ytimg.com/vi/9bZkp7q19f0/default.jpg"} 
-    ]
+  // {id: "dQw4w9WgXcQ", title: "Rick Astley - Never Gonna Give You Up", thumb: "https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg"},
+  // {id: "8UVNT4wvIGY", title: "Gotye - Somebody That I Used To Know", thumb: "https://i.ytimg.com/vi/8UVNT4wvIGY/default.jpg"},
+  // {id: "sENM2wA_FTg", title: "Imagine Dragons - It's Time", thumb: "https://i.ytimg.com/vi/sENM2wA_FTg/default.jpg"},
+  // {id: "C-dvTjK_07c", title: "Usher - DJ Got Us Fallin' in Love", thumb: "https://i.ytimg.com/vi/C-dvTjK_07c/default.jpg"},
+  // {id: "U5rLz5AZBIA", title: "Timbaland - The Way I Are", thumb: "https://i.ytimg.com/vi/U5rLz5AZBIA/default.jpg"},
+  // {id: "oG08ukJPtR8", title: "Michael Jackson & Justin Timberlake - Love Never Felt so Good", thumb: "https://i.ytimg.com/vi/oG08ukJPtR8/default.jpg"},
+  // {id: "OPf0YbXqDm0", title: "Mark Ronson feat. Bruno Mars - Uptown Funk", thumb: "https://i.ytimg.com/vi/OPf0YbXqDm0/default.jpg"},
+  // {id: "rog8ou-ZepE", title: "Vanilla Ice - Ice Ice Baby", thumb: "https://i.ytimg.com/vi/rog8ou-ZepE/default.jpg"},
+  // {id: "9bZkp7q19f0", title: "Psy - Gangnam Style (강남스타일)", thumb: "https://i.ytimg.com/vi/9bZkp7q19f0/default.jpg"} 
+  {channelTitle: "wildcubVEVO", dislikeCount: "408", duration: "PT4M28S",
+id: "mp5YWm5VHwQ", likeCount: "18361", publishedAt: "2014-02-26T08:00:01.000Z",
+thumb: "https://i.ytimg.com/vi/mp5YWm5VHwQ/default.jpg", title: "Wild Cub - Thunder Clatter", viewCount: "2504265"},
+  {channelTitle: "StLuciaVEVO", dislikeCount: "469", duration: "PT4M8S",
+id: "lDKJ29357FU", likeCount: "11268", publishedAt: "2015-11-10T15:00:01.000Z",
+thumb: "https://i.ytimg.com/vi/lDKJ29357FU/default.jpg", title: "St. Lucia - Dancing On Glass", viewCount: "1392993"},
+  {channelTitle: "justintimberlakeVEVO", dislikeCount: "207253", duration: "PT4M46S",
+id: "ru0K8uYEZWw", likeCount: "3415587", publishedAt: "2016-05-17T04:00:01.000Z",
+thumb: "https://i.ytimg.com/vi/ru0K8uYEZWw/default.jpg", title: "CAN'T STOP THE FEELING! (Official Video)", viewCount: "828613718"}
+    ];
 
 
 var recentlyPlayedList = {name: "Recently Played", tracks: []};
