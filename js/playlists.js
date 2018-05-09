@@ -1,4 +1,4 @@
-var defaultPlaylist = [
+var iTunesHTMLPicks = {name: "iTunes HTML Picks", tracks: [
   // {id: "dQw4w9WgXcQ", title: "Rick Astley - Never Gonna Give You Up", thumb: "https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg"},
   // {id: "8UVNT4wvIGY", title: "Gotye - Somebody That I Used To Know", thumb: "https://i.ytimg.com/vi/8UVNT4wvIGY/default.jpg"},
   // {id: "sENM2wA_FTg", title: "Imagine Dragons - It's Time", thumb: "https://i.ytimg.com/vi/sENM2wA_FTg/default.jpg"},
@@ -16,8 +16,11 @@ id: "lDKJ29357FU", likeCount: "11268", publishedAt: "2015-11-10T15:00:01.000Z",
 thumb: "https://i.ytimg.com/vi/lDKJ29357FU/default.jpg", title: "St. Lucia - Dancing On Glass", viewCount: "1392993"},
   {channelTitle: "justintimberlakeVEVO", dislikeCount: "207253", duration: "PT4M46S",
 id: "ru0K8uYEZWw", likeCount: "3415587", publishedAt: "2016-05-17T04:00:01.000Z",
-thumb: "https://i.ytimg.com/vi/ru0K8uYEZWw/default.jpg", title: "CAN'T STOP THE FEELING! (Official Video)", viewCount: "828613718"}
-    ];
+thumb: "https://i.ytimg.com/vi/ru0K8uYEZWw/default.jpg", title: "CAN'T STOP THE FEELING! (Official Video)", viewCount: "828613718"},
+  {channelTitle: "Yigal Classa", dislikeCount: "860", duration: "PT4M6S",
+id: "hX9E44mClKs", likeCount: "32892", publishedAt: "2013-01-12T16:54:47.000Z",
+thumb: "https://i.ytimg.com/vi/hX9E44mClKs/default.jpg", title: "Chaka Khan - I Feel for You (1984)", viewCount: "5132744"}
+    ]};
 
 
 var recentlyPlayedList = {name: "Recently Played", tracks: []};

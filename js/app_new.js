@@ -73,7 +73,7 @@ function updateTrackData() {
   var playlistData = window.currentPlaylist['tracks'];
   var playerCurrentIndex = player.getPlaylistIndex();
   var nowPlayingObj = playlistData[playerCurrentIndex];
-  recentlyPlayedList['tracks'].push(nowPlayingObj);
+  recentlyPlayedList['tracks'].unshift(nowPlayingObj);
 
   $('.mainText').css('background', 'none');
   $('#trackName').html(nowPlayingObj.title);
@@ -192,9 +192,9 @@ var App = angular.module('RdioApp', ['ngDragDrop']);
 
 App.controller('TrackController', function($scope, $http){
 
-  $scope.playlists = [recentlyPlayedList, wysPlaylist, ninetiesHousePlaylist, cobrakaiPlaylist];
+  $scope.playlists = [recentlyPlayedList, iTunesHTMLPicks, wysPlaylist, ninetiesHousePlaylist, cobrakaiPlaylist];
 
-  $scope.searchResults = defaultPlaylist;
+  $scope.searchResults = iTunesHTMLPicks['tracks'];
 
   $scope.submit = function(){
     gapi.client.setApiKey("AIzaSyD89Rr5p7H20AI-YqPIDS5AxTEWNwWwDd4");
@@ -283,7 +283,7 @@ App.controller('TrackController', function($scope, $http){
     $('#artistAlbum').html($scope.selected.channelTitle);
     $('#coverArt').attr('style', "background:url('" + $scope.selected.thumb + "');");
     player.loadVideoById($scope.selected.id);
-    recentlyPlayedList['tracks'].push($scope.selected);
+    recentlyPlayedList['tracks'].unshift($scope.selected);
     $('#play').hide();
     $('#pause').show();
     getTimes();
