@@ -32,7 +32,7 @@ function onPlayerReady() {
 }
 
 function onPlayerStateChange(event) {
-  if(event.data == 1) {
+  if(event.data == 1 && window.currentPlaylist != undefined) {
     updateTrackData();
   }
 }
@@ -302,6 +302,7 @@ App.controller('TrackController', function($scope, $http){
   };
 
   $scope.setMasterPL = function(playlist){
+    $scope.selectedPL = playlist;
     $scope.searchResults = playlist['tracks'];
   };
 

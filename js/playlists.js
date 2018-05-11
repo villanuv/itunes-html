@@ -1,4 +1,4 @@
-var iTunesHTMLPicks = {name: "iTunes HTML Picks", tracks: [
+var iTunesHTMLPicks = {name: "Playlist", tracks: [
   // {id: "dQw4w9WgXcQ", title: "Rick Astley - Never Gonna Give You Up", thumb: "https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg"},
   // {id: "8UVNT4wvIGY", title: "Gotye - Somebody That I Used To Know", thumb: "https://i.ytimg.com/vi/8UVNT4wvIGY/default.jpg"},
   // {id: "sENM2wA_FTg", title: "Imagine Dragons - It's Time", thumb: "https://i.ytimg.com/vi/sENM2wA_FTg/default.jpg"},

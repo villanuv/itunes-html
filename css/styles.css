@@ -45,7 +45,7 @@ body {
 
 .app-name-over,
 .menu-popup .text:hover {
-  background-color: #006ed7;
+  background-color: #2687fb;
   color: #fff;
 }
 
@@ -169,6 +169,11 @@ body {
   color: #aaaaaa;
   text-decoration: none;
   border-bottom: 1px #aaaaaa dotted;
+}
+
+.details p a:hover {
+  color: #7c7c7c;
+  border-bottom: 1px #7c7c7c solid;
 }
 
 .container {
@@ -425,9 +430,21 @@ table.DraggableThings td {
   width: 48%;
 }
 
-.selected {
-  background-color: #006ed7 !important;
+.selected, .selectedPL {
+  background-color: #2687fb !important;
   color: #fff !important;
+}
+
+tr:nth-child(2) td.activePL {
+  background: url('/images/playlist-recent-selected.jpg') no-repeat !important;
+  background-size: contain !important;
+  background-size: 20px 20px !important; 
+}
+
+tr td.activePL {
+  background: url('/images/playlist-selected.jpg') no-repeat !important;
+  background-size: contain !important;
+  background-size: 20px 21px !important;
 }
 
 .searchColumn {
@@ -613,12 +630,16 @@ input:focus {
 }
 
 .currentPlaylist tr:nth-child(2) td {
-  background: url('/images/playlist-recent.jpg') no-repeat !important;
+  background: url('/images/playlist-recent.jpg') no-repeat;
   background-size: 20px 20px;
-  background-position: 18px 0 !important;
+  background-position: 18px 1px !important;
 }
 
-.currentPlaylist tr:not(:first-child) td {
+.currentPlaylist tr:first-child td {
+  background: none !important;
+}
+
+.currentPlaylist tr:not(:nth-child(2)) td {
   background: url('/images/playlist.jpg') no-repeat;
   background-size: 20px 20px;
   background-position: 18px 2px !important;

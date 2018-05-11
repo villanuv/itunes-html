@@ -16,18 +16,18 @@
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 
   <meta charset="UTF-8">
-  <title>iTunes HTML</title>
+  <title>Not iTunes</title>
   <bash href="/">
 </head>
 <body ng-controller="TrackController">
   <div id="api"></div>
   <div id="osBar">
     <div class="apl-logo"></div>
-    <div class="app-name">iTunes HTML</div><div id="date"></div>
+    <div class="app-name">Not iTunes</div><div id="date"></div>
   </div>
 
   <div class="menu-popup">
-    <div class="text">About iTunes HTML</div>
+    <div class="text">About Not iTunes</div>
   </div>
 
   <div class="about-popup">
@@ -37,13 +37,13 @@
         <img src="images/btn-yel.gif" class="yelBtn" />
         <img src="images/btn-green.gif" class="greenBtn" />
       </div>
-      <span>About iTunes HTML</span></div>
+      <span>About Not iTunes</span></div>
     <div class="logo">
       <div class="txtPopup">
-        <span>iTunes HTML</span>
+        <span>Not iTunes</span>
         <div class="details">
-          <p><strong>iTunes HTML v0.51 Beta</strong></p>
-          <p>This project is for <strong>entertainment purposes only</strong>, and is a designer/amateur programmer's "Passion Project" - an exploration of Apple's Desktop UI behavior using only HTML/CSS &amp; JavaScript. This latest version is powered by AngularJS and has been adapted to use YouTube's API.</p>
+          <p><strong>Not iTunes v0.51 Beta</strong></p>
+          <p>This project is for <strong>entertainment purposes only</strong>, and is a designer/beginner programmer's "Passion Project" - an exploration of Apple's Desktop UI behavior using only HTML/CSS &amp; JavaScript. This latest version is powered by AngularJS and has been adapted to use YouTube's API.</p>
 
           <p>Patrick (@<a href="https://twitter.com/villanuv" target="_blank">villanuv</a>) is <em>actively seeking</em> a new position as Software Engineer or Web Developer.</p>
         </div>
@@ -91,8 +91,8 @@
       <div class="currentPlaylist droppableItem" style="height:366px;">
         <table border="0" cellspacing="0" class="currentPlaylist">
           <tr><td>All Playlists (Beta)</td></tr>
-          <tr ng-repeat="playlist in playlists" ng-show="playlist.name" ng-class="{selected : isSelectedPL(playlist)}" ng-click="setMasterPL(playlist)" ng-dblclick="dblClickedPL(playlist)" ng-model="playlists">
-            <td>{{playlist.name}}</td>
+          <tr ng-repeat="playlist in playlists" ng-show="playlist.name" ng-class="{selected : isSelectedPL(playlist)}" ng-click="setMasterPL(playlist)" ng-dblclick="dblClickedPL(playlist)" ng-model="playlist">
+            <td ng-class="{activePL : isSelectedPL(playlist)}">{{playlist.name}}</td>
           </tr>
           <!--
 
