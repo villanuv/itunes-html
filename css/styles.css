@@ -35,12 +35,18 @@ body {
 
 .apl-logo {
   font-size: 19px;
-  padding-right: 18px;
+  padding-right: 11px !important;
 }
 
-#osBar div:nth-child(2) {
+.app-name {
+  padding: 5px 8px !important;
   font-weight: bold;
-  padding-left: 18px;
+}
+
+.app-name-over,
+.menu-popup .text:hover {
+  background-color: #006ed7;
+  color: #fff;
 }
 
 #osBar div {
@@ -58,6 +64,111 @@ body {
 #date {
   float: right !important;
   padding-right: 30px !important;
+}
+
+.menu-popup {
+  display: none;
+  z-index: 100;
+  width: 218px;
+  padding: 4px 0 5px 0;
+  position: absolute;
+  left: 47px;
+  top: 23px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  background-color: #fff;
+  opacity: 0.7;
+  border: 1px #c1c3c6 solid;
+  user-select: none;
+  -webkit-box-shadow: 0px 5px 9px 1px rgba(0,0,0,0.13);
+  -moz-box-shadow: 0px 5px 9px 1px rgba(0,0,0,0.13);
+  box-shadow: 0px 5px 9px 1px rgba(0,0,0,0.13);
+
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.menu-popup .text {
+  padding: 2px 12px 2px 23px;
+}
+
+.about-popup {
+  display: none;
+  z-index: 100;
+  width: 600px;
+  height: 295px;
+  position: absolute;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  user-select: none;
+  background-color: #fff;
+
+  -webkit-box-shadow: 0px 5px 43px 0px rgba(0,0,0,0.8);
+  -moz-box-shadow: 0px 5px 43px 0px rgba(0,0,0,0.8);
+  box-shadow: 0px 5px 43px 0px rgba(0,0,0,0.8);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px #c1c1c1 solid;
+}
+
+.popup-top {
+  background: url('/images/popup-top.jpg') repeat-x; 
+  text-align: center;
+  height: 16px;
+  padding: 4px 0 1px;
+  border-bottom: 1px #c1c1c1 solid;
+
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.popup-top span {
+  margin-right: 72px;
+}
+
+.about-popup .logo {
+  background: url('/images/itunes-logo.jpg') no-repeat 30px 8px; 
+  height: 260px;
+}
+
+.txtPopup {
+  background: url('/images/apl-white-bg.jpg') no-repeat -2px 35px; 
+  margin-left: 310px;
+  padding-top: 90px;
+}
+
+.txtPopup span {
+  font-size: 38px;
+  letter-spacing: -1px;
+}
+
+.details {
+  color: #aaaaaa;
+  padding-top: 5px;
+  font-size: 10px;
+}
+
+.details p {
+  margin: 0;
+  padding: 7px 25px 0 0;
+  line-height: 12px;
+}
+
+.details p a {
+  color: #aaaaaa;
+  text-decoration: none;
+  border-bottom: 1px #aaaaaa dotted;
 }
 
 .container {
@@ -95,8 +206,15 @@ body {
   padding: 6px 0 0 8px;
 }
 
-#windowBtns img {
+#windowBtns img,
+.aboutWindowBtns img {
   padding-right: 5px;
+}
+
+.aboutWindowBtns {
+  float: left;
+  width: 72px;
+  padding: 1px 0 0 2px; 
 }
 
 #itunesController {
