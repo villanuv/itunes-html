@@ -188,6 +188,19 @@ $(".about-popup").draggable({
   delay: 300
 });
 
+$(".stickies").draggable({
+  handle: ".handle",
+  delay: 300
+});
+
+// $(".stickies .handle").dblclick(function(){
+//   $(".stickies .main").toggle();
+// });
+
+$(".stickies img").click(function(){
+  $(".stickies img").closest(".stickies").hide();
+});
+
 function setVolume(volume) {
   player.setVolume(volume);
 };
@@ -358,6 +371,7 @@ App.controller('TrackController', function($scope, $http){
 
   $scope.setMaster = function(song){
     $scope.selected = song;
+    $scope.selectedPL = "";
   };
 
   $scope.isSelected = function(song){

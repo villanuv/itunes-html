@@ -711,3 +711,41 @@ button:hover {
 iframe {
   pointer-events: none;
 }
+
+.stickies {
+  font-family: 'Covered By Your Grace', cursive;
+  /*display: none;*/
+  z-index: 90;
+  width: 300px;
+  height: 200px;
+  min-height: 11px;
+  background-color: #fef49c;
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
+  border: 1px #bca903 solid;
+  font-size: 17px;
+  user-select: none;
+  -webkit-box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.5);
+}
+
+.stickies .handle {
+  height: 11px;
+  width: 300px;
+  background-color: #feea3d;
+  border-bottom: 1px #bca903 solid;
+}
+
+.stickies .handle img {
+  width: 10px;
+  height: 9px;
+  vertical-align: top;
+  padding: 2px 0 0 2px;
+}
+
+.stickies .main {
+  padding: 5px 15px;
+  background-color: #fef49c;
+}
