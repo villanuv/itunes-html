@@ -38,6 +38,10 @@ function onPlayerStateChange(event) {
   if(event.data == 1 && window.currentPlaylist == undefined) {
     updateOneTrackData();
   }
+  if(event.data == 0) {
+    $('#pause').toggle();
+    $('#play').toggle();
+  }
 }
 
 $(document).keydown(function(e) {
@@ -309,6 +313,7 @@ App.controller('TrackController', function($scope, $http){
 
       var q = $('#searchField').val();
       // gtag('config', 'UA-118583968-1', {'page_path': "/?q='"+q+"'"});
+      $scope.selectedPL = "";
 
       var request = gapi.client.youtube.search.list({
         q: q,
