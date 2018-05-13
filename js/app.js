@@ -327,7 +327,7 @@ var App = angular.module('RdioApp', ['ngDragDrop']);
 
 App.controller('TrackController', function($scope, $http){
 
-  $scope.playlists = [recentlyPlayedList, iTunesHTMLPicks, wysPlaylist, ninetiesHousePlaylist, newEditionStoryPlaylist, cobrakaiPlaylist, abbaPlaylist];
+  $scope.playlists = [recentlyPlayedList, iTunesHTMLPicks, wysPlaylist, ninetiesHousePlaylist, newEditionStoryPlaylist, karateKidPlaylist, cobrakaiPlaylist, abbaGoldPlusPlaylist, evenMoreABBAGoldPlaylist];
 
   $scope.searchResults = iTunesHTMLPicks['tracks'];
 
