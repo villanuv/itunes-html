@@ -661,7 +661,7 @@ h3 {
 #play {
   display: none;
   background: url('/images/itunes-play.gif');
-  margin: 0 13px 0 14px;
+  margin: 0 13px 0 15px;
   width: 20px;
   height: 20px;
   color: #fff;
@@ -669,8 +669,8 @@ h3 {
 }
 
 #pause {
-  background: url('/images/itunes-pause.gif');
-  margin: 0 13px 0 14px;
+  background: url('/images/itunes-pause.gif') no-repeat;
+  margin: 0 13px 0 15px;
   width: 20px;
   height: 20px;
   color: #fff;

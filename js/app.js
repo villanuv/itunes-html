@@ -5,6 +5,8 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
+var skipping = false;
+
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '134',
@@ -32,15 +34,18 @@ function onPlayerReady() {
 }
 
 function onPlayerStateChange(event) {
-  if(event.data == 1 && window.currentPlaylist != undefined) {
+  if(event.data == 1 && skipping == false && window.currentPlaylist != undefined) {
     updateTrackData();
   }
-  if(event.data == 1 && window.currentPlaylist == undefined) {
+  if(event.data == 1 && skipping == false && window.currentPlaylist == undefined) {
     updateOneTrackData();
   }
   if(event.data == 0) {
     $('#pause').toggle();
     $('#play').toggle();
+  }
+  if(event.data == 3) {
+    skipping = false;
   }
 }
 
@@ -57,9 +62,11 @@ $(document).keydown(function(e) {
       }
       break;
     case 37:
+      setTimeout(skipping = true, 500);
       player.seekTo(player.getCurrentTime()-3);
       break;
     case 39:
+      setTimeout(skipping = true, 500);
       player.seekTo(player.getCurrentTime()+3);
       break;
     case 38:
@@ -74,11 +81,13 @@ $(document).keydown(function(e) {
       break;
     case 219:
       if(window.currentPlaylist != undefined){
+        skipping = false;
         player.previousVideo();
       }
       break;
     case 221:
       if(window.currentPlaylist != undefined){
+        skipping = false;
         player.nextVideo();
       }
       break;
@@ -133,7 +142,7 @@ function updateTrackData() {
   $('#coverArt').attr('style', "background:url('" + nowPlayingObj.thumb + "');");
   $('#play').hide();
   $('#pause').show();
-  gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='" + window.currentPlaylist['name'] + "'&v='"+nowPlayingObj.title+"'"});
+  //gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='" + window.currentPlaylist['name'] + "'&v='"+nowPlayingObj.title+"'"});
   getTimes();
 }
 
@@ -143,7 +152,7 @@ function updateOneTrackData() {
     $('.mainText').css('background', 'none');
     $('#trackName').html(track['title']);
     $('#artistAlbum').html(track['author']);
-    gtag('config', 'UA-118583968-1', {'page_path': "/?v='"+track['title']+"'"});
+    //gtag('config', 'UA-118583968-1', {'page_path': "/?v='"+track['title']+"'"});
     getTimes();
   }
 }
@@ -327,7 +336,7 @@ App.controller('TrackController', function($scope, $http){
     gapi.client.load('youtube', 'v3', function() {
 
       var q = $('#searchField').val();
-      gtag('config', 'UA-118583968-1', {'page_path': "/?q='"+q+"'"});
+      //gtag('config', 'UA-118583968-1', {'page_path': "/?q='"+q+"'"});
       $scope.selectedPL = "";
 
       var request = gapi.client.youtube.search.list({
@@ -415,7 +424,7 @@ App.controller('TrackController', function($scope, $http){
     recentlyPlayedList['tracks'].push($scope.selected);
     $('#play').hide();
     $('#pause').show();
-    gtag('config', 'UA-118583968-1', {'page_path': "/?v='"+$scope.selected.title+"'"});
+    //gtag('config', 'UA-118583968-1', {'page_path': "/?v='"+$scope.selected.title+"'"});
     getTimes();
   };
 
@@ -427,7 +436,7 @@ App.controller('TrackController', function($scope, $http){
       allTrackIDs.push(tracks[i]['id']);
     }
     player.loadPlaylist(allTrackIDs);
-    gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='"+playlist['name']+"'"});
+    //gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='"+playlist['name']+"'"});
   };
 
 });
