@@ -323,7 +323,7 @@ App.controller('TrackController', function($scope, $http){
   $scope.searchResults = iTunesHTMLPicks['tracks'];
 
   $scope.submit = function(){
-    gapi.client.setApiKey("AIzaSyD89Rr5p7H20AI-YqPIDS5AxTEWNwWwDd4");
+    gapi.client.setApiKey(apiKey);
     gapi.client.load('youtube', 'v3', function() {
 
       var q = $('#searchField').val();
