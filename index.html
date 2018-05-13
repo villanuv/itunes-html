@@ -13,16 +13,54 @@
 
 
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:600,400' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 
   <meta charset="UTF-8">
-  <title>iTunes HTML v0.5 Beta</title>
+  <title>Not iTunes</title>
   <bash href="/">
 </head>
 <body ng-controller="TrackController">
   <div id="api"></div>
   <div id="osBar">
-    <div>iTunes HTML</div><div id="date"></div>
+    <div class="apl-logo"></div>
+    <div class="app-name">Not iTunes</div><div id="date"></div>
+  </div>
+
+  <div class="menu-popup">
+    <div class="text">About Not iTunes</div>
+  </div>
+
+  <div class="stickies">
+    <div class="handle"><img src="/images/stickies-btn.jpg" width="10" height="9" /></div>
+    <div class="main">
+      Before you do anything, try this:<br> ALT + SPACEBAR &#x1F601;
+
+      <p><strong>"NOT iTUNES"</strong> is a WORK IN PROGRESS. If you have any suggestions or comments (especially on glitches), please let me know. Thanks! -Patrick</p>
+
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <div class="about-popup">
+    <div class="popup-top">
+      <div class="aboutWindowBtns">
+        <img src="images/btn-red.gif" class="redBtn" />
+        <img src="images/btn-yel.gif" class="yelBtn" />
+        <img src="images/btn-green.gif" class="greenBtn" />
+      </div>
+      <span>About Not iTunes</span></div>
+    <div class="logo">
+      <div class="txtPopup">
+        <span>Not iTunes</span>
+        <div class="details">
+          <p><strong>Not iTunes v0.51 Beta</strong></p>
+          <p><strong>For entertainment purposes only.</strong> Not iTunes is a designer/beginner programmer's "Passion Project" - an exploration of Apple's Desktop UI behavior using only HTML/CSS &amp; JavaScript. This latest version is powered by AngularJS and has been adapted to use YouTube's API.</p>
+
+          <p>Patrick (@<a href="https://twitter.com/villanuv" target="_blank">villanuv</a>) is <em>actively seeking</em> a new position as Software Engineer or Web Developer.</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="container">
@@ -57,14 +95,17 @@
       </div>
       <div id="searchContainer">
         <form id="searchForm">
-          <input type="search" id="searchField" placeholder="Search YouTube" autocomplete="off" ng-keyup="$event.keyCode == 13 && submit()">
+          <input type="search" id="searchField" placeholder="Search YouTube" autocomplete="off" spellcheck="false" ng-keyup="$event.keyCode == 13 && submit()">
         </form>
       </div>
     </div>
     <div class="mainWindow">
       <div class="currentPlaylist droppableItem" style="height:366px;">
         <table border="0" cellspacing="0" class="currentPlaylist">
-          <tr><td>Playlists (Beta)</td></tr>
+          <tr><td>All Playlists (Beta)</td></tr>
+          <tr ng-repeat="playlist in playlists" ng-show="playlist.name" ng-class="{selected : isSelectedPL(playlist)}" ng-click="setMasterPL(playlist)" ng-dblclick="dblClickedPL(playlist)" ng-model="playlist">
+            <td ng-class="{activePL : isSelectedPL(playlist)}">{{playlist.name}}</td>
+          </tr>
           <!--
 
           ng-repeat="song in playlist track by $index"
@@ -75,7 +116,7 @@
           ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)"
 
           -->
-          <tr ng-repeat="song in playlist track by $index" ng-show="song.name" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClickedPlay()" ng-model="playlist"><td>{{$index+1}}. {{song.name | limitTo:27}}{{song.name.length > 27 ? '...' : ''}}</td></tr>
+
         </table>
       </div>
       <div id="player"></div>
@@ -84,13 +125,24 @@
     <div class="searchColumn">
       <div class="heading">
         <table border="0" cellpadding="0" cellspacing="0">
-          <tr><td valign="middle">Name</td></tr>
+          <tr>
+            <td valign="middle">Name</td>
+            <td>Channel</td>
+            <td>Time</td>
+            <td>Plays</td>
+            <td>Date Added</td>
+            <!-- <td>Channel</td> -->
+          </tr>
         </table>
       </div>
       <div class="searchPlaylist">
         <table border="0" cellpadding="0" cellspacing="0" class="DraggableThings">
-          <tr ng-repeat="song in searchResults" ng-show="song.name" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClicked()" ng-model="searchResults">
-            <td>{{song.name | limitTo:82}}{{song.name.length > 82 ? '...' : ''}}</td>
+          <tr ng-repeat="song in searchResults track by $index" ng-show="song.title" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClicked()" ng-model="searchResults">
+            <td>{{song['title'] | limitTo:38}}{{song['title'].length > 38 ? '...' : ''}}</td>
+            <td>{{song['channelTitle'] | limitTo:14}}{{song['channelTitle'].length > 14 ? '...' : ''}}</td>
+            <td>{{song['duration'] | convertYTDuration}}</td>
+            <td>{{song['viewCount']}}</td>
+            <td>{{song['publishedAt'] | convertYTDate}}</td>
           </tr>
         </table>      
       </div>        
@@ -106,6 +158,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js"></script>
   <script src="js/angular-dragdrop.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/playlists.js"></script>
+  <script src="js/app_new.js"></script>
 </body>
 </html>
