@@ -133,7 +133,7 @@ function updateTrackData() {
   $('#coverArt').attr('style', "background:url('" + nowPlayingObj.thumb + "');");
   $('#play').hide();
   $('#pause').show();
-  gtag('event', 'Playlist Track Update', {'name': nowPlayingObj.title});
+  gtag('event', 'Playlist Track Update', {'vid_name': nowPlayingObj.title});
   getTimes();
 }
 
@@ -143,7 +143,7 @@ function updateOneTrackData() {
     $('.mainText').css('background', 'none');
     $('#trackName').html(track['title']);
     $('#artistAlbum').html(track['author']);
-    gtag('event', 'Track Update', {'name': track['title']});
+    gtag('event', 'Track Update', {'vid_name': track['title']});
     getTimes();
   }
 }
@@ -415,7 +415,7 @@ App.controller('TrackController', function($scope, $http){
     recentlyPlayedList['tracks'].push($scope.selected);
     $('#play').hide();
     $('#pause').show();
-    gtag('event', 'Track Only', {'name': $scope.selected.channelTitle});
+    gtag('event', 'Track Only', {'id': $scope.selected.id});
     getTimes();
   };
 
@@ -427,7 +427,7 @@ App.controller('TrackController', function($scope, $http){
       allTrackIDs.push(tracks[i]['id']);
     }
     player.loadPlaylist(allTrackIDs);
-    gtag('event', 'Playlist Play', {'name': playlist['name']});
+    gtag('event', 'Playlist Play', {'vid_name': playlist['name']});
   };
 
 });
