@@ -327,7 +327,18 @@ var App = angular.module('RdioApp', ['ngDragDrop']);
 
 App.controller('TrackController', function($scope, $http){
 
-  $scope.playlists = [recentlyPlayedList, iTunesHTMLPicks, wysPlaylist, ninetiesHousePlaylist, newEditionStoryPlaylist, karateKidPlaylist, cobrakaiPlaylist, abbaGoldPlusPlaylist, evenMoreABBAGoldPlaylist];
+  $scope.playlists = [
+    recentlyPlayedList, 
+    iTunesHTMLPicks, 
+    wysPlaylist, 
+    ninetiesHousePlaylist, 
+    newEditionStoryPlaylist, 
+    karateKidPlaylist, 
+    cobrakaiPlaylist, 
+    abbaGoldPlaylist,
+    moreAbbaGoldPlaylist,
+    evenMoreABBAGoldPlaylist
+  ];
 
   $scope.searchResults = iTunesHTMLPicks['tracks'];
 
@@ -493,6 +504,20 @@ App.filter('convertYTDate', function() {
       return ytArr.join("/");
     } else {
       return '';
+    }
+  }
+
+});
+
+
+App.filter('truncatePlays', function() {
+
+  return function(string) {
+    if(string.length > 9) {
+      playsAbbreviated = string[0]+'.'+string[1]+'bil';
+      return playsAbbreviated;
+    } else {
+      return string;
     }
   }
 

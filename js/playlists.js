@@ -373,7 +373,7 @@ thumb: "https://i.ytimg.com/vi/AZ6lk3XRp8c/default.jpg", title: "Des'ree - You G
       ]};
 
 
-var abbaGoldPlusPlaylist = {name: "ABBA Gold+", tracks: [
+var abbaGoldPlaylist = {name: "ABBA Gold", tracks: [
       {channelTitle: "AbbaVEVO", dislikeCount: "40046", duration: "PT3M52S",
 id: "xFrGuyw1V8s", likeCount: "801947", publishedAt: "2009-10-08T16:40:00.000Z",
 thumb: "https://i.ytimg.com/vi/xFrGuyw1V8s/default.jpg", title: "Abba - Dancing Queen", viewCount: "251138881"},
@@ -430,7 +430,11 @@ id: "0dcbw4IEY5w", likeCount: "51546", publishedAt: "2010-02-23T14:24:59.000Z",
 thumb: "https://i.ytimg.com/vi/0dcbw4IEY5w/default.jpg", title: "Abba - Thank You For The Music", viewCount: "18430570"},
       {channelTitle: "AbbaVEVO", dislikeCount: "3608", duration: "PT2M47S",
 id: "Sj_9CiNkkn4", likeCount: "88210", publishedAt: "2010-02-23T14:19:15.000Z",
-thumb: "https://i.ytimg.com/vi/Sj_9CiNkkn4/default.jpg", title: "Abba - Waterloo", viewCount: "31416765"},
+thumb: "https://i.ytimg.com/vi/Sj_9CiNkkn4/default.jpg", title: "Abba - Waterloo", viewCount: "31416765"}
+      ]};
+
+
+var moreAbbaGoldPlaylist = {name: "More ABBA Gold", tracks: [      
       {channelTitle: "AbbaVEVO", dislikeCount: "685", duration: "PT3M47S",
 id: "_d5dPYHi17k", likeCount: "20722", publishedAt: "2009-10-09T00:37:07.000Z",
 thumb: "https://i.ytimg.com/vi/_d5dPYHi17k/default.jpg", title: "Abba - Summer Night City", viewCount: "9749955"},

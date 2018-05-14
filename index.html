@@ -138,11 +138,11 @@
       <div class="searchPlaylist">
         <table border="0" cellpadding="0" cellspacing="0" class="DraggableThings">
           <tr ng-repeat="song in searchResults track by $index" ng-show="song.title" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClicked()" ng-model="searchResults">
-            <td>{{song['title'] | limitTo:38}}{{song['title'].length > 38 ? '...' : ''}}</td>
-            <td>{{song['channelTitle'] | limitTo:14}}{{song['channelTitle'].length > 14 ? '...' : ''}}</td>
-            <td>{{song['duration'] | convertYTDuration}}</td>
-            <td>{{song['viewCount']}}</td>
-            <td>{{song['publishedAt'] | convertYTDate}}</td>
+            <td class="song-title">{{song['title'] | limitTo:38}}{{song['title'].length > 38 ? '...' : ''}}</td>
+            <td class="channel">{{song['channelTitle'] | limitTo:14}}{{song['channelTitle'].length > 14 ? '...' : ''}}</td>
+            <td class="duration">{{song['duration'] | convertYTDuration}}</td>
+            <td class="plays">{{song['viewCount'] | truncatePlays}}</td>
+            <td class="date-added">{{song['publishedAt'] | convertYTDate}}</td>
           </tr>
         </table>      
       </div>        

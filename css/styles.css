@@ -507,10 +507,20 @@ tr td.activePL {
   width: 18%;
 }
 
+.searchPlaylist table td.channel,
+.searchPlaylist table td.plays,
+.searchPlaylist table td.date-added {
+  padding-right: 0px !important;
+}
+
 .heading table td:nth-child(3),
 .searchPlaylist table td:nth-child(3) {
   width: 10%;
   text-align: right;
+}
+
+.searchPlaylist table td.duration {
+  padding-left: 0px !important;
 }
 
 .heading table td:nth-child(4),
@@ -556,6 +566,7 @@ input:focus {
 .searchPlaylist {
   float: left;
   height: 475px;
+  width: 100%;
   max-height: 475px;
   min-width: 300px;
   overflow-y: scroll;
