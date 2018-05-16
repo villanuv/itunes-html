@@ -494,7 +494,7 @@ thumb: "https://i.ytimg.com/vi/d3VjTcYYdRw/default.jpg", title: "ABBA : The Way 
       ]};
 
 
-var adultContemporaryPlaylist = {name: "Classic WLIT(ish)", tracks: [
+var diningXPPlaylist = {name: "Dining XP", tracks: [
       {channelTitle: "CroNix99", dislikeCount: "410", duration: "PT5M34S",
 id: "Ud2XKt2N8fs", likeCount: "14737", publishedAt: "2010-04-01T19:23:27.000Z",
 thumb: "https://i.ytimg.com/vi/Ud2XKt2N8fs/default.jpg", title: "Fleetwood Mac - The Dance-1997-Silver Springs ♥", viewCount: "2985081"},
@@ -570,7 +570,7 @@ thumb: "https://i.ytimg.com/vi/KjgWWjkNbhU/default.jpg", title: "Elton John - Ca
       ]};
 
 
-var eightiesPlaylist1 = {name: "Outside Shermerville", tracks: [
+var outsideShermervillePlaylist = {name: "Outside Shermerville", tracks: [
       {channelTitle: "YelloVEVO", dislikeCount: "2331", duration: "PT3M6S",
 id: "6jJkdRaa04g", likeCount: "54847", publishedAt: "2016-12-01T23:01:00.000Z",
 thumb: "https://i.ytimg.com/vi/6jJkdRaa04g/default.jpg", title: "Yello - Oh Yeah", viewCount: "4050976"},
@@ -779,4 +779,59 @@ thumb: "https://i.ytimg.com/vi/azfhEs9cenQ/default.jpg", title: "Julie Plug - De
       {channelTitle: "Michael Hoppé - Topic", dislikeCount: "0", duration: "PT2M57S",
 id: "4jPl5Z9fHOc", likeCount: "5", publishedAt: "2015-07-22T12:18:56.000Z",
 thumb: "https://i.ytimg.com/vi/4jPl5Z9fHOc/default.jpg", title: "Southern Dreamer", viewCount: "299"}
+      ]};
+
+
+var eraserheadPlaylist = {name: "Eraserhead", tracks: [
+      {channelTitle: "Graham Foster", dislikeCount: "10", duration: "PT3M33S",
+id: "wF7hvJjLBJg", likeCount: "364", publishedAt: "2010-06-06T17:00:41.000Z",
+thumb: "https://i.ytimg.com/vi/wF7hvJjLBJg/default.jpg", title: "Erasure - weight of the world", viewCount: "127438"},
+      {channelTitle: "Erasure - Topic", dislikeCount: "3", duration: "PT3M30S",
+id: "Jc_nLdB_gl4", likeCount: "6", publishedAt: "2015-11-05T17:20:54.000Z",
+thumb: "https://i.ytimg.com/vi/Jc_nLdB_gl4/default.jpg", title: "She Won't Be Home", viewCount: "570"},
+      {channelTitle: "otisgoeskrazy", dislikeCount: "782", duration: "PT3M31S",
+id: "RiKVjS3gR88", likeCount: "24030", publishedAt: "2010-08-08T01:17:43.000Z",
+thumb: "https://i.ytimg.com/vi/RiKVjS3gR88/default.jpg", title: "Erasure A Little Respect (Official Video)", viewCount: "5080414"},
+      {channelTitle: "Erasure - Topic", dislikeCount: "1", duration: "PT3M37S",
+id: "WFwSwXKHYws", likeCount: "43", publishedAt: "2014-12-06T13:39:49.000Z",
+thumb: "https://i.ytimg.com/vi/WFwSwXKHYws/default.jpg", title: "Oh L'Amour", viewCount: "3820"},
+      {channelTitle: "ErasureVEVO", dislikeCount: "299", duration: "PT3M42S",
+id: "6J2OlIpQgF8", likeCount: "9224", publishedAt: "2014-09-25T10:55:54.000Z",
+thumb: "https://i.ytimg.com/vi/6J2OlIpQgF8/default.jpg", title: "Erasure - Chains of Love (Official Video)", viewCount: "1888181"},
+      {channelTitle: "ErasureVEVO", dislikeCount: "42", duration: "PT4M2S",
+id: "wmwPh6MHpcU", likeCount: "1034", publishedAt: "2014-09-25T11:26:12.000Z",
+thumb: "https://i.ytimg.com/vi/wmwPh6MHpcU/default.jpg", title: "Erasure - I Love Saturday (Official Video)", viewCount: "256510"},
+      {channelTitle: "agnesfashionart", dislikeCount: "10", duration: "PT4M8S",
+id: "Llj56vi2MuA", likeCount: "336", publishedAt: "2008-11-18T00:15:42.000Z",
+thumb: "https://i.ytimg.com/vi/Llj56vi2MuA/default.jpg", title: "ERASURE - RAIN", viewCount: "187201"},
+      {channelTitle: "Erasure - Topic", dislikeCount: "1", duration: "PT3M44S",
+id: "D5vJX3DE5ng", likeCount: "2", publishedAt: "2017-02-28T10:32:45.000Z",
+thumb: "https://i.ytimg.com/vi/D5vJX3DE5ng/default.jpg", title: "Here In My Heart", viewCount: "370"},
+      {channelTitle: "electrosergio", dislikeCount: "6", duration: "PT4M14S",
+id: "EbpOJxdTkSk", likeCount: "146", publishedAt: "2013-07-13T17:50:07.000Z",
+thumb: "https://i.ytimg.com/vi/EbpOJxdTkSk/default.jpg", title: "Erasure - La La La", viewCount: "22355"},
+      {channelTitle: "DotaMaster1994", dislikeCount: "16", duration: "PT4M40S",
+id: "UwBAf7hOhz8", likeCount: "532", publishedAt: "2012-11-22T11:37:35.000Z",
+thumb: "https://i.ytimg.com/vi/UwBAf7hOhz8/default.jpg", title: "Erasure - Always - Microbots Trance Dance Mix(RARE REMIX)", viewCount: "84061"},
+      {channelTitle: "RETROREMIXES1", dislikeCount: "12", duration: "PT6M51S",
+id: "BroDnKLzRX4", likeCount: "403", publishedAt: "2012-02-27T01:01:11.000Z",
+thumb: "https://i.ytimg.com/vi/BroDnKLzRX4/default.jpg", title: "Erasure - Blue Savannah (Remix)", viewCount: "89001"},
+      {channelTitle: "Sanary Twink", dislikeCount: undefined, duration: "PT6M11S",
+id: "ILSzEt-VkiY", likeCount: undefined, publishedAt: "2017-06-04T11:57:59.000Z",
+thumb: "https://i.ytimg.com/vi/ILSzEt-VkiY/default.jpg", title: "Erasure - Love To Hate You (Hot Tracks Mix)", viewCount: "526"},
+      {channelTitle: "The_Deelo®", dislikeCount: "5", duration: "PT8M5S",
+id: "a_rNj0g1Wqo", likeCount: "250", publishedAt: "2010-03-15T03:32:30.000Z",
+thumb: "https://i.ytimg.com/vi/a_rNj0g1Wqo/default.jpg", title: "Erasure -  Fingers & Thumbs (Tin Tin Out Remix)", viewCount: "44006"},
+      {channelTitle: "ErasureVEVO", dislikeCount: "21", duration: "PT3M32S",
+id: "koHzQVVg8is", likeCount: "923", publishedAt: "2014-09-25T11:32:14.000Z",
+thumb: "https://i.ytimg.com/vi/koHzQVVg8is/default.jpg", title: "Erasure - In My Arms (Official Video)", viewCount: "228343"},
+      {channelTitle: "Graham Foster", dislikeCount: "39", duration: "PT4M15S",
+id: "mz5fH9PdUpo", likeCount: "1019", publishedAt: "2010-06-06T18:12:55.000Z",
+thumb: "https://i.ytimg.com/vi/mz5fH9PdUpo/default.jpg", title: "Erasure - When I Needed You (melancholic mix)", viewCount: "291583"},
+      {channelTitle: "ErasureVEVO", dislikeCount: "23", duration: "PT4M20S",
+id: "SgIU8D--cuw", likeCount: "511", publishedAt: "2014-09-25T11:27:20.000Z",
+thumb: "https://i.ytimg.com/vi/SgIU8D--cuw/default.jpg", title: "Erasure - Stay With Me (Official Video)", viewCount: "149716"},
+      {channelTitle: "ULTRA RARE TRACKS", dislikeCount: "4", duration: "PT4M58S",
+id: "EAf2Y-wuV08", likeCount: "51", publishedAt: "2016-10-21T22:42:53.000Z",
+thumb: "https://i.ytimg.com/vi/EAf2Y-wuV08/default.jpg", title: "♪ Erasure - Heart Of Glass (Blondie Cover)", viewCount: "4321"}
       ]};

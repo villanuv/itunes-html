@@ -6,8 +6,6 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
 var skipping = false;
-var allTrackIDs = [];
-
 
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
@@ -332,14 +330,15 @@ App.controller('TrackController', function($scope, $http){
   $scope.playlists = [
     recentlyPlayedList, 
     iTunesHTMLPicks, 
-    wysPlaylist, 
+    wysPlaylist,
+    eraserheadPlaylist, 
     ninetiesHousePlaylist, 
     filamOPMPlaylist,
     newEditionStoryPlaylist, 
     karateKidPlaylist, 
     cobrakaiPlaylist, 
-    eightiesPlaylist1,
-    adultContemporaryPlaylist,
+    outsideShermervillePlaylist,
+    diningXPPlaylist,
     abbaGoldPlaylist,
     evenMoreABBAGoldPlaylist
   ];
@@ -445,7 +444,7 @@ App.controller('TrackController', function($scope, $http){
 
   $scope.dblClickedPL = function(playlist){
     window.currentPlaylist = playlist;
-    // var allTrackIDs = [];
+    var allTrackIDs = [];
     var tracks = playlist['tracks'];
     for(i=0;i<tracks.length;i++){
       allTrackIDs.push(tracks[i]['id']);
