@@ -332,7 +332,7 @@ $('.mail-top img.redBtn')
     $(this).attr("src", "images/btn-red.jpg");
   });
 
-$('.mail-top img:first-child').click(function(){
+$('.mail-top img.redBtn').click(function(){
   $('.mail').toggle();
 });
 

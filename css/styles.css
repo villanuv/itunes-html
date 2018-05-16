@@ -740,7 +740,7 @@ iframe {
 .mail {
   z-index: 90;
   width: 300px;
-  height: 350px;
+  height: 450px;
   background-color: #fff;
   position: absolute;
   left: 10px;
@@ -772,10 +772,66 @@ iframe {
   float: left;
 }
 
+.mail .form-line {
+  padding: 9px 0;
+  display: block;
+  float: left;
+  border-top: 1px #e6e6e6 solid;
+  width: 100%;
+}
+
+.mail .label {
+  display: block;
+  float: left;
+}
+
+.mail .inputField {
+  display: block;
+  float: right;
+  border: none;
+  box-shadow: none;
+  background: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  margin: 1px 24px 0 0;
+  padding: 0;
+  font-size: 12px;
+  /*border: 1px #ccc solid;*/
+}
+
+.mail textarea {
+  border: none;
+  resize: none;
+  font-size: 12px;
+}
+
+.mail .inputField:focus, 
+.mail textarea:focus {
+    outline: none;
+}
+
 .mailSendBtn {
   display: block;
   float: left;
   padding: 6px 0 0 10px;
+}
+
+.mailSend {
+  box-shadow: none !important;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  width: 43px !important;
+  height: 26px !important;
+  background: url('/images/mail-send.jpg') no-repeat !important;
+  background-size: 100% !important;
+  border: 0 !important;
+}
+
+.mailSend:hover {
+  cursor: pointer;
 }
 
 .redBtn, .yelBtn, .greenBtn {
@@ -800,10 +856,6 @@ iframe {
 .header p {
   margin: 0;
   padding: 9px 0;
-}
-
-.header p:not(:last-child) {
-  border-bottom: 1px #e6e6e6 solid;
 }
 
 .header .sendTo {
@@ -856,4 +908,8 @@ iframe {
 .stickies .main {
   padding: 5px 15px;
   background-color: #fef49c;
+}
+
+.clear {
+  clear: both;
 }

@@ -32,22 +32,32 @@
   </div>
 
   <div class="mail">
+    <form name="contactform" method="post" action="#"> <!-- send_form_email.php -->
     <div class="mail-top">
       <div class="mailWinButtons">
         <img src="images/btn-red.jpg" class="redBtn" />
         <img src="images/btn-yel.jpg" class="yelBtn" />
         <img src="images/btn-green.jpg" class="greenBtn" />
       </div>
-      <div class="mailSendBtn"><img src="images/mail-send.jpg" /></div>
+      <div class="mailSendBtn"><input type="submit" value="" class="mailSend"></div>
     </div>
     <div class="header">
       <p>To: <span class="sendTo">Patrick (dj.WYSIWYG)</span></p>
-      <p>Your email:</p>
-      <p>Subject:</p>
+      <div class="form-line">
+        <div class="label">From:</div> <input class="inputField" type="text" name="name" maxlength="80" size="33" placeholder="Your name">
+      </div>
+      <div class="form-line">
+        <div class="label">Email:</div> <input class="inputField" type="text" name="email" maxlength="80" size="33" placeholder="your_email@host.com">
+      </div>
+      <div class="form-line">
+        <div class="label">Subject:</div> <input class="inputField" type="text" name="subject" maxlength="80" size="31">
+      </div>
+      <div class="clear"></div>
     </div>
     <div class="msg">
-    this is a mail message
+      <textarea name="message" maxlength="1000" cols="38" rows="15"></textarea>
     </div>
+    </form>
   </div>
 
   <div class="stickies">
