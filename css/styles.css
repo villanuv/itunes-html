@@ -119,10 +119,10 @@ body {
 }
 
 .popup-top {
-  background: url('/images/popup-top.jpg') repeat-x; 
+  background: url('/images/popup-top.jpg') 0 1px repeat-x; 
   text-align: center;
-  height: 16px;
-  padding: 4px 0 1px;
+  height: 21px;
+  /*padding: 4px 0 1px;*/
   border-bottom: 1px #c1c1c1 solid;
 
   -webkit-border-top-left-radius: 5px;
@@ -133,8 +133,9 @@ body {
   border-top-right-radius: 5px;
 }
 
-.popup-top span {
-  margin-right: 72px;
+.popup-top .abtTitle {
+  padding: 4px 0 1px;
+  margin-right: 64px;
 }
 
 .about-popup .logo {
@@ -211,15 +212,28 @@ body {
   padding: 6px 0 0 8px;
 }
 
-#windowBtns img,
-.aboutWindowBtns img {
-  padding-right: 5px;
+#iTunesWinBtns {
+  float: left;
+  width: 74px;
+  height: 30px; 
+  padding: 15px 0 0 12px;
 }
 
-.aboutWindowBtns {
+/*#windowBtns img,
+.aboutWindowBtns img {
+  padding-right: 5px;
+}*/
+
+/*.aboutWindowBtns {
   float: left;
   width: 72px;
   padding: 1px 0 0 2px; 
+}*/
+
+.aboutWinBtns {
+  float: left;
+  width: 66px;
+  padding: 4px 0 0 0; 
 }
 
 #itunesController {
@@ -721,6 +735,89 @@ button:hover {
 
 iframe {
   pointer-events: none;
+}
+
+.mail {
+  z-index: 90;
+  width: 300px;
+  height: 350px;
+  background-color: #fff;
+  position: absolute;
+  left: 10px;
+  bottom: 20px;
+  /*border: 1px #bca903 solid;*/
+  font-size: 12px;
+  font-weight: normal;
+  user-select: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 5px 43px 0px rgba(0,0,0,0.8);
+  -moz-box-shadow: 0px 5px 43px 0px rgba(0,0,0,0.8);
+  box-shadow: 0px 5px 43px 0px rgba(0,0,0,0.8);
+}
+
+.mail-top {
+  width: 300px;
+  height: 36px;
+  background: url('/images/mail-top.jpg') repeat-x; 
+  border-bottom: 1px #a1a1a1 solid;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.mailWinButtons {
+  padding: 11px 0 0 12px;
+  display: block;
+  float: left;
+}
+
+.mailSendBtn {
+  display: block;
+  float: left;
+  padding: 6px 0 0 10px;
+}
+
+.redBtn, .yelBtn, .greenBtn {
+  width: 15px;
+  height: 15px;
+}
+
+.yelBtn, .greenBtn {
+  padding-left: 2px;
+}
+
+.aboutWinBtns .yelBtn, .aboutWinBtns .greenBtn {
+  padding-left: 1px;
+}
+
+.header {
+  padding: 0 0 0 24px;
+  color: #988080;
+  border-bottom: 1px #e6e6e6 solid;
+}
+
+.header p {
+  margin: 0;
+  padding: 9px 0;
+}
+
+.header p:not(:last-child) {
+  border-bottom: 1px #e6e6e6 solid;
+}
+
+.header .sendTo {
+  color: #000;
+  background-color: #d2e7fb;
+  padding: 2px 3px;
+  margin-left: 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.msg {
+  padding: 16px 24px;
 }
 
 .stickies {

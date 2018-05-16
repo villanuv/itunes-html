@@ -199,6 +199,11 @@ $(".about-popup").draggable({
   delay: 300
 });
 
+$(".mail").draggable({
+  handle: ".mail-top",
+  delay: 300
+});
+
 $(".stickies").draggable({
   handle: ".handle",
   delay: 300
@@ -308,19 +313,40 @@ $('.menu-popup .text').click(function(){
 });
 
 $('.popup-top img:first-child')
-    .mouseover(function() { 
-        $(this).attr("src", "images/btn-red-over.gif");
-    })
-    .mouseout(function() {
-       $(this).attr("src", "images/btn-red.gif");
-    });
-
+  .mouseover(function() { 
+    $(this).attr("src", "images/btn-red-over.jpg");
+  })
+  .mouseout(function() {
+    $(this).attr("src", "images/btn-red.jpg");
+  });
 
 $('.popup-top img:first-child').click(function(){
   $('.about-popup').toggle();
 });
 
+$('.mail-top img.redBtn')
+  .mouseover(function() { 
+    $(this).attr("src", "images/btn-red-over.jpg");
+  })
+  .mouseout(function() {
+    $(this).attr("src", "images/btn-red.jpg");
+  });
 
+$('.mail-top img:first-child').click(function(){
+  $('.mail').toggle();
+});
+
+$('#iTunesWinBtns img:first-child')
+  .mouseover(function() { 
+    $(this).attr("src", "images/main-btn-red-over.jpg");
+  })
+  .mouseout(function() {
+    $(this).attr("src", "images/main-btn-red.jpg");
+  });
+
+$('#iTunesWinBtns img:first-child').click(function(){
+  $('.container').toggle();
+});
 
 
 var App = angular.module('RdioApp', ['ngDragDrop']);
