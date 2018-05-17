@@ -62,7 +62,7 @@
     <div class="main">
       Before you do anything, try this:<br> ALT + SPACEBAR &#x1F601;
 
-      <p><strong>"NOT iTUNES"</strong> is a WORK IN PROGRESS. If you have any suggestions or comments (especially on glitches), <a href="#" onclick="launchMail()">please let me know</a>. Thanks! -Patrick</p>
+      <p><strong>"NOT iTUNES"</strong> is a WORK IN PROGRESS. If you have any suggestions or comments (especially on glitches), <a href="#" onclick="launchNotMail()">please let me know</a>. Thanks! -Patrick</p>
 
     </div>
     <div class="clear"></div>
@@ -83,7 +83,7 @@
           <p><strong>Not iTunes v0.51 Beta</strong></p>
           <p><strong>For entertainment purposes only.</strong> Not iTunes is a designer/beginner programmer's "Passion Project" - an exploration of Apple's Desktop UI behavior using only HTML/CSS &amp; JavaScript. This latest version is powered by AngularJS and has been adapted to use YouTube's API.</p>
 
-          <p>Patrick is <em>actively seeking</em> a new position as Software Engineer or Web Developer. <a href="#" onclick="launchMail()">Contact him here</a>.</p>
+          <p>Patrick is <em>actively seeking</em> a new position as Software Engineer or Web Developer. <a href="#" onclick="launchNotMail()">Contact him here</a>.</p>
         </div>
       </div>
     </div>
@@ -178,12 +178,22 @@
 
   <div id="footer"></div>
 
+  <div class="dock" id="dock2">
+    <div class="dock-container2">
+      <a class="dock-item2" href="#"><span>Not Finder</span><img src="images/finder-app.png" alt="Not Finder" class="notFinder"></a> 
+      <a class="dock-item2" href="#" onclick="launchNotiTunes()"><span>Not iTunes</span><img src="images/itunes-app.png" alt="Not iTunes" class="notiTunes"></a>
+      <a class="dock-item2" href="#" onclick="launchNotMail()"><span>Not Mail</span><img src="images/mail-app.png" alt="Not Mail" class="notMail"></a> 
+    </div>
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"> </script>
   <script src="js/jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js"></script>
   <script src="js/angular-dragdrop.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="js/iutil.js"></script>
+  <script src="js/fisheye.js"></script>
   <script src="js/playlists.js"></script>
   <script src="js/gapi.js"></script>
   <script src="js/app.js"></script>
