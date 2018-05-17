@@ -868,7 +868,7 @@ thumb: "https://i.ytimg.com/vi/qiiyq2xrSI0/default.jpg", title: "Righteous Broth
       {channelTitle: "oldiesphxmannyb", dislikeCount: "613", duration: "PT2M52S",
 id: "ao8Ttbzqdns", likeCount: "24912", publishedAt: "2010-03-23T02:53:51.000Z",
 thumb: "https://i.ytimg.com/vi/ao8Ttbzqdns/default.jpg", title: "The Stylistics - You Are Everything", viewCount: "3614768"},
-      {channelTitle: "Scout4Me1", disleCount: "57", duration: "PT3M1S",
+      {channelTitle: "Scout4Me1", dislikeCount: "57", duration: "PT3M1S",
 id: "iRYMdAQWsmc", likeCount: "2194", publishedAt: "2010-10-07T13:02:27.000Z",
 thumb: "https://i.ytimg.com/vi/iRYMdAQWsmc/default.jpg", title: "~ JUDY COLLINS ~  In My Life ~", viewCount: "530084"},
       {channelTitle: "gabachito8", dislikeCount: "271", duration: "PT2M36S",

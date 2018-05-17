@@ -263,17 +263,23 @@ body {
 #slider .ui-slider-handle {
   position: absolute;
   z-index: 2;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   cursor: default;
-  background: url('/images/vol-handle.png') no-repeat 50% 50%;
+  background: url('/images/vol-handle-new.png') no-repeat;
+  background-size: 65% 65%;
   outline: none;
-  top: -8px; /* aligns on track */
-  margin-left: -5px;
+  top: -7.5px;
+  margin-left: -7px;
 }
 
 #slider .ui-slider-handle:active {
-  background: url('/images/vol-handle-over.png') no-repeat 50% 50%;
+  background: url('/images/vol-handle-over-new.png') no-repeat;
+  width: 30px;
+  height: 30px;
+  background-size: 65% 65%;
+  top: -7.5px;
+  margin-left: -7px;
 }
 
 #slider .ui-slider-range {
@@ -308,46 +314,58 @@ body {
   text-align: center;
   font-weight: normal;
   overflow-y: hidden;
-  background-color: #eaeaea;
+  background-color: #ededed;
   border-right: 1px solid #d5d5d5;
   /*border-bottom: 4px solid #bcbcbc;*/
 }
 
 #shuffleContainer {
   float: left;
-  width: 29px;
-  height: 25px;
-  padding-top: 4px;
+  width: 30px;
+  height: 20px;
+  padding: 2px 0 0 4px;
 }
 
 #repeatContainer {
   float: left;
-  width: 27px;
-  height: 25px;
-  padding-top: 4px; 
+  width: 30px;
+  height: 20px;
+  padding: 2px 2px 0 0;
+}
+
+#repeatContainer img,
+#shuffleContainer img {
+  width: 30px;
+  height: 20px;
 }
 
 #time1, #time2 {
   float: left;
   color: #a5a5a5;
-  font-size: 9px;
-  height: 8px;
-  padding: 0 2px 0;
-  text-align: center;
+  font-size: 11px;
+  /*height: 8px;*/
+  bottom: 3px;
+  position: relative;
 }
 
 #time1 {
-  width: 23px;
+  /*width: 23px;*/
+  padding-left: 4px;
+  text-align: left;  
 }
 
 #time2 {
-  width: 25px;
+  /*width: 25px;*/
+  padding-right: 4px;
+  text-align: right;  
+  float: right;
 }
 
 .mainText {
-  background: url('/images/apl.jpg') no-repeat center center;
+  background: url('/images/apl.png') no-repeat center center;
+  background-size: 20%;
   float: left;
-  width: 193px;
+  width: 185px;
   height: 40px;
   font-weight: normal;
   overflow-y: hidden;
@@ -556,17 +574,18 @@ tr td.activePL {
 
 input:first-child {
   border: 1px solid #ccc;
-  padding: 3px 6px 4px 23px;
+  padding: 3px 6px 4px 24px;
   outline: none;
   font-size: 12px;
   width: 180px;
-  background: url('/images/mglass.jpg') #fff no-repeat scroll 8px center;
-  border-radius: 13px 13px 13px 13px;
-  -moz-border-radius: 13px 13px 13px 13px;
-  -webkit-border-radius: 13px 13px 13px 13px;
-  -webkit-box-shadow: inset 0px 0px 6px -1px rgba(0,0,0,0.5);
-  -moz-box-shadow: inset 0px 0px 6px -1px rgba(0,0,0,0.5);
-  box-shadow: inset 0px 0px 6px -1px rgba(0,0,0,0.5);
+  background: url('/images/mglass.jpg') #f6f6f6 no-repeat scroll 5px center;
+  background-size: 8%;
+  border-radius: 4px 4px 4px 4px;
+  -moz-border-radius: 4px 4px 4px 4px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  /*-webkit-box-shadow: inset 0px 0px 6px -1px rgba(0,0,0,0.5);*/
+  /*-moz-box-shadow: inset 0px 0px 6px -1px rgba(0,0,0,0.5);*/
+  /*box-shadow: inset 0px 0px 6px -1px rgba(0,0,0,0.5);*/
 }
 
 input:focus {
