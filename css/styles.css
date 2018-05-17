@@ -8,6 +8,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
   margin: 0; padding: 0;
+  color: #3e4246;
 }
 
 #api {
@@ -25,12 +26,10 @@ body {
   font-size: 13px;
   line-height: 13px;
   font-weight: 500;
-  /*background: url('/images/belly.png') no-repeat 15px 2px;*/
-  background-color: #fff;
-  opacity: 0.7;
-  -webkit-box-shadow: 0px 6px 39px -5px rgba(0,0,0,0.9);
-  -moz-box-shadow: 0px 6px 39px -5px rgba(0,0,0,0.9);
-  box-shadow: 0px 6px 39px -5px rgba(0,0,0,0.9);
+  background-color: rgba(255, 255, 255, 0.7);
+  -webkit-box-shadow: 0px 6px 39px -5px rgba(0,0,0,0.7);
+  -moz-box-shadow: 0px 6px 39px -5px rgba(0,0,0,0.7);
+  box-shadow: 0px 6px 39px -5px rgba(0,0,0,0.7);
 }
 
 .apl-logo {
@@ -77,8 +76,7 @@ body {
   font-family: Arial, sans-serif;
   font-size: 13px;
   font-weight: normal;
-  background-color: #fff;
-  opacity: 0.7;
+  background-color: rgba(255, 255, 255, 0.7);
   border: 1px #c1c3c6 solid;
   user-select: none;
   -webkit-box-shadow: 0px 5px 9px 1px rgba(0,0,0,0.13);
@@ -463,7 +461,7 @@ tr td.activePL {
 
 .searchColumn {
   float: left !important;
-  width: 581px;
+  width: 582px;
   min-height: 500px;
   /*border-right: 1px #d9d9d9 solid;*/
   border-bottom: 1px #d9d9d9 solid;
@@ -597,7 +595,7 @@ input:focus {
   width: 221px;
   height: 497px;
   padding: 3px 0 0;
-  border-right: 1px #d9d9d9 solid;
+  /*border-right: 1px #d9d9d9 solid;*/
   border-bottom: 1px #d9d9d9 solid;
   /*border-left: 1px #d9d9d9 solid;*/
   -webkit-border-bottom-left-radius: 5px;
@@ -802,6 +800,10 @@ iframe {
   /*border: 1px #ccc solid;*/
 }
 
+::placeholder {
+  color: #ccc;
+}
+
 .mail textarea {
   border: none;
   resize: none;
@@ -890,6 +892,7 @@ iframe {
   bottom: 20px;
   border: 1px #bca903 solid;
   font-size: 17px;
+  color: #000;
   user-select: none;
   -webkit-box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.5);
   -moz-box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.5);
@@ -968,8 +971,7 @@ a.dock-item {
   position: absolute;
   height: 50px;
   /*background: url('/images/dock-bg.gif');*/
-  background-color: #fff;
-  opacity: 0.9;
+  background-color: rgba(255, 255, 255, 0.7);
   padding-left: 20px;
 
   -webkit-border-top-left-radius: 5px;

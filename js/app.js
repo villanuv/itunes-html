@@ -439,6 +439,7 @@ App.controller('TrackController', function($scope, $http){
     eraserheadPlaylist, 
     ninetiesHousePlaylist, 
     filamOPMPlaylist,
+    wonderYearsPlaylist,
     newEditionStoryPlaylist, 
     karateKidPlaylist, 
     cobrakaiPlaylist, 
