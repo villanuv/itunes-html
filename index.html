@@ -32,7 +32,7 @@
   </div>
 
   <div class="mail">
-    <form name="contactform" method="post" action="#"> <!-- send_form_email.php -->
+    <form class="contactForm" name="contactform" method="post" action="mailer.php">
     <div class="mail-top">
       <div class="mailWinButtons">
         <img src="images/btn-red.jpg" class="redBtn" />
@@ -44,18 +44,15 @@
     <div class="header">
       <p>To: <span class="sendTo">Patrick (dj.WYSIWYG)</span></p>
       <div class="form-line">
-        <div class="label">From:</div> <input class="inputField" type="text" name="name" maxlength="80" size="33" placeholder="Your name">
+        <div class="label">From:</div> <input class="inputField contactName" type="text" name="name" maxlength="80" placeholder="Your name">
       </div>
       <div class="form-line">
-        <div class="label">Email:</div> <input class="inputField" type="text" name="email" maxlength="80" size="33" placeholder="your_email@host.com">
-      </div>
-      <div class="form-line">
-        <div class="label">Subject:</div> <input class="inputField" type="text" name="subject" maxlength="80" size="31">
+        <div class="label">Email:</div> <input class="inputField contactEmail" type="text" name="email" maxlength="80" placeholder="your_email@host.com">
       </div>
       <div class="clear"></div>
     </div>
     <div class="msg">
-      <textarea name="message" maxlength="1000" cols="38" rows="15"></textarea>
+      <textarea class="contactMessage" name="message" maxlength="1000" rows="16"></textarea>
     </div>
     </form>
   </div>
@@ -65,7 +62,7 @@
     <div class="main">
       Before you do anything, try this:<br> ALT + SPACEBAR &#x1F601;
 
-      <p><strong>"NOT iTUNES"</strong> is a WORK IN PROGRESS. If you have any suggestions or comments (especially on glitches), please let me know. Thanks! -Patrick</p>
+      <p><strong>"NOT iTUNES"</strong> is a WORK IN PROGRESS. If you have any suggestions or comments (especially on glitches), <a href="#" onclick="launchMail()">please let me know</a>. Thanks! -Patrick</p>
 
     </div>
     <div class="clear"></div>
@@ -86,7 +83,7 @@
           <p><strong>Not iTunes v0.51 Beta</strong></p>
           <p><strong>For entertainment purposes only.</strong> Not iTunes is a designer/beginner programmer's "Passion Project" - an exploration of Apple's Desktop UI behavior using only HTML/CSS &amp; JavaScript. This latest version is powered by AngularJS and has been adapted to use YouTube's API.</p>
 
-          <p>Patrick (@<a href="https://twitter.com/villanuv" target="_blank">villanuv</a>) is <em>actively seeking</em> a new position as Software Engineer or Web Developer.</p>
+          <p>Patrick is <em>actively seeking</em> a new position as Software Engineer or Web Developer. <a href="#" onclick="launchMail()">Contact him here</a>.</p>
         </div>
       </div>
     </div>

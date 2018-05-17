@@ -49,6 +49,69 @@ function onPlayerStateChange(event) {
   }
 }
 
+function launchMail() {
+  $('.mail').show();
+}
+
+
+$(document).ready(function() {
+
+  var form = $('.contactForm'),
+      name = $('.contactName'),
+      email = $('.contactEmail'),
+      message = $('.contactMessage'),
+      formSubmit = $('.mailSend');
+  
+  // form.on('input', '#email, #subject, #message', function() {
+  //   $(this).css('border-color', '');
+  //   info.html('').slideUp();
+  // });
+  
+  formSubmit.on('click', function(e) {
+    e.preventDefault();
+    if(validate()) {
+      $.ajax({
+        type: "POST",
+        url: "mailer.php",
+        data: form.serialize(),
+        dataType: "json"
+      }).done(function(data) {
+        if(data.success) {
+          name.val('');
+          email.val('');
+          message.val('');
+          $('.mail').hide();
+          // info.html('Message sent!').css('color', 'green').slideDown();
+        } else {
+          // info.html('Could not send mail! Sorry!').css('color', 'red').slideDown();
+        }
+      });
+    }
+  });
+  
+  function validate() {
+    var valid = true;
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    
+    if(!regex.test(email.val())) {
+      email.css('border-color', 'red');
+      valid = false;
+    }
+    if($.trim(name.val()) === "") {
+      subject.css('border-color', 'red');
+      valid = false;
+    }
+    if($.trim(message.val()) === "") {
+      message.css('border-color', 'red');
+      valid = false;
+    }
+    
+    return valid;
+  }
+
+});
+
+
 $(document).keydown(function(e) {
   switch(event.altKey && e.which) {
     case 32:
@@ -142,7 +205,7 @@ function updateTrackData() {
   $('#coverArt').attr('style', "background:url('" + nowPlayingObj.thumb + "');");
   $('#play').hide();
   $('#pause').show();
-  //gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='" + window.currentPlaylist['name'] + "'&v='"+nowPlayingObj.title+"'"});
+  gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='" + window.currentPlaylist['name'] + "'&v='"+nowPlayingObj.title+"'"});
   getTimes();
 }
 
@@ -152,7 +215,7 @@ function updateOneTrackData() {
     $('.mainText').css('background', 'none');
     $('#trackName').html(track['title']);
     $('#artistAlbum').html(track['author']);
-    //gtag('config', 'UA-118583968-1', {'page_path': "/?v='"+track['title']+"'"});
+    gtag('config', 'UA-118583968-1', {'page_path': "/?v='"+track['title']+"'"});
     getTimes();
   }
 }
@@ -376,7 +439,7 @@ App.controller('TrackController', function($scope, $http){
     gapi.client.load('youtube', 'v3', function() {
 
       var q = $('#searchField').val();
-      //gtag('config', 'UA-118583968-1', {'page_path': "/?q='"+q+"'"});
+      gtag('config', 'UA-118583968-1', {'page_path': "/?q='"+q+"'"});
       $scope.selectedPL = "";
 
       var request = gapi.client.youtube.search.list({
@@ -464,7 +527,7 @@ App.controller('TrackController', function($scope, $http){
     recentlyPlayedList['tracks'].push($scope.selected);
     $('#play').hide();
     $('#pause').show();
-    //gtag('config', 'UA-118583968-1', {'page_path': "/?v='"+$scope.selected.title+"'"});
+    gtag('config', 'UA-118583968-1', {'page_path': "/?v='"+$scope.selected.title+"'"});
     getTimes();
   };
 
@@ -476,7 +539,7 @@ App.controller('TrackController', function($scope, $http){
       allTrackIDs.push(tracks[i]['id']);
     }
     player.loadPlaylist(allTrackIDs);
-    //gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='"+playlist['name']+"'"});
+    gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='"+playlist['name']+"'"});
   };
 
 });
