@@ -765,7 +765,7 @@ iframe {
   height: 450px;
   background-color: #fff;
   position: absolute;
-  left: 10px;
+  right: 10px;
   bottom: 20px;
   border: 1px #bca903 solid;
   font-size: 12px;
@@ -903,13 +903,13 @@ iframe {
 }
 
 .stickies1 {
-  right: 10px;
+  left: 20px;
   bottom: 20px;
 }
 
 .stickies2 {
-  right: 10px;
-  top: 40px;
+  left: 30px;
+  bottom: 10px;
 }
 
 .stickies {

@@ -297,7 +297,7 @@ $(".stickies").draggable({
 // });
 
 $(".stickies img").click(function(){
-  $(".stickies img").closest(".stickies").hide();
+  $(this).closest(".stickies").hide();
 });
 
 function setVolume(volume) {
