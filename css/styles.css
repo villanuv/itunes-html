@@ -898,6 +898,16 @@ iframe {
   padding: 16px 24px;
 }
 
+.stickies1 {
+  right: 10px;
+  bottom: 20px;
+}
+
+.stickies2 {
+  right: 10px;
+  top: 40px;
+}
+
 .stickies {
   font-family: 'Covered By Your Grace', cursive;
   /*display: none;*/
@@ -907,8 +917,6 @@ iframe {
   min-height: 11px;
   background-color: #fef49c;
   position: absolute;
-  right: 10px;
-  bottom: 20px;
   border: 1px #bca903 solid;
   font-size: 17px;
   color: #000;
@@ -935,6 +943,24 @@ iframe {
 .stickies .main {
   padding: 5px 15px;
   background-color: #fef49c;
+}
+
+.stickies ul,
+.stickies ul li {
+  margin-left: 10px;
+  padding: 0;
+}
+
+.stickies ul {
+  margin: 5px 0 5px 10px;
+}
+
+.stickies p {
+  margin: 0;
+}
+
+.stickies p:nth-child(2) {
+  margin-top: 10px;
 }
 
 .clear {
