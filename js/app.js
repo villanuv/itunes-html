@@ -154,12 +154,12 @@ $(document).keydown(function(e) {
       break;
     case 38:
       player.setVolume(player.getVolume()+3);
-      var newVolume = Math.floor(player.getVolume()/100*82);
+      var newVolume = Math.floor(player.getVolume()/100*90);
       $('#slider').slider({value: newVolume});
       break;
     case 40:
       player.setVolume(player.getVolume()-3);
-      var newVolume = Math.floor(player.getVolume()/100*82);
+      var newVolume = Math.floor(player.getVolume()/100*90);
       $('#slider').slider({value: newVolume});
       break;
     case 219:
@@ -293,7 +293,8 @@ $(".stickies").draggable({
 });
 
 // $(".stickies .handle").dblclick(function(){
-//   $(".stickies .main").toggle();
+//   $(this).parent().find(".main").hide();
+//   $(this).parent().closest(".stickies").toggleClass("stickies-shadow");
 // });
 
 $(".stickies img").click(function(){
@@ -306,10 +307,10 @@ function setVolume(volume) {
 
 $('#slider').slider({
   min: 0,
-  max: 82,
+  max: 90,
   value: 65,
   slide: function(event, ui) {
-    setVolume(Math.floor(ui.value/82*100));
+    setVolume(Math.floor(ui.value/90*100));
   }
 });
 
@@ -329,14 +330,16 @@ function setRepeatImg(){
 }
 
 function changeImage(){
-  if (clickImg == 1){
-    clickImg = 0;
-  } else {
-    clickImg = 1;
+  if(typeof(currentPlaylist) == 'object'){
+    if (clickImg == 1){
+      clickImg = 0;
+    } else {
+      clickImg = 1;
+    }
+    img = repeatImg[clickImg];
+    $("#repeatContainer img").attr("src", img);
+    player.setLoop(!loop);
   }
-  img = repeatImg[clickImg];
-  $("#repeatContainer img").attr("src", img);
-  player.setLoop(!loop);
 }
 
 setRepeatImg();
@@ -344,8 +347,10 @@ setRepeatImg();
 var shuffle = false;
 
 $('#shuffleContainer img').click(function(){
-  $('#shuffleContainer img').toggle();
-  player.setShuffle(!shuffle);
+  if(typeof(currentPlaylist) == 'object'){
+    $('#shuffleContainer img').toggle();
+    player.setShuffle(!shuffle);
+  }
 });
 
 function getDateString(){
@@ -540,6 +545,7 @@ App.controller('TrackController', function($scope, $http){
   // };
 
   $scope.dblClicked = function(){
+    window.currentPlaylist = undefined;
     $('.mainText').css('background', 'none');
     $('#trackName').html($scope.selected.title);
     $('#artistAlbum').html($scope.selected.channelTitle);
