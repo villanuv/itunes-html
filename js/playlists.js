@@ -339,7 +339,7 @@ thumb: "https://i.ytimg.com/vi/5cDLZqe735k/default.jpg", title: "Bobby Brown - M
       ]};
 
 
-var miyagiDoPlaylist = {name: "Miyagi-Do Karate", tracks: [
+var karateKidPlaylist = {name: "Best of Karate Kid OSTs", tracks: [
       {channelTitle: "androidgirl86", dislikeCount: "41", duration: "PT3M41S",
 id: "hqtGHUm553c", likeCount: "804", publishedAt: "2011-05-27T23:44:10.000Z",
 thumb: "https://i.ytimg.com/vi/hqtGHUm553c/default.jpg", title: "The Moment of Truth - Survivor [HQ]", viewCount: "213011"},

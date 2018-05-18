@@ -441,7 +441,7 @@ App.controller('TrackController', function($scope, $http){
     filamOPMPlaylist,
     wonderYearsPlaylist,
     newEditionStoryPlaylist, 
-    miyagiDoPlaylist, 
+    karateKidPlaylist, 
     cobrakaiPlaylist, 
     outsideShermervillePlaylist,
     weekdayChillaxPlaylist,
