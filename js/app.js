@@ -221,7 +221,7 @@ function updateTrackData() {
   $('#coverArt').attr('style', "background:url('" + nowPlayingObj.thumb + "');");
   $('#play').hide();
   $('#pause').show();
-  //gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='" + window.currentPlaylist['name'] + "'&v='"+nowPlayingObj.title+"'"});
+  // gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='" + window.currentPlaylist['name'] + "'&v='"+nowPlayingObj.title+"'"});
   getTimes();
 }
 
@@ -231,7 +231,7 @@ function updateOneTrackData() {
     $('.mainText').css('background', 'none');
     $('#trackName').html(track['title']);
     $('#artistAlbum').html(track['author']);
-    //gtag('config', 'UA-118583968-1', {'page_path': "/?v='"+track['title']+"'"});
+    // gtag('config', 'UA-118583968-1', {'page_path': "/?v='"+track['title']+"'"});
     getTimes();
   }
 }
@@ -444,7 +444,7 @@ App.controller('TrackController', function($scope, $http){
     karateKidPlaylist, 
     cobrakaiPlaylist, 
     outsideShermervillePlaylist,
-    weekdayChillaxPlaylist,
+    adultContemporaryPlaylist,
     abbaGoldPlaylist,
     evenMoreABBAGoldPlaylist
   ];
@@ -456,7 +456,7 @@ App.controller('TrackController', function($scope, $http){
     gapi.client.load('youtube', 'v3', function() {
 
       var q = $('#searchField').val();
-      //gtag('config', 'UA-118583968-1', {'page_path': "/?q='"+q+"'"});
+      // gtag('config', 'UA-118583968-1', {'page_path': "/?q='"+q+"'"});
       $scope.selectedPL = "";
 
       var request = gapi.client.youtube.search.list({
@@ -544,7 +544,7 @@ App.controller('TrackController', function($scope, $http){
     recentlyPlayedList['tracks'].push($scope.selected);
     $('#play').hide();
     $('#pause').show();
-    //gtag('config', 'UA-118583968-1', {'page_path': "/?v='"+$scope.selected.title+"'"});
+    // gtag('config', 'UA-118583968-1', {'page_path': "/?v='"+$scope.selected.title+"'"});
     getTimes();
   };
 
@@ -556,7 +556,7 @@ App.controller('TrackController', function($scope, $http){
       allTrackIDs.push(tracks[i]['id']);
     }
     player.loadPlaylist(allTrackIDs);
-    //gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='"+playlist['name']+"'"});
+    // gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='"+playlist['name']+"'"});
   };
 
 });

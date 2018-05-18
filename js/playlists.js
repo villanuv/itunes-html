@@ -512,7 +512,7 @@ thumb: "https://i.ytimg.com/vi/d3VjTcYYdRw/default.jpg", title: "ABBA : The Way 
       ]};
 
 
-var weekdayChillaxPlaylist = {name: "Weekday Chillax", tracks: [
+var adultContemporaryPlaylist = {name: "Adult Contemporary", tracks: [
       {channelTitle: "CroNix99", dislikeCount: "410", duration: "PT5M34S",
 id: "Ud2XKt2N8fs", likeCount: "14737", publishedAt: "2010-04-01T19:23:27.000Z",
 thumb: "https://i.ytimg.com/vi/Ud2XKt2N8fs/default.jpg", title: "Fleetwood Mac - The Dance-1997-Silver Springs ♥", viewCount: "2985081"},
