@@ -441,7 +441,7 @@ table.currentPlaylist {
 }
 
 table.DraggableThings {
-  width: 581px;
+  width: 582px;
 }
 
 table.DraggableThings tr {
@@ -592,6 +592,10 @@ input:focus {
   box-shadow: 0 0 2pt 1pt #669bcb;
   -webkit-box-shadow: 0 0 2pt 1pt #669bcb;
   -moz-box-shadow: 0 0 2pt 1pt #669bcb;
+}
+
+#searchField::-webkit-search-cancel-button{
+  background-color: #7b7b7b;  
 }
 
 .searchPlaylist {
