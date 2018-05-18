@@ -1,7 +1,7 @@
 var recentlyPlayedList = {name: "Recently Played", tracks: []};
 
 
-var iTunesHTMLPicks = {name: "Not iTunes Launch", tracks: [
+var iTunesHTMLPlaylist = {name: "iTunes HTML", tracks: [
       {channelTitle: "adhon", dislikeCount: "0", duration: "PT7M56S",
 id: "L3mhwHc6sqs", likeCount: "66", publishedAt: "2009-11-24T20:20:50.000Z",
 thumb: "https://i.ytimg.com/vi/L3mhwHc6sqs/default.jpg", title: "U2 Beautiful Day - Quincey & Sonance Remix", viewCount: "9520"},
@@ -339,7 +339,7 @@ thumb: "https://i.ytimg.com/vi/5cDLZqe735k/default.jpg", title: "Bobby Brown - M
       ]};
 
 
-var karateKidPlaylist = {name: "Best of Karate Kid OSTs", tracks: [
+var miyagiDoPlaylist = {name: "Miyagi-Do Karate", tracks: [
       {channelTitle: "androidgirl86", dislikeCount: "41", duration: "PT3M41S",
 id: "hqtGHUm553c", likeCount: "804", publishedAt: "2011-05-27T23:44:10.000Z",
 thumb: "https://i.ytimg.com/vi/hqtGHUm553c/default.jpg", title: "The Moment of Truth - Survivor [HQ]", viewCount: "213011"},
@@ -512,7 +512,7 @@ thumb: "https://i.ytimg.com/vi/d3VjTcYYdRw/default.jpg", title: "ABBA : The Way 
       ]};
 
 
-var diningXPPlaylist = {name: "Dining XP", tracks: [
+var weekdayChillaxPlaylist = {name: "Weekday Chillax", tracks: [
       {channelTitle: "CroNix99", dislikeCount: "410", duration: "PT5M34S",
 id: "Ud2XKt2N8fs", likeCount: "14737", publishedAt: "2010-04-01T19:23:27.000Z",
 thumb: "https://i.ytimg.com/vi/Ud2XKt2N8fs/default.jpg", title: "Fleetwood Mac - The Dance-1997-Silver Springs ♥", viewCount: "2985081"},

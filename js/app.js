@@ -434,22 +434,22 @@ App.controller('TrackController', function($scope, $http){
 
   $scope.playlists = [
     recentlyPlayedList, 
-    iTunesHTMLPicks, 
+    iTunesHTMLPlaylist, 
     wysPlaylist,
     eraserheadPlaylist, 
     ninetiesHousePlaylist, 
     filamOPMPlaylist,
     wonderYearsPlaylist,
     newEditionStoryPlaylist, 
-    karateKidPlaylist, 
+    miyagiDoPlaylist, 
     cobrakaiPlaylist, 
     outsideShermervillePlaylist,
-    diningXPPlaylist,
+    weekdayChillaxPlaylist,
     abbaGoldPlaylist,
     evenMoreABBAGoldPlaylist
   ];
 
-  $scope.searchResults = iTunesHTMLPicks['tracks'];
+  $scope.searchResults = iTunesHTMLPlaylist['tracks'];
 
   $scope.submit = function(){
     gapi.client.setApiKey(apiKey);
