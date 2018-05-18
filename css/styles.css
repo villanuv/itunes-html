@@ -1090,3 +1090,7 @@ img.notiTunes {
   width: 85%; 
   margin-bottom: 7px; 
 }
+img.notStickies {
+  width: 100%;
+  margin-bottom: 5px; 
+}

@@ -57,6 +57,10 @@ function launchNotiTunes() {
   $('.container').show();
 }
 
+function launchNotStickies() {
+  $('.stickies').show();
+}
+
 
 $(document).ready(function() {
 
