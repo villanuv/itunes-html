@@ -448,15 +448,14 @@ App.controller('TrackController', function($scope, $http){
     eraserheadPlaylist, 
     ninetiesHousePlaylist, 
     filamOPMPlaylist,
+    adultContemporaryPlaylist,
+    shermervillePlaylist,
+    early80sPlaylist,
+    abbaGoldPlaylist,
     wonderYearsPlaylist,
     newEditionStoryPlaylist, 
     karateKidPlaylist, 
-    cobrakaiPlaylist, 
-    shermervillePlaylist,
-    skokiePlaylist,
-    adultContemporaryPlaylist,
-    abbaGoldPlaylist,
-    evenMoreABBAGoldPlaylist
+    cobrakaiPlaylist 
   ];
 
   $scope.searchResults = iTunesHTMLPlaylist['tracks'];

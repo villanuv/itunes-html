@@ -78,7 +78,7 @@ viewCount: "2488", likeCount: "38", dislikeCount: "2"}
       ]};
 
 
-var ninetiesHousePlaylist = {name: "90s House/Dance", tracks: [
+var ninetiesHousePlaylist = {name: "90's House/Dance", tracks: [
       {channelTitle: "VantageCigarretes", dislikeCount: "0", duration: "PT4M54S",
 id: "a71sKqPEPfk", likeCount: "15", publishedAt: "2011-12-18T15:21:03.000Z",
 thumb: "https://i.ytimg.com/vi/a71sKqPEPfk/default.jpg", title: "Welcome to My Groove - Mellow Man Ace", viewCount: "6091"},
@@ -216,58 +216,6 @@ thumb: "https://i.ytimg.com/vi/YD6798qjpEM/default.jpg", title: "The New Champio
       {channelTitle: "Leo Birenberg - Topic", dislikeCount: "1", duration: "PT1M38S",
 id: "RQKm4AUaXAc", likeCount: "14", publishedAt: "2018-05-03T10:03:40.000Z",
 thumb: "https://i.ytimg.com/vi/RQKm4AUaXAc/default.jpg", title: "King Cobra", viewCount: "534"}
-      ]};
-
-
-var evenMoreABBAGoldPlaylist = {name: "Even More ABBA Gold", tracks: [
-      {channelTitle: "DODV14TakerFan", dislikeCount: "56", duration: "PT4M57S",
-id: "DTQ5kxuZ-Bg", likeCount: "1354", publishedAt: "2009-04-27T16:46:43.000Z",
-thumb: "https://i.ytimg.com/vi/DTQ5kxuZ-Bg/default.jpg", title: "ABBA - Me and I", viewCount: "466687"},
-      {channelTitle: "2Shaymcn", dislikeCount: "305", duration: "PT3M49S",
-id: "1xfKqxdv3Gk", likeCount: "9635", publishedAt: "2010-11-19T22:05:18.000Z",
-thumb: "https://i.ytimg.com/vi/1xfKqxdv3Gk/default.jpg", title: "ABBA : If it Wasn't For The Nights (Japan) HQ", viewCount: "3473714"},
-      {channelTitle: "Abba919", dislikeCount: "16", duration: "PT3M20S",
-id: "w3UMf20i5Ig", likeCount: "491", publishedAt: "2010-12-03T14:00:57.000Z",
-thumb: "https://i.ytimg.com/vi/w3UMf20i5Ig/default.jpg", title: "ABBA - As Good As New Lyrics", viewCount: "145736"},
-      {channelTitle: "2Shaymcn", dislikeCount: "299", duration: "PT4M39S",
-id: "1zwbARWt8is", likeCount: "6709", publishedAt: "2011-11-27T22:55:36.000Z",
-thumb: "https://i.ytimg.com/vi/1zwbARWt8is/default.jpg", title: "ABBA : Andante, Andante ( With Lyrics)", viewCount: "2262600"},
-      {channelTitle: "AbbaVEVO", dislikeCount: "6668", duration: "PT4M28S",
-id: "3Uo0JAUWijM", likeCount: "140131", publishedAt: "2009-10-08T21:57:14.000Z",
-thumb: "https://i.ytimg.com/vi/3Uo0JAUWijM/default.jpg", title: "Abba - Happy New Year", viewCount: "41451594"},
-      {channelTitle: "DODV14TakerFan", dislikeCount: "42", duration: "PT3M23S",
-id: "c-REo5lTwns", likeCount: "1251", publishedAt: "2009-04-26T08:28:38.000Z",
-thumb: "https://i.ytimg.com/vi/c-REo5lTwns/default.jpg", title: "ABBA - Kisses of Fire", viewCount: "490755"},
-      {channelTitle: "Symphonyofflowers", dislikeCount: "67", duration: "PT3M1S",
-id: "Rnz-qwt8hE4", likeCount: "2552", publishedAt: "2008-12-13T18:54:56.000Z",
-thumb: "https://i.ytimg.com/vi/Rnz-qwt8hE4/default.jpg", title: "ABBA - Nina, Pretty Ballerina", viewCount: "1072617"},
-      {channelTitle: "Tanskuspyro98", dislikeCount: "31", duration: "PT3M28S",
-id: "zbov0SuuDDY", likeCount: "987", publishedAt: "2011-06-21T13:13:14.000Z",
-thumb: "https://i.ytimg.com/vi/zbov0SuuDDY/default.jpg", title: "ABBA - The Piper with Lyrics", viewCount: "303465"},
-      {channelTitle: "Symphonyofflowers", dislikeCount: "13", duration: "PT3M14S",
-id: "eFBlbcT1VKU", likeCount: "732", publishedAt: "2010-08-14T18:36:14.000Z",
-thumb: "https://i.ytimg.com/vi/eFBlbcT1VKU/default.jpg", title: "ABBA - Dance (While The Music Still Goes On)", viewCount: "167786"},
-      {channelTitle: "DODV14TakerFan", dislikeCount: "22", duration: "PT3M38S",
-id: "fCkbXFn4SpY", likeCount: "776", publishedAt: "2009-04-29T01:08:26.000Z",
-thumb: "https://i.ytimg.com/vi/fCkbXFn4SpY/default.jpg", title: "ABBA - Two For The Price Of One", viewCount: "267468"},
-      {channelTitle: "AbbaVEVO", dislikeCount: "439", duration: "PT3M17S",
-id: "mP_dk429rbc", likeCount: "10429", publishedAt: "2009-10-09T06:00:20.000Z",
-thumb: "https://i.ytimg.com/vi/mP_dk429rbc/default.jpg", title: "Abba - That's Me", viewCount: "5765234"},
-      {channelTitle: "SolySol 22", dislikeCount: "230", duration: "PT3M5S",
-id: "PrQSJ8z3dZg", likeCount: "9580", publishedAt: "2009-07-06T06:23:49.000Z",
-thumb: "https://i.ytimg.com/vi/PrQSJ8z3dZg/default.jpg", title: "Abba - Hasta Mañana (1974)", viewCount: "3743773"},
-      {channelTitle: "Superstellina2012", dislikeCount: "33", duration: "PT3M7S",
-id: "Ecnz0VL4y4k", likeCount: "1609", publishedAt: "2012-12-05T23:30:02.000Z",
-thumb: "https://i.ytimg.com/vi/Ecnz0VL4y4k/default.jpg", title: "ABBA: So Long (Made in Sweden for Export 1975) HD - MAX HQ", viewCount: "616596"},
-      {channelTitle: "DODV14TakerFan", dislikeCount: "10", duration: "PT3M36S",
-id: "1roGQPKkzac", likeCount: "398", publishedAt: "2009-04-26T08:09:56.000Z",
-thumb: "https://i.ytimg.com/vi/1roGQPKkzac/default.jpg", title: "ABBA - The King Has Lost His Crown", viewCount: "171698"},
-      {channelTitle: "YA8BADA8BADOO", dislikeCount: "5", duration: "PT5M35S",
-id: "ad0TyzUjKCc", likeCount: "58", publishedAt: "2014-09-22T19:56:20.000Z",
-thumb: "https://i.ytimg.com/vi/ad0TyzUjKCc/default.jpg", title: "Knowing Me, Knowing You (Remix)", viewCount: "11030"},
-      {channelTitle: "YA8BADA8BADOO", dislikeCount: "0", duration: "PT5M16S",
-id: "wX2yD1sJWfY", likeCount: "8", publishedAt: "2016-09-25T21:35:13.000Z",
-thumb: "https://i.ytimg.com/vi/wX2yD1sJWfY/default.jpg", title: "When All Is Said And Done (Remix)", viewCount: "972"}
       ]};
 
 
@@ -508,7 +456,55 @@ id: "tUh4u-lYEhM", likeCount: "21467", publishedAt: "2009-10-08T16:40:47.000Z",
 thumb: "https://i.ytimg.com/vi/tUh4u-lYEhM/default.jpg", title: "Abba - When All Is Said And Done", viewCount: "12782915"},
       {channelTitle: "2Shaymcn", dislikeCount: "88", duration: "PT3M4S",
 id: "d3VjTcYYdRw", likeCount: "3199", publishedAt: "2011-07-25T00:22:36.000Z",
-thumb: "https://i.ytimg.com/vi/d3VjTcYYdRw/default.jpg", title: "ABBA : The Way Old Friends Do (Live London '79)HQ", viewCount: "784990"}
+thumb: "https://i.ytimg.com/vi/d3VjTcYYdRw/default.jpg", title: "ABBA : The Way Old Friends Do (Live London '79)HQ", viewCount: "784990"},
+      {channelTitle: "DODV14TakerFan", dislikeCount: "56", duration: "PT4M57S",
+id: "DTQ5kxuZ-Bg", likeCount: "1354", publishedAt: "2009-04-27T16:46:43.000Z",
+thumb: "https://i.ytimg.com/vi/DTQ5kxuZ-Bg/default.jpg", title: "ABBA - Me and I", viewCount: "466687"},
+      {channelTitle: "2Shaymcn", dislikeCount: "305", duration: "PT3M49S",
+id: "1xfKqxdv3Gk", likeCount: "9635", publishedAt: "2010-11-19T22:05:18.000Z",
+thumb: "https://i.ytimg.com/vi/1xfKqxdv3Gk/default.jpg", title: "ABBA : If it Wasn't For The Nights (Japan) HQ", viewCount: "3473714"},
+      {channelTitle: "Abba919", dislikeCount: "16", duration: "PT3M20S",
+id: "w3UMf20i5Ig", likeCount: "491", publishedAt: "2010-12-03T14:00:57.000Z",
+thumb: "https://i.ytimg.com/vi/w3UMf20i5Ig/default.jpg", title: "ABBA - As Good As New Lyrics", viewCount: "145736"},
+      {channelTitle: "2Shaymcn", dislikeCount: "299", duration: "PT4M39S",
+id: "1zwbARWt8is", likeCount: "6709", publishedAt: "2011-11-27T22:55:36.000Z",
+thumb: "https://i.ytimg.com/vi/1zwbARWt8is/default.jpg", title: "ABBA : Andante, Andante ( With Lyrics)", viewCount: "2262600"},
+      {channelTitle: "AbbaVEVO", dislikeCount: "6668", duration: "PT4M28S",
+id: "3Uo0JAUWijM", likeCount: "140131", publishedAt: "2009-10-08T21:57:14.000Z",
+thumb: "https://i.ytimg.com/vi/3Uo0JAUWijM/default.jpg", title: "Abba - Happy New Year", viewCount: "41451594"},
+      {channelTitle: "DODV14TakerFan", dislikeCount: "42", duration: "PT3M23S",
+id: "c-REo5lTwns", likeCount: "1251", publishedAt: "2009-04-26T08:28:38.000Z",
+thumb: "https://i.ytimg.com/vi/c-REo5lTwns/default.jpg", title: "ABBA - Kisses of Fire", viewCount: "490755"},
+      {channelTitle: "Symphonyofflowers", dislikeCount: "67", duration: "PT3M1S",
+id: "Rnz-qwt8hE4", likeCount: "2552", publishedAt: "2008-12-13T18:54:56.000Z",
+thumb: "https://i.ytimg.com/vi/Rnz-qwt8hE4/default.jpg", title: "ABBA - Nina, Pretty Ballerina", viewCount: "1072617"},
+      {channelTitle: "Tanskuspyro98", dislikeCount: "31", duration: "PT3M28S",
+id: "zbov0SuuDDY", likeCount: "987", publishedAt: "2011-06-21T13:13:14.000Z",
+thumb: "https://i.ytimg.com/vi/zbov0SuuDDY/default.jpg", title: "ABBA - The Piper with Lyrics", viewCount: "303465"},
+      {channelTitle: "Symphonyofflowers", dislikeCount: "13", duration: "PT3M14S",
+id: "eFBlbcT1VKU", likeCount: "732", publishedAt: "2010-08-14T18:36:14.000Z",
+thumb: "https://i.ytimg.com/vi/eFBlbcT1VKU/default.jpg", title: "ABBA - Dance (While The Music Still Goes On)", viewCount: "167786"},
+      {channelTitle: "DODV14TakerFan", dislikeCount: "22", duration: "PT3M38S",
+id: "fCkbXFn4SpY", likeCount: "776", publishedAt: "2009-04-29T01:08:26.000Z",
+thumb: "https://i.ytimg.com/vi/fCkbXFn4SpY/default.jpg", title: "ABBA - Two For The Price Of One", viewCount: "267468"},
+      {channelTitle: "AbbaVEVO", dislikeCount: "439", duration: "PT3M17S",
+id: "mP_dk429rbc", likeCount: "10429", publishedAt: "2009-10-09T06:00:20.000Z",
+thumb: "https://i.ytimg.com/vi/mP_dk429rbc/default.jpg", title: "Abba - That's Me", viewCount: "5765234"},
+      {channelTitle: "SolySol 22", dislikeCount: "230", duration: "PT3M5S",
+id: "PrQSJ8z3dZg", likeCount: "9580", publishedAt: "2009-07-06T06:23:49.000Z",
+thumb: "https://i.ytimg.com/vi/PrQSJ8z3dZg/default.jpg", title: "Abba - Hasta Mañana (1974)", viewCount: "3743773"},
+      {channelTitle: "Superstellina2012", dislikeCount: "33", duration: "PT3M7S",
+id: "Ecnz0VL4y4k", likeCount: "1609", publishedAt: "2012-12-05T23:30:02.000Z",
+thumb: "https://i.ytimg.com/vi/Ecnz0VL4y4k/default.jpg", title: "ABBA: So Long (Made in Sweden for Export 1975) HD - MAX HQ", viewCount: "616596"},
+      {channelTitle: "DODV14TakerFan", dislikeCount: "10", duration: "PT3M36S",
+id: "1roGQPKkzac", likeCount: "398", publishedAt: "2009-04-26T08:09:56.000Z",
+thumb: "https://i.ytimg.com/vi/1roGQPKkzac/default.jpg", title: "ABBA - The King Has Lost His Crown", viewCount: "171698"},
+      {channelTitle: "YA8BADA8BADOO", dislikeCount: "5", duration: "PT5M35S",
+id: "ad0TyzUjKCc", likeCount: "58", publishedAt: "2014-09-22T19:56:20.000Z",
+thumb: "https://i.ytimg.com/vi/ad0TyzUjKCc/default.jpg", title: "Knowing Me, Knowing You (Remix)", viewCount: "11030"},
+      {channelTitle: "YA8BADA8BADOO", dislikeCount: "0", duration: "PT5M16S",
+id: "wX2yD1sJWfY", likeCount: "8", publishedAt: "2016-09-25T21:35:13.000Z",
+thumb: "https://i.ytimg.com/vi/wX2yD1sJWfY/default.jpg", title: "When All Is Said And Done (Remix)", viewCount: "972"}
       ]};
 
 
@@ -923,7 +919,7 @@ thumb: "https://i.ytimg.com/vi/NaMmX7OCyCA/default.jpg", title: "Could It Be I'm
       ]};
 
 
-var skokiePlaylist = {name: "Skokie Throwback", tracks: [
+var early80sPlaylist = {name: "Early 80's", tracks: [
       {channelTitle: "michaeljacksonVEVO", dislikeCount: "15774", duration: "PT3M23S",
 id: "5X-Mrc2l1d0", likeCount: "597000", publishedAt: "2009-10-03T04:41:55.000Z",
 thumb: "https://i.ytimg.com/vi/5X-Mrc2l1d0/default.jpg", title: "Michael Jackson - Rock With You (Official Video)", viewCount: "123223155"},
