@@ -452,7 +452,8 @@ App.controller('TrackController', function($scope, $http){
     newEditionStoryPlaylist, 
     karateKidPlaylist, 
     cobrakaiPlaylist, 
-    outsideShermervillePlaylist,
+    shermervillePlaylist,
+    skokiePlaylist,
     adultContemporaryPlaylist,
     abbaGoldPlaylist,
     evenMoreABBAGoldPlaylist
