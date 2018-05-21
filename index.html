@@ -31,7 +31,8 @@
   </div>
 
   <div class="menu-popup">
-    <div class="text">About Not iTunes</div>
+    <div class="new-playlist">New Playlist</div>
+    <div class="about">About Not iTunes</div>
   </div>
 
   <div class="mail">
@@ -161,7 +162,7 @@
           ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)"
 
           -->
-
+          <tr class="rowToAddPlaylist"><td><input ng-model="newPlaylist" type="text" class="add-playlist" autocomplete="off" spellcheck="false" ng-keyup="$event.keyCode == 13 && addPlaylist(newPlaylist)" /></td></tr>
         </table>
       </div>
       <div id="player"></div>

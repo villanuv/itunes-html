@@ -400,7 +400,13 @@ $.fn.center = function() {
   return this;
 };
 
-$('.menu-popup .text').click(function(){
+$('.menu-popup .new-playlist').click(function(){
+  $('.app-name').toggleClass("app-name-over");
+  $('.menu-popup').toggle();
+  $('.rowToAddPlaylist').show();
+});
+
+$('.menu-popup .about').click(function(){
   $('.app-name').toggleClass("app-name-over");
   $('.menu-popup').toggle();
   $('.about-popup').center();
@@ -461,8 +467,8 @@ App.controller('TrackController', function($scope, $http){
     early80sPlaylist,
     abbaGoldPlaylist,
     wonderYearsPlaylist,
-    newEditionStoryPlaylist, 
-    cobrakaiPlaylist 
+    // newEditionStoryPlaylist, 
+    // cobrakaiPlaylist 
   ];
 
   $scope.searchResults = iTunesHTMLPlaylist['tracks'];
@@ -514,6 +520,13 @@ App.controller('TrackController', function($scope, $http){
       });
 
     });
+  };
+
+  $scope.addPlaylist = function(playlistName){
+    var newPlaylistObject = {name: playlistName, tracks: []};
+    $('.rowToAddPlaylist').hide();
+    $('.rowToAddPlaylist input').val('');
+    $scope.playlists.push(newPlaylistObject);
   };
 
   $scope.setMaster = function(song){

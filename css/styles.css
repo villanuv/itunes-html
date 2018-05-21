@@ -47,7 +47,8 @@ body {
 }
 
 .app-name-over,
-.menu-popup .text:hover {
+.menu-popup .new-playlist:hover,
+.menu-popup .about:hover {
   background-color: #2687fb;
   color: #fff;
 }
@@ -95,8 +96,13 @@ body {
   border-bottom-right-radius: 5px;
 }
 
-.menu-popup .text {
+.menu-popup .new-playlist,
+.menu-popup .about {
   padding: 2px 12px 2px 23px;
+}
+
+.rowToAddPlaylist {
+  display: none;
 }
 
 .about-popup {
@@ -578,7 +584,7 @@ tr td.activePL {
   text-align: center;
 }
 
-input:first-child {
+#searchForm input {
   border: 1px solid #ccc;
   padding: 3px 6px 4px 24px;
   outline: none;
@@ -617,6 +623,11 @@ input:focus {
   -webkit-border-bottom-right-radius: 5px;
   -moz-border-radius-bottomright: 5px;
   border-bottom-right-radius: 5px;
+}
+
+.add-playlist {
+  border: none;
+  font-size: 13px;
 }
 
 .mainWindow {
