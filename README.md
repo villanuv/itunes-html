@@ -1,11 +1,17 @@
 # iTunes HTML
 
-![output](https://raw.github.com/villanuv/itunes-html/master/screen.jpg)
+![output](https://raw.github.com/villanuv/itunes-html/master/images/screen.jpg)
 
 ## Notes
 
-First iteration of Rdio Player and virtual Mac interface. This uses Rdio's old web player, ~~and needs to be updated for the new JavaScript API and player. As they've deprecated OAuth 1.0, search functionality is broken.~~
+### Not iTunes v0.51
 
-As Rdio has long shuttered, this app no longer functions as it used to. It was a great exercise in Angular, UI CSS design and jQuery functionality.
+YouTube Player and Search API integrated to replace the previously used Rdio. Configured close to the newer MacOS UI with dock and relevant "apps" - with static playlists included for temporary purposes. Virtual mail included for contact. New version renamed "Not iTunes" from "iTunes HTML" and launched under dj.WYSIWYG brand. 
 
-[See iTunes HTML](http://itunes-html.villanuv.com/)
+### Prior to v0.5
+
+First iteration of Rdio Player and virtual Mac interface, based off a related Belly Engineering exercise. Used Rdio's old web player, and broke once their service shut down permanently.
+
+## Demo
+
+[See Not iTunes](http://not-itunes.djwysiwyg.com/)
