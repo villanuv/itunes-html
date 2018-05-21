@@ -404,6 +404,7 @@ $('.menu-popup .new-playlist').click(function(){
   $('.app-name').toggleClass("app-name-over");
   $('.menu-popup').toggle();
   $('.rowToAddPlaylist').show();
+  $('.rowToAddPlaylist input').focus();
 });
 
 $('.menu-popup .about').click(function(){
@@ -411,6 +412,11 @@ $('.menu-popup .about').click(function(){
   $('.menu-popup').toggle();
   $('.about-popup').center();
   $('.about-popup').toggle();
+});
+
+$('.rowToAddPlaylist input').blur(function(){
+  $('.rowToAddPlaylist').hide();
+  $('.rowToAddPlaylist input').val('');
 });
 
 $('.popup-top img:first-child')
