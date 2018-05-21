@@ -1,4 +1,4 @@
-# iTunes HTML
+# Not iTunes
 
 ![output](https://raw.github.com/villanuv/itunes-html/master/images/screen.jpg)
 
