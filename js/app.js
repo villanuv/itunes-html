@@ -46,6 +46,8 @@ function onPlayerStateChange(event) {
   }
   if(event.data == 3) {
     skipping = false;
+    $('#trackName').html("Buffering...");
+    $('#artistAlbum').html("Please wait");
   }
 }
 
