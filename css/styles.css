@@ -97,7 +97,7 @@ body {
 
 .about-popup {
   display: none;
-  z-index: 100;
+  z-index: 10;
   width: 600px;
   height: 295px;
   position: absolute;
