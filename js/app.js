@@ -117,6 +117,10 @@ $(document).ready(function() {
     return valid;
   }
 
+  $(this).bind("contextmenu", function(e) {
+    e.preventDefault();
+  });
+
   $('#dock2').Fisheye({
     maxWidth: 60,
     items: 'a',
@@ -447,6 +451,7 @@ App.controller('TrackController', function($scope, $http){
     wysPlaylist,
     eraserheadPlaylist, 
     ninetiesHousePlaylist, 
+    slowJamsPlaylist,
     filamOPMPlaylist,
     adultContemporaryPlaylist,
     shermervillePlaylist,
@@ -454,7 +459,6 @@ App.controller('TrackController', function($scope, $http){
     abbaGoldPlaylist,
     wonderYearsPlaylist,
     newEditionStoryPlaylist, 
-    karateKidPlaylist, 
     cobrakaiPlaylist 
   ];
 
