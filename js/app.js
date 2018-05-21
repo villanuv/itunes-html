@@ -229,7 +229,7 @@ function updateTrackData() {
   $('#coverArt').attr('style', "background:url('" + nowPlayingObj.thumb + "');");
   $('#play').hide();
   $('#pause').show();
-  // gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='" + window.currentPlaylist['name'] + "'&v='"+nowPlayingObj.title+"'"});
+  // gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='" + window.currentPlaylist['name'] + "'&title='"+nowPlayingObj.title + "'&id='" + nowPlayingObj.id + "'"});
   getTimes();
 }
 
@@ -239,7 +239,7 @@ function updateOneTrackData() {
     $('.mainText').css('background', 'none');
     $('#trackName').html(track['title']);
     $('#artistAlbum').html(track['author']);
-    // gtag('config', 'UA-118583968-1', {'page_path': "/?v='"+track['title']+"'"});
+    // gtag('config', 'UA-118583968-1', {'page_path': "/?title='" + track['title'] + "'&id='" + track['video_id'] + "'"});
     getTimes();
   }
 }
@@ -558,7 +558,7 @@ App.controller('TrackController', function($scope, $http){
     recentlyPlayedList['tracks'].push($scope.selected);
     $('#play').hide();
     $('#pause').show();
-    // gtag('config', 'UA-118583968-1', {'page_path': "/?v='"+$scope.selected.title+"'"});
+    // gtag('config', 'UA-118583968-1', {'page_path': "/?title='" + $scope.selected.title + "'&id='" + $scope.selected.id + "'"});
     getTimes();
   };
 
@@ -570,7 +570,7 @@ App.controller('TrackController', function($scope, $http){
       allTrackIDs.push(tracks[i]['id']);
     }
     player.loadPlaylist(allTrackIDs);
-    // gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='"+playlist['name']+"'"});
+    // gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='" + playlist['name'] + "'"});
   };
 
 });
