@@ -185,6 +185,9 @@ $(document).keydown(function(e) {
       $('.rowToAddPlaylist').show();
       $('.rowToAddPlaylist input').focus();
       break;
+    case 82:
+      changeImage();
+      break;
     default: 
       return;
   }
