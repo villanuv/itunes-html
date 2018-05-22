@@ -120,9 +120,9 @@ $(document).ready(function() {
     return valid;
   }
 
-  $(this).bind("contextmenu", function(e) {
-    e.preventDefault();
-  });
+  // $(this).bind("contextmenu", function(e) {
+  //   e.preventDefault();
+  // });
 
   $('#dock2').Fisheye({
     maxWidth: 60,
@@ -180,6 +180,10 @@ $(document).keydown(function(e) {
         skipping = false;
         player.nextVideo();
       }
+      break;
+    case 78:
+      $('.rowToAddPlaylist').show();
+      $('.rowToAddPlaylist input').focus();
       break;
     default: 
       return;
@@ -469,11 +473,11 @@ App.controller('TrackController', function($scope, $http){
     slowJamsPlaylist,
     filamOPMPlaylist,
     adultContemporaryPlaylist,
-    shermervillePlaylist,
+    // shermervillePlaylist,
     early80sPlaylist,
     abbaGoldPlaylist,
     wonderYearsPlaylist,
-    // newEditionStoryPlaylist, 
+    newEditionStoryPlaylist, 
     // cobrakaiPlaylist 
   ];
 
@@ -569,6 +573,22 @@ App.controller('TrackController', function($scope, $http){
 // player.seekTo(c);
 
   // };
+
+  // $scope.songDrag = function(){
+  //   console.log();
+  // };
+
+  $scope.onOver = function(e) {
+    angular.element(e.target).toggleClass("dropPlaylist");
+  };
+
+  $scope.onOut = function(e) {
+    angular.element(e.target).toggleClass("dropPlaylist");
+  };
+
+  $scope.onDrop = function(e) {
+    angular.element(e.target).removeClass("dropPlaylist");
+  };
 
   $scope.dblClicked = function(){
     window.currentPlaylist = undefined;

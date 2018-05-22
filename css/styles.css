@@ -448,10 +448,6 @@ table td:hover,
   cursor: default;
 }
 
-table.currentPlaylist {
-  width: 221px;
-}
-
 table.DraggableThings {
   width: 582px;
 }
@@ -475,6 +471,10 @@ table.DraggableThings td {
 .selected, .selectedPL {
   background-color: #2687fb !important;
   color: #fff !important;
+}
+
+.selected div {
+  border-color: #2687fb !important;
 }
 
 tr:nth-child(2) td.activePL {
@@ -627,7 +627,8 @@ input:focus {
 
 .add-playlist {
   border: none;
-  font-size: 13px;
+  font-size: 12.75px;
+  padding-left: 3px;
 }
 
 .mainWindow {
@@ -671,9 +672,9 @@ input:focus {
 
 .currentPlaylist {
   width: 100% !important;
+  overflow-y: scroll;
   /*height: 366px;
   max-height: 366px;
-  overflow-y: scroll;
   white-space: nowrap;
   vertical-align: top;
   clear: both;
@@ -682,9 +683,14 @@ input:focus {
   border-bottom-left-radius: 5px;*/
 }
 
+.currentPlaylist.droppableItem {
+  height: 366px;
+}
+
 .currentPlaylist tr:not(:first-child) {
   font-weight: 500;
-  font-size: 13px;
+  font-size: 12.75px;
+  line-height: 17px;
 }
 
 .currentPlaylist tr:not(:first-child) td,
@@ -706,6 +712,25 @@ input:focus {
   background: url('/images/playlist.jpg') no-repeat;
   background-size: 20px 20px;
   background-position: 18px 2px !important;
+}
+
+.currentPlaylist tr {
+  /*border-bottom: 1px #ccc solid;*/
+  padding-bottom: 3px;
+}
+
+.currentPlaylist tr td div {
+  border: 1px #f6f6f6 solid;
+}
+
+.dropPlaylist {
+  border: 1px #2687fb solid !important;
+  margin: -1px 0 0 -25px;
+  padding: 0 2px 1px 25px;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
 h3 {
