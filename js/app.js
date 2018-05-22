@@ -120,9 +120,9 @@ $(document).ready(function() {
     return valid;
   }
 
-  $(this).bind("contextmenu", function(e) {
-    e.preventDefault();
-  });
+  // $(this).bind("contextmenu", function(e) {
+  //   e.preventDefault();
+  // });
 
   $('#dock2').Fisheye({
     maxWidth: 60,
@@ -180,6 +180,13 @@ $(document).keydown(function(e) {
         skipping = false;
         player.nextVideo();
       }
+      break;
+    case 78:
+      $('.rowToAddPlaylist').show();
+      $('.rowToAddPlaylist input').focus();
+      break;
+    case 82:
+      changeImage();
       break;
     default: 
       return;
@@ -400,11 +407,23 @@ $.fn.center = function() {
   return this;
 };
 
-$('.menu-popup .text').click(function(){
+$('.menu-popup .new-playlist').click(function(){
+  $('.app-name').toggleClass("app-name-over");
+  $('.menu-popup').toggle();
+  $('.rowToAddPlaylist').show();
+  $('.rowToAddPlaylist input').focus();
+});
+
+$('.menu-popup .about').click(function(){
   $('.app-name').toggleClass("app-name-over");
   $('.menu-popup').toggle();
   $('.about-popup').center();
   $('.about-popup').toggle();
+});
+
+$('.rowToAddPlaylist input').blur(function(){
+  $('.rowToAddPlaylist').hide();
+  $('.rowToAddPlaylist input').val('');
 });
 
 $('.popup-top img:first-child')
@@ -457,12 +476,12 @@ App.controller('TrackController', function($scope, $http){
     slowJamsPlaylist,
     filamOPMPlaylist,
     adultContemporaryPlaylist,
-    shermervillePlaylist,
+    // shermervillePlaylist,
     early80sPlaylist,
     abbaGoldPlaylist,
     wonderYearsPlaylist,
     newEditionStoryPlaylist, 
-    cobrakaiPlaylist 
+    // cobrakaiPlaylist 
   ];
 
   $scope.searchResults = iTunesHTMLPlaylist['tracks'];
@@ -516,6 +535,13 @@ App.controller('TrackController', function($scope, $http){
     });
   };
 
+  $scope.addPlaylist = function(playlistName){
+    var newPlaylistObject = {name: playlistName, tracks: []};
+    $('.rowToAddPlaylist').hide();
+    $('.rowToAddPlaylist input').val('');
+    $scope.playlists.push(newPlaylistObject);
+  };
+
   $scope.setMaster = function(song){
     $scope.selected = song;
     $scope.selectedPL = "";
@@ -550,6 +576,22 @@ App.controller('TrackController', function($scope, $http){
 // player.seekTo(c);
 
   // };
+
+  // $scope.songDrag = function(){
+  //   console.log();
+  // };
+
+  $scope.onOver = function(e) {
+    angular.element(e.target).toggleClass("dropPlaylist");
+  };
+
+  $scope.onOut = function(e) {
+    angular.element(e.target).toggleClass("dropPlaylist");
+  };
+
+  $scope.onDrop = function(e) {
+    angular.element(e.target).removeClass("dropPlaylist");
+  };
 
   $scope.dblClicked = function(){
     window.currentPlaylist = undefined;

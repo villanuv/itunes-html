@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
   <meta property="og:title" content="Not iTunes" />
-  <meta property="og:description" content="Not iTunes v0.51 Beta: An experimental UX/UI exercise from dj.WYSIWYG" />
+  <meta property="og:description" content="Not iTunes v0.51 Beta: An experimental UX/UI and JavaScript exercise from dj.WYSIWYG" />
   <meta property="og:image" content="http://not-itunes.djwysiwyg.com/images/screen_fb.jpg" />
 
   <meta charset="UTF-8">
@@ -31,7 +31,8 @@
   </div>
 
   <div class="menu-popup">
-    <div class="text">About Not iTunes</div>
+    <div class="new-playlist">New Playlist</div>
+    <div class="about">About Not iTunes</div>
   </div>
 
   <div class="mail">
@@ -66,7 +67,6 @@
       <p>LIMITATIONS & KNOWN ISSUES</p>
       <ul>
         <li>Search returns 1 result only</li>
-        <li>Static playlists (for now)</li>
         <li>Shuffling unsyncs data</li>
         <li>Dragging boundaries not set</li>
         <li>Buffering affects Recently Played</li>
@@ -145,11 +145,12 @@
       </div>
     </div>
     <div class="mainWindow">
-      <div class="currentPlaylist droppableItem" style="height:366px;">
+      <div class="currentPlaylist droppableItem">
         <table border="0" cellspacing="0" class="currentPlaylist">
           <tr><td>All Playlists (Beta)</td></tr>
-          <tr ng-repeat="playlist in playlists" ng-show="playlist.name" ng-class="{selected : isSelectedPL(playlist)}" ng-click="setMasterPL(playlist)" ng-dblclick="dblClickedPL(playlist)" ng-model="playlist">
-            <td ng-class="{activePL : isSelectedPL(playlist)}">{{playlist.name}}</td>
+          <tr ng-repeat="playlist in playlists track by $index" ng-show="playlist.name" ng-class="{selected : isSelectedPL(playlist)}" ng-click="setMasterPL(playlist)" ng-dblclick="dblClickedPL(playlist)" ng-model="playlist">
+            <td ng-class="{activePL : isSelectedPL(playlist)}">
+              <div data-drop="true" ng-model="playlist.tracks" jqyoui-droppable="{multiple:true, onOver: 'onOver', onOut: 'onOut', onDrop: 'onDrop'}">{{playlist.name}}</div></td>
           </tr>
           <!--
 
@@ -161,7 +162,7 @@
           ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)"
 
           -->
-
+          <tr class="rowToAddPlaylist"><td><input ng-model="newPlaylist" type="text" class="add-playlist" autocomplete="off" spellcheck="false" placeholder="Playlist" ng-keyup="$event.keyCode == 13 && addPlaylist(newPlaylist)" /></td></tr>
         </table>
       </div>
       <div id="player"></div>
@@ -182,7 +183,7 @@
       </div>
       <div class="searchPlaylist">
         <table border="0" cellpadding="0" cellspacing="0" class="DraggableThings">
-          <tr ng-repeat="song in searchResults track by $index" ng-show="song.title" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClicked()" ng-model="searchResults">
+          <tr ng-repeat="song in searchResults track by $index" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" jqyoui-draggable="{index: {{$index}}, placeholder: 'keep'}" data-drag="{{item.drag}}" ng-show="song.title" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClicked()" ng-model="searchResults">
             <td class="song-title">{{song['title'] | limitTo:38}}{{song['title'].length > 38 ? '...' : ''}}</td>
             <td class="channel">{{song['channelTitle'] | limitTo:12}}{{song['channelTitle'].length > 12 ? '...' : ''}}</td>
             <td class="duration">{{song['duration'] | convertYTDuration}}</td>
