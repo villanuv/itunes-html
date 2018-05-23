@@ -184,8 +184,8 @@
       <div class="searchPlaylist">
         <table border="0" cellpadding="0" cellspacing="0" class="DraggableThings">
           <tr ng-repeat="song in searchResults track by $index" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" jqyoui-draggable="{index: {{$index}}, placeholder: 'keep'}" data-drag="{{item.drag}}" ng-show="song.title" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClicked()" ng-model="searchResults">
-            <td class="song-title">{{song['title'] | limitTo:38}}{{song['title'].length > 38 ? '...' : ''}}</td>
-            <td class="channel">{{song['channelTitle'] | limitTo:12}}{{song['channelTitle'].length > 12 ? '...' : ''}}</td>
+            <td class="song-title">{{song['title'] | limitTo:39}}{{song['title'].length > 39 ? '...' : ''}}</td>
+            <td class="channel">{{song['channelTitle'] | limitTo:13}}{{song['channelTitle'].length > 13 ? '...' : ''}}</td>
             <td class="duration">{{song['duration'] | convertYTDuration}}</td>
             <td class="plays">{{song['viewCount'] | truncatePlays}}</td>
             <td class="date-added">{{song['publishedAt'] | convertYTDate}}</td>
@@ -212,7 +212,7 @@
   <script src="js/jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js"></script>
   <script src="js/angular-dragdrop.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.0/underscore-min.js"></script>
   <script src="js/iutil.js"></script>
   <script src="js/fisheye.js"></script>
   <script src="js/playlists.js"></script>
