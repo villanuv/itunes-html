@@ -96,9 +96,27 @@ body {
   border-bottom-right-radius: 5px;
 }
 
-.menu-popup .new-playlist,
+.menu-popup .new-playlist {
+  display: block;
+  padding: 2px 12px 3px 23px;
+  margin-bottom: 4px;
+}
+
 .menu-popup .about {
+  display: block;
   padding: 2px 12px 2px 23px;
+  margin-top: 5px;
+}
+
+.menu-popup .divider {
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.cmd {
+  float: right;
+  letter-spacing: 3px;
 }
 
 .rowToAddPlaylist {
