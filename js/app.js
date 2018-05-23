@@ -471,16 +471,18 @@ App.controller('TrackController', function($scope, $http){
     recentlyPlayedList, 
     iTunesHTMLPlaylist, 
     wysPlaylist,
-    eraserheadPlaylist, 
+    // eraserheadPlaylist, 
     ninetiesHousePlaylist, 
     slowJamsPlaylist,
-    filamOPMPlaylist,
+    freestylePlaylist,
+    // filamOPMPlaylist,
     adultContemporaryPlaylist,
     // shermervillePlaylist,
     early80sPlaylist,
     abbaGoldPlaylist,
+    internationalPlaylist,
     wonderYearsPlaylist,
-    newEditionStoryPlaylist, 
+    // newEditionStoryPlaylist, 
     // cobrakaiPlaylist 
   ];
 
