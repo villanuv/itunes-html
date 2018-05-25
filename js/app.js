@@ -58,6 +58,8 @@ function launchNotMail() {
 
 function launchNotiTunes() {
   $('.container').show();
+  $('.menu-popup .show-not-itunes').toggle();
+  $('.menu-popup .hide-not-itunes').toggle();
 }
 
 function launchNotStickies() {
@@ -275,12 +277,16 @@ $('#play').click(function() {
   player.playVideo();
   $('#play').hide();
   $('#pause').show();
+  $('.lblPlay').toggle();
+  $('.lblPause').toggle();
 });
 
 $('#pause').click(function() { 
   player.pauseVideo();
   $('#pause').hide();
   $('#play').show();
+  $('.lblPlay').toggle();
+  $('.lblPause').toggle();
 });
 
 $('#next').click(function() {
@@ -434,6 +440,28 @@ $('.menu-popup .about').click(function(){
   $('.menu-popup').toggle();
   $('.about-popup').center();
   $('.about-popup').toggle();
+});
+
+$('.menu-popup .feedback').click(function(){
+  $('.app-name').toggleClass("app-name-over");
+  $('.menu-popup').toggle();
+  $('.mail').show();
+});
+
+$('.menu-popup .hide-not-itunes').click(function(){
+  $('.app-name').toggleClass("app-name-over");
+  $('.menu-popup').toggle();
+  $('.container').toggle();
+  $('.menu-popup .show-not-itunes').toggle();
+  $('.menu-popup .hide-not-itunes').toggle();
+});
+
+$('.menu-popup .show-not-itunes').click(function(){
+  $('.app-name').toggleClass("app-name-over");
+  $('.menu-popup').toggle();
+  $('.container').toggle();
+  $('.menu-popup .show-not-itunes').toggle();
+  $('.menu-popup .hide-not-itunes').toggle();
 });
 
 $('.controls-popup .playPause').click(function(){
@@ -609,7 +637,7 @@ function getPLData(array) {
   totalMin = minutes + moreMin;
   var hours = hours + Math.floor(totalMin/60);
   totalMin = totalMin % 60;
-  return songs + pluralCheck("songs", songs) + ', ' + hourcheck(hours) + totalMin + pluralCheck("minutes", totalMin) + ', ' + totalSec + pluralCheck("seconds", totalSec);
+  return songs + pluralCheck("songs", songs) + ', ' + hourcheck(hours) + totalMin + pluralCheck("minutes", totalMin);
 }
 
 

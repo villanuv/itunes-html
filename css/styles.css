@@ -47,11 +47,18 @@ body {
 }
 
 .app-name-over,
-.menu-popup .new-playlist:hover,
 .menu-popup .about:hover,
+.menu-popup .new-playlist:hover,
+.menu-popup .feedback:hover,
+.menu-popup .hide-not-itunes:hover,
+.menu-popup .show-not-itunes:hover,
 .controls-popup div:hover {
   background-color: #2687fb;
   color: #fff;
+}
+
+.menu-popup .show-not-itunes {
+  display: none;
 }
 
 #osBar div {
@@ -105,7 +112,8 @@ body {
   left: 128px;
 }
 
-.menu-popup .new-playlist,
+.menu-popup .about,
+.menu-popup .hide-not-itunes,
 .controls-popup .playPause,
 .controls-popup .next,
 .controls-popup .previous,
@@ -118,6 +126,13 @@ body {
   margin-bottom: 4px;
 }
 
+.menu-popup .show-not-itunes {
+  padding: 2px 12px 3px 19px;
+  margin-bottom: 4px; 
+}
+
+.menu-popup .hide-not-itunes,
+.menu-popup .show-not-itunes,
 .controls-popup .playPause,
 .controls-popup .next,
 .controls-popup .increaseVol,
@@ -126,6 +141,8 @@ body {
   margin-bottom: 0;
 }
 
+.menu-popup .hide-not-itunes,
+.menu-popup .show-not-itunes,
 .controls-popup .increaseVol,
 .controls-popup .shuffle {
   margin-top: 4px;
@@ -135,10 +152,11 @@ body {
   margin-bottom: 4px;
 }
 
-.menu-popup .about {
+.menu-popup .new-playlist,
+.menu-popup .feedback {
   display: block;
   padding: 2px 12px 2px 19px;
-  margin-top: 5px;
+  margin: 5px 0;
 }
 
 .lblPause {
