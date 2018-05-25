@@ -1,7 +1,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
-  font-weight: 600;
+  /*font-weight: 600;*/
   background: url('/images/bg.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -207,7 +207,7 @@ body {
 
 .container {
   width: 803px;
-  margin: 100px auto 0;
+  margin: 60px auto 0;
   padding: 0;
   background-color: #fff;
   -webkit-border-radius: 5px;
@@ -514,13 +514,34 @@ tr td.activePL {
 .searchColumn {
   float: left !important;
   width: 582px;
-  min-height: 500px;
+  min-height: 503px;
   /*border-right: 1px #d9d9d9 solid;*/
-  border-bottom: 1px #d9d9d9 solid;
+  /*border-bottom: 1px #d9d9d9 solid;*/
   border-left: none;
+  background-color: #fff;
+/*  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-bottom-right-radius: 5px;*/
+}
+
+.bottomBar {
+  user-select: none;
+  clear: both;
+  display block;
+  font-size: 10.5px;
+  text-align: center;
+  padding: 4px 0 2px;
+  height: 17px;
+  background: url('/images/itunes-bottom.jpg') repeat-x;
+  background-size: 5%;
+  border-top: 1px #a2a2a2 solid;
+
   -webkit-border-bottom-right-radius: 5px;
   -moz-border-radius-bottomright: 5px;
   border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .heading {

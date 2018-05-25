@@ -462,6 +462,76 @@ $('#iTunesWinBtns img:first-child').click(function(){
   $('.container').toggle();
 });
 
+function ytDuration(string) {
+  if (string != undefined) {
+    var tString = string.replace('H', ':').replace('M', ':').replace('PT', '').replace('S', '');
+    var tArray = tString.split(":");
+
+      if(tArray.length == 1) {
+        tArray.unshift("0");
+      }
+
+      if(tArray.length > 1) {
+        var minutes = tArray[tArray.length-2];
+        if(minutes.length == 1 && tArray.length == 3){
+          tArray[tArray.length-2] = '0' + minutes;
+        }
+        var seconds = tArray[tArray.length-1];
+        if(seconds.length == 1){
+          tArray.pop();
+          tArray.push('0' + seconds);
+        }
+        if(seconds.length == 0){
+          tArray.pop();
+          tArray.push('00');
+        }
+      }
+
+    return tArray.join(":");
+  } else {
+    return '';
+  }
+}
+
+function pluralCheck(word, num){
+  if(num == 1){
+    return ' ' + word.slice(0, -1);
+  } else {
+    return ' ' + word;
+  }
+}
+
+function hourcheck(hours){
+  if(hours != 0){
+    return hours + pluralCheck("hours", hours) + ', ';
+  } else {
+    return ""
+  }
+}
+
+function getPLData(array) {
+  var songs = array.length;
+  var times = _.map(array, function(song) { return ytDuration(song['duration']) });
+  var hours = 0;
+  var minutes = 0;
+  var seconds = 0;
+
+  for(i=0;i<times.length;i++){
+    if(times[i].length > 5) {
+      hours = hours + parseInt(times[i].slice(0, -6));
+    }
+    minutes = minutes + parseInt(times[i].slice(-5, -3));
+    seconds = seconds + parseInt(times[i].slice(-2));
+  }
+
+  var moreMin = Math.floor(seconds/60);
+  totalSec = seconds % 60;
+  totalMin = minutes + moreMin;
+  var hours = hours + Math.floor(totalMin/60);
+  totalMin = totalMin % 60;
+  return songs + pluralCheck("songs", songs) + ', ' + hourcheck(hours) + totalMin + pluralCheck("minutes", totalMin) + ', ' + totalSec + pluralCheck("seconds", totalSec);
+}
+
 
 var App = angular.module('RdioApp', ['ngDragDrop']);
 
@@ -556,6 +626,8 @@ App.controller('TrackController', function($scope, $http){
   $scope.setMasterPL = function(playlist){
     $scope.selectedPL = playlist;
     $scope.searchResults = playlist['tracks'];
+    $scope.plData = getPLData(playlist['tracks']);
+    console.log($scope.plData);
   };
 
   $scope.isSelectedPL = function(playlist){
@@ -626,35 +698,40 @@ App.controller('TrackController', function($scope, $http){
 App.filter('convertYTDuration', function() {
 
   return function(string) {
-    if (string != undefined) {
-      var tString = string.replace('H', ':').replace('M', ':').replace('PT', '').replace('S', '');
-      var tArray = tString.split(":");
-
-        if(tArray.length == 1) {
-          tArray.unshift("0");
-        }
-
-        if(tArray.length > 1) {
-          var minutes = tArray[tArray.length-2];
-          if(minutes.length == 1 && tArray.length == 3){
-            tArray[tArray.length-2] = '0' + minutes;
-          }
-          var seconds = tArray[tArray.length-1];
-          if(seconds.length == 1){
-            tArray.pop();
-            tArray.push('0' + seconds);
-          }
-          if(seconds.length == 0){
-            tArray.pop();
-            tArray.push('00');
-          }
-        }
-
-      return tArray.join(":");
-    } else {
-      return '';
-    }
+    return ytDuration(string);
   }
+
+
+  // return function(string) {
+  //   if (string != undefined) {
+  //     var tString = string.replace('H', ':').replace('M', ':').replace('PT', '').replace('S', '');
+  //     var tArray = tString.split(":");
+
+  //       if(tArray.length == 1) {
+  //         tArray.unshift("0");
+  //       }
+
+  //       if(tArray.length > 1) {
+  //         var minutes = tArray[tArray.length-2];
+  //         if(minutes.length == 1 && tArray.length == 3){
+  //           tArray[tArray.length-2] = '0' + minutes;
+  //         }
+  //         var seconds = tArray[tArray.length-1];
+  //         if(seconds.length == 1){
+  //           tArray.pop();
+  //           tArray.push('0' + seconds);
+  //         }
+  //         if(seconds.length == 0){
+  //           tArray.pop();
+  //           tArray.push('00');
+  //         }
+  //       }
+
+  //     return tArray.join(":");
+  //   } else {
+  //     return '';
+  //   }
+  // }
 
 });
 
