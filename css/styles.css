@@ -468,21 +468,59 @@ html {
   font-weight: normal;
   overflow-y: hidden;
   overflow-x: hidden;
-}
-
-p#trackName {
-  margin: 0 0 -1px; 
-  padding-top: 5px;
-  color: #3f3f3f;
-  white-space: nowrap;
   position: relative;
 }
 
+p.trackName {
+  margin: -2px 0 -1px; 
+  padding-top: 5px;
+  color: #3f3f3f;
+  white-space: nowrap;
+  position: absolute; /* relative */
+  user-select: none;
+  font-size: 13px;
+}
+
+.animateTrackName {
+  -moz-transform:translateX(100%);
+  -webkit-transform:translateX(100%);  
+  transform:translateX(100%);
+  /* Apply animation to this element */  
+  -moz-animation: mainText 25s linear infinite;
+  -webkit-animation: mainText 25s linear infinite;
+  animation: mainText 25s linear infinite;
+}
+
+/* Move it (define the animation) */
+@-moz-keyframes mainText {
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes mainText {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes mainText {
+ 0%   { 
+ -moz-transform: translateX(100%); /* Firefox bug fix */
+ -webkit-transform: translateX(100%); /* Firefox bug fix */
+ transform: translateX(100%);     
+ }
+ 100% { 
+ -moz-transform: translateX(-100%); /* Firefox bug fix */
+ -webkit-transform: translateX(-100%); /* Firefox bug fix */
+ transform: translateX(-100%); 
+ }
+}
+
+
 p#artistAlbum {
-  margin: 0; padding: 0;
-  font-size: 10px;
+  margin-top: 20px; 
+  padding: 0;
+  font-size: 11px;
   color: #8e8e8e;
   white-space: nowrap;
+  font-size: 11px;
 }
 
 #scrobble, #progress {
