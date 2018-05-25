@@ -58,8 +58,8 @@ function launchNotMail() {
 
 function launchNotiTunes() {
   $('.container').show();
-  $('.menu-popup .show-not-itunes').toggle();
-  $('.menu-popup .hide-not-itunes').toggle();
+  $('.menu-popup .show-not-itunes').hide();
+  $('.menu-popup .hide-not-itunes').show();
 }
 
 function launchNotStickies() {
@@ -148,9 +148,13 @@ $(document).keydown(function(e) {
       $('#play').toggle();
       if (player.getPlayerState() == 2 || player.getPlayerState() == 5) {
         player.playVideo();
+        $('.lblPlay').toggle();
+        $('.lblPause').toggle();
       }
       if (player.getPlayerState() == 1) {
         player.pauseVideo();
+        $('.lblPlay').toggle();
+        $('.lblPause').toggle();
       }
       break;
     case 37:
@@ -568,6 +572,8 @@ $('#iTunesWinBtns img:first-child')
 
 $('#iTunesWinBtns img:first-child').click(function(){
   $('.container').toggle();
+  $('.menu-popup .show-not-itunes').toggle();
+  $('.menu-popup .hide-not-itunes').toggle();
 });
 
 function ytDuration(string) {
@@ -665,6 +671,7 @@ App.controller('TrackController', function($scope, $http){
   ];
 
   $scope.searchResults = iTunesHTMLPlaylist['tracks'];
+  $scope.plData = getPLData($scope.searchResults);
 
   $scope.submit = function(){
     gapi.client.setApiKey(apiKey);
