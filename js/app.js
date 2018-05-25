@@ -576,6 +576,18 @@ $('#iTunesWinBtns img:first-child').click(function(){
   $('.menu-popup .hide-not-itunes').toggle();
 });
 
+$('#iTunesWinBtns img:nth-child(3)')
+  .mouseover(function() { 
+    $(this).attr("src", "images/main-btn-green-over.jpg");
+  })
+  .mouseout(function() {
+    $(this).attr("src", "images/main-btn-green.jpg");
+  });
+
+$('#iTunesWinBtns img:nth-child(3)').click(function(){
+  requestFullScreen(document.documentElement);
+});
+
 function ytDuration(string) {
   if (string != undefined) {
     var tString = string.replace('H', ':').replace('M', ':').replace('PT', '').replace('S', '');
@@ -644,6 +656,19 @@ function getPLData(array) {
   var hours = hours + Math.floor(totalMin/60);
   totalMin = totalMin % 60;
   return songs + pluralCheck("songs", songs) + ', ' + hourcheck(hours) + totalMin + pluralCheck("minutes", totalMin);
+}
+
+function requestFullScreen(element) {
+  var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+  if (requestMethod) { // Native full screen.
+    requestMethod.call(element);
+  } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+    var wscript = new ActiveXObject("WScript.Shell");
+    if (wscript !== null) {
+      wscript.SendKeys("{F11}");
+    }
+  }
 }
 
 
@@ -792,8 +817,8 @@ App.controller('TrackController', function($scope, $http){
     recentlyPlayedList['tracks'].push($scope.selected);
     $('#play').hide();
     $('#pause').show();
-    $('.lblPlay').toggle();
-    $('.lblPause').toggle();
+    $('.lblPlay').hide();
+    $('.lblPause').show();
     // gtag('config', 'UA-118583968-1', {'page_path': "/?title='" + $scope.selected.title + "'&id='" + $scope.selected.id + "'"});
     getTimes();
   };
@@ -806,8 +831,8 @@ App.controller('TrackController', function($scope, $http){
       allTrackIDs.push(tracks[i]['id']);
     }
     player.loadPlaylist(allTrackIDs);
-    $('.lblPlay').toggle();
-    $('.lblPause').toggle();
+    $('.lblPlay').hide();
+    $('.lblPause').show();
     // gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='" + playlist['name'] + "'"});
   };
 
