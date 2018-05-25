@@ -188,6 +188,12 @@ $(document).keydown(function(e) {
     case 82:
       changeImage();
       break;
+    case 83:
+      if(typeof(currentPlaylist) == 'object'){
+        $('#shuffleContainer img').toggle();
+        player.setShuffle(!shuffle);
+      }
+      break;
     default: 
       return;
   }
@@ -397,7 +403,16 @@ getDateString();
 
 $('.app-name').click(function(){
   $('.app-name').toggleClass("app-name-over");
+  $('.app-menu').removeClass("app-name-over");
+  $('.controls-popup').hide();
   $('.menu-popup').toggle();
+});
+
+$('.app-menu').click(function(){
+  $('.app-menu').toggleClass("app-name-over");
+  $('.app-name').removeClass("app-name-over");
+  $('.menu-popup').hide();
+  $('.controls-popup').toggle();
 });
 
 $.fn.center = function() {
@@ -420,6 +435,71 @@ $('.menu-popup .about').click(function(){
   $('.about-popup').center();
   $('.about-popup').toggle();
 });
+
+$('.controls-popup .playPause').click(function(){
+  $('#pause').toggle();
+  $('#play').toggle();
+  $('.lblPlay').toggle();
+  $('.lblPause').toggle();
+  if (player.getPlayerState() == 2 || player.getPlayerState() == 5) {
+    player.playVideo();
+  }
+  if (player.getPlayerState() == 1) {
+    player.pauseVideo();
+  }
+  $('.app-menu').toggleClass("app-name-over");
+  $('.controls-popup').toggle();
+});
+
+$('.controls-popup .next').click(function(){
+  if(window.currentPlaylist != undefined){
+    skipping = false;
+    player.nextVideo();
+  }
+  $('.app-menu').toggleClass("app-name-over");
+  $('.controls-popup').toggle();
+});
+
+$('.controls-popup .previous').click(function(){
+  if(window.currentPlaylist != undefined){
+    skipping = false;
+    player.previousVideo();
+  }
+  $('.app-menu').toggleClass("app-name-over");
+  $('.controls-popup').toggle();
+});
+
+$('.controls-popup .increaseVol').click(function(){
+  player.setVolume(player.getVolume()+5);
+  var newVolume = Math.floor(player.getVolume()/100*90);
+  $('#slider').slider({value: newVolume});
+  $('.app-menu').toggleClass("app-name-over");
+  $('.controls-popup').toggle();
+});
+
+$('.controls-popup .decreaseVol').click(function(){
+  player.setVolume(player.getVolume()-5);
+  var newVolume = Math.floor(player.getVolume()/100*90);
+  $('#slider').slider({value: newVolume});
+  $('.app-menu').toggleClass("app-name-over");
+  $('.controls-popup').toggle();
+});
+
+$('.controls-popup .repeat').click(function(){
+  changeImage();
+  $('.app-menu').toggleClass("app-name-over");
+  $('.controls-popup').toggle();
+});
+
+$('.controls-popup .shuffle').click(function(){
+  if(typeof(currentPlaylist) == 'object'){
+    $('#shuffleContainer img').toggle();
+    player.setShuffle(!shuffle);
+  }
+  $('.app-menu').toggleClass("app-name-over");
+  $('.controls-popup').toggle();
+});
+
 
 $('.rowToAddPlaylist input').blur(function(){
   $('.rowToAddPlaylist').hide();
@@ -625,6 +705,7 @@ App.controller('TrackController', function($scope, $http){
 
   $scope.setMasterPL = function(playlist){
     $scope.selectedPL = playlist;
+    $scope.selected = "";
     $scope.searchResults = playlist['tracks'];
     $scope.plData = getPLData(playlist['tracks']);
   };
@@ -676,6 +757,8 @@ App.controller('TrackController', function($scope, $http){
     recentlyPlayedList['tracks'].push($scope.selected);
     $('#play').hide();
     $('#pause').show();
+    $('.lblPlay').toggle();
+    $('.lblPause').toggle();
     // gtag('config', 'UA-118583968-1', {'page_path': "/?title='" + $scope.selected.title + "'&id='" + $scope.selected.id + "'"});
     getTimes();
   };
@@ -688,6 +771,8 @@ App.controller('TrackController', function($scope, $http){
       allTrackIDs.push(tracks[i]['id']);
     }
     player.loadPlaylist(allTrackIDs);
+    $('.lblPlay').toggle();
+    $('.lblPause').toggle();
     // gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='" + playlist['name'] + "'"});
   };
 

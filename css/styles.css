@@ -48,7 +48,8 @@ body {
 
 .app-name-over,
 .menu-popup .new-playlist:hover,
-.menu-popup .about:hover {
+.menu-popup .about:hover,
+.controls-popup div:hover {
   background-color: #2687fb;
   color: #fff;
 }
@@ -56,7 +57,7 @@ body {
 #osBar div {
   float: left;
   margin: 0;
-  padding: 5px 0 0 7px;
+  padding: 5px 8px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -70,18 +71,18 @@ body {
   padding-right: 10px !important;
 }
 
-.menu-popup {
+.menu-popup,
+.controls-popup {
   display: none;
   z-index: 100;
   width: 218px;
   padding: 4px 0 5px 0;
   position: absolute;
-  left: 46px;
   top: 23px;
   font-family: Arial, sans-serif;
   font-size: 13.25px;
   font-weight: normal;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(259, 232, 230, 0.9);
   border: 1px #c1c3c6 solid;
   user-select: none;
   -webkit-box-shadow: 0px 5px 9px 1px rgba(0,0,0,0.13);
@@ -96,27 +97,67 @@ body {
   border-bottom-right-radius: 5px;
 }
 
-.menu-popup .new-playlist {
+.menu-popup {
+  left: 46px;
+}
+
+.controls-popup {
+  left: 128px;
+}
+
+.menu-popup .new-playlist,
+.controls-popup .playPause,
+.controls-popup .next,
+.controls-popup .previous,
+.controls-popup .increaseVol,
+.controls-popup .decreaseVol,
+.controls-popup .shuffle,
+.controls-popup .repeat {
   display: block;
-  padding: 2px 12px 3px 23px;
+  padding: 2px 12px 3px 19px;
+  margin-bottom: 4px;
+}
+
+.controls-popup .playPause,
+.controls-popup .next,
+.controls-popup .increaseVol,
+.controls-popup .shuffle,
+.controls-popup .repeat {
+  margin-bottom: 0;
+}
+
+.controls-popup .increaseVol,
+.controls-popup .shuffle {
+  margin-top: 4px;
+}
+
+.controls-popup .decreaseVol {
   margin-bottom: 4px;
 }
 
 .menu-popup .about {
   display: block;
-  padding: 2px 12px 2px 23px;
+  padding: 2px 12px 2px 19px;
   margin-top: 5px;
 }
 
-.menu-popup .divider {
+.lblPause {
+  display: none;
+}
+
+.divider {
   width: 100%;
   height: 1px;
   background-color: #ccc;
 }
 
-.cmd {
+.cmd, .controls {
   float: right;
   letter-spacing: 3px;
+}
+
+.space {
+  float: right;
 }
 
 .rowToAddPlaylist {
@@ -490,6 +531,11 @@ table.DraggableThings td {
   background-color: #2687fb !important;
   color: #fff !important;
 }
+
+/*.kindaSelected, .kindaSelectedPL {
+  background-color: #dcdcdc !important;
+  color: #3e4246 !important;
+}*/
 
 .activePL {
   color: #d4e8fe !important;
