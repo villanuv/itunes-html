@@ -1,14 +1,23 @@
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
-  font-weight: 600;
+  /*font-weight: 600;*/
+/*  background: url('/images/bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  margin: 0; padding: 0;
+  color: #3e4246;
+}
+
+
+html {
   background: url('/images/bg.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  margin: 0; padding: 0;
-  color: #3e4246;
 }
 
 ::-webkit-scrollbar { 
@@ -47,16 +56,24 @@ body {
 }
 
 .app-name-over,
+.menu-popup .about:hover,
 .menu-popup .new-playlist:hover,
-.menu-popup .about:hover {
+.menu-popup .feedback:hover,
+.menu-popup .hide-not-itunes:hover,
+.menu-popup .show-not-itunes:hover,
+.controls-popup div:hover {
   background-color: #2687fb;
   color: #fff;
+}
+
+.menu-popup .show-not-itunes {
+  display: none;
 }
 
 #osBar div {
   float: left;
   margin: 0;
-  padding: 5px 0 0 7px;
+  padding: 5px 8px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -70,18 +87,18 @@ body {
   padding-right: 10px !important;
 }
 
-.menu-popup {
+.menu-popup,
+.controls-popup {
   display: none;
   z-index: 100;
   width: 218px;
   padding: 4px 0 5px 0;
   position: absolute;
-  left: 46px;
   top: 23px;
   font-family: Arial, sans-serif;
   font-size: 13.25px;
   font-weight: normal;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(259, 232, 230, 0.9);
   border: 1px #c1c3c6 solid;
   user-select: none;
   -webkit-box-shadow: 0px 5px 9px 1px rgba(0,0,0,0.13);
@@ -96,27 +113,78 @@ body {
   border-bottom-right-radius: 5px;
 }
 
-.menu-popup .new-playlist {
+.menu-popup {
+  left: 46px;
+}
+
+.controls-popup {
+  left: 128px;
+}
+
+.menu-popup .about,
+.menu-popup .hide-not-itunes,
+.controls-popup .playPause,
+.controls-popup .next,
+.controls-popup .previous,
+.controls-popup .increaseVol,
+.controls-popup .decreaseVol,
+.controls-popup .shuffle,
+.controls-popup .repeat {
   display: block;
-  padding: 2px 12px 3px 23px;
+  padding: 2px 12px 3px 19px;
   margin-bottom: 4px;
 }
 
-.menu-popup .about {
-  display: block;
-  padding: 2px 12px 2px 23px;
-  margin-top: 5px;
+.menu-popup .show-not-itunes {
+  padding: 2px 12px 3px 19px;
+  margin-bottom: 4px; 
 }
 
-.menu-popup .divider {
+.menu-popup .hide-not-itunes,
+.menu-popup .show-not-itunes,
+.controls-popup .playPause,
+.controls-popup .next,
+.controls-popup .increaseVol,
+.controls-popup .shuffle,
+.controls-popup .repeat {
+  margin-bottom: 0;
+}
+
+.menu-popup .hide-not-itunes,
+.menu-popup .show-not-itunes,
+.controls-popup .increaseVol,
+.controls-popup .shuffle {
+  margin-top: 4px;
+}
+
+.controls-popup .decreaseVol {
+  margin-bottom: 4px;
+}
+
+.menu-popup .new-playlist,
+.menu-popup .feedback {
+  display: block;
+  padding: 2px 12px 2px 19px;
+  margin: 5px 0;
+}
+
+.lblPause {
+  display: none;
+}
+
+.divider {
   width: 100%;
   height: 1px;
   background-color: #ccc;
 }
 
-.cmd {
+.cmd, .controls {
   float: right;
   letter-spacing: 3px;
+}
+
+.space {
+  float: right;
 }
 
 .rowToAddPlaylist {
@@ -207,7 +275,7 @@ body {
 
 .container {
   width: 803px;
-  margin: 100px auto 0;
+  margin: 60px auto 0;
   padding: 0;
   background-color: #fff;
   -webkit-border-radius: 5px;
@@ -400,21 +468,59 @@ body {
   font-weight: normal;
   overflow-y: hidden;
   overflow-x: hidden;
-}
-
-p#trackName {
-  margin: 0 0 -1px; 
-  padding-top: 5px;
-  color: #3f3f3f;
-  white-space: nowrap;
   position: relative;
 }
 
+p.trackName {
+  margin: -2px 0 -1px; 
+  padding-top: 5px;
+  color: #3f3f3f;
+  white-space: nowrap;
+  position: absolute; /* relative */
+  user-select: none;
+  font-size: 13px;
+}
+
+.animateTrackName {
+  -moz-transform:translateX(100%);
+  -webkit-transform:translateX(100%);  
+  transform:translateX(100%);
+  /* Apply animation to this element */  
+  -moz-animation: mainText 25s linear infinite;
+  -webkit-animation: mainText 25s linear infinite;
+  animation: mainText 25s linear infinite;
+}
+
+/* Move it (define the animation) */
+@-moz-keyframes mainText {
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes mainText {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes mainText {
+ 0%   { 
+ -moz-transform: translateX(100%); /* Firefox bug fix */
+ -webkit-transform: translateX(100%); /* Firefox bug fix */
+ transform: translateX(100%);     
+ }
+ 100% { 
+ -moz-transform: translateX(-100%); /* Firefox bug fix */
+ -webkit-transform: translateX(-100%); /* Firefox bug fix */
+ transform: translateX(-100%); 
+ }
+}
+
+
 p#artistAlbum {
-  margin: 0; padding: 0;
-  font-size: 10px;
+  margin-top: 20px; 
+  padding: 0;
+  font-size: 11px;
   color: #8e8e8e;
   white-space: nowrap;
+  font-size: 11px;
 }
 
 #scrobble, #progress {
@@ -491,6 +597,11 @@ table.DraggableThings td {
   color: #fff !important;
 }
 
+/*.kindaSelected, .kindaSelectedPL {
+  background-color: #dcdcdc !important;
+  color: #3e4246 !important;
+}*/
+
 .activePL {
   color: #d4e8fe !important;
 }
@@ -514,13 +625,34 @@ tr td.activePL {
 .searchColumn {
   float: left !important;
   width: 582px;
-  min-height: 500px;
+  min-height: 503px;
   /*border-right: 1px #d9d9d9 solid;*/
-  border-bottom: 1px #d9d9d9 solid;
+  /*border-bottom: 1px #d9d9d9 solid;*/
   border-left: none;
+  background-color: #fff;
+/*  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-bottom-right-radius: 5px;*/
+}
+
+.bottomBar {
+  user-select: none;
+  clear: both;
+  display block;
+  font-size: 10.5px;
+  text-align: center;
+  padding: 4px 0 2px;
+  height: 17px;
+  background: url('/images/itunes-bottom.jpg') repeat-x;
+  background-size: 5%;
+  border-top: 1px #a2a2a2 solid;
+
   -webkit-border-bottom-right-radius: 5px;
   -moz-border-radius-bottomright: 5px;
   border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .heading {
@@ -645,6 +777,16 @@ input:focus {
   -webkit-border-bottom-right-radius: 5px;
   -moz-border-radius-bottomright: 5px;
   border-bottom-right-radius: 5px;
+}
+
+.playing {
+  background: url('/images/playing-on-highlight.jpg') 3.5px 4px no-repeat;
+  background-size: 12.5px 12.5px;
+}
+
+.playing-no-highlight {
+  background: url('/images/playing-on.jpg') 3.5px 4px no-repeat;
+  background-size: 12.5px 12.5px;
 }
 
 .add-playlist {

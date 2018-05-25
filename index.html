@@ -27,13 +27,32 @@
   <div id="api"></div>
   <div id="osBar">
     <div class="apl-logo"></div>
-    <div class="app-name">Not iTunes</div><div id="date"></div>
+    <div class="app-name">Not iTunes</div>
+    <div class="app-menu">Controls</div>
+    <div id="date"></div>
   </div>
 
   <div class="menu-popup">
+    <div class="about">About Not iTunes</div>    
+    <div class="divider"></div>
     <div class="new-playlist">New Playlist <span class="cmd">&#8997;N</span></div>
     <div class="divider"></div>
-    <div class="about">About Not iTunes</div>
+    <div class="feedback">Provide Not iTunes Feedback</div>
+    <div class="divider"></div>
+    <div class="hide-not-itunes">Hide Not iTunes <span class="cmd">&#8997;H</span></div>
+    <div class="show-not-itunes">Show Not iTunes <span class="cmd">&#8997;H</span></div>
+  </div>
+
+  <div class="controls-popup">
+    <div class="playPause"><span class="lblPlay">Play</span><span class="lblPause">Pause</span> <span class="space">&#8997; Space</span></div>
+    <div class="next">Next <span class="controls">&#8997;]</span></div>
+    <div class="previous">Previous <span class="controls">&#8997;[</span></div>
+    <div class="divider"></div>
+    <div class="increaseVol">Increase Volume <span class="controls">&#8997;&#x2191;</span></div>
+    <div class="decreaseVol">Decrease Volume <span class="controls">&#8997;&#x2193;</span></div>
+    <div class="divider"></div>
+    <div class="shuffle">Shuffle <span class="controls">&#8997;S</span></div>
+    <div class="repeat">Repeat <span class="controls">&#8997;R</span></div>
   </div>
 
   <div class="mail">
@@ -68,9 +87,9 @@
       <p>LIMITATIONS & KNOWN ISSUES</p>
       <ul>
         <li>Search returns 1 result only</li>
+        <li>New playlists last for session only</li>
         <li>Reordering of playlists not enabled</li>
         <li>Shuffling unsyncs data</li>
-        <li>Dragging boundaries not set</li>
         <li>Buffering affects Recently Played</li>
         <li>2+ plays highlighted in Recently Played</li>
       </ul>
@@ -132,7 +151,7 @@
           <div id="time1">0:00</div>
         </div>
         <div class="mainText">
-          <p id="trackName"></p>
+          <p class="trackName"></p>
           <p id="artistAlbum"></p>
         </div>
         <div id="repeatContainer"><img src="images/repeat-off.jpg" />
@@ -195,7 +214,7 @@
         </table>      
       </div>        
     </div>
-    <div class="clear"></div>
+    <div class="bottomBar">&nbsp;{{plData}}&nbsp;</div>
   </div>
 
   <div id="footer"></div>
