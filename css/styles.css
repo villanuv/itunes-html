@@ -668,6 +668,16 @@ input:focus {
   border-bottom-right-radius: 5px;
 }
 
+.playing {
+  background: url('/images/playing-on-highlight.jpg') 3.5px 4px no-repeat;
+  background-size: 12.5px 12.5px;
+}
+
+.playing-no-highlight {
+  background: url('/images/playing-on.jpg') 3.5px 4px no-repeat;
+  background-size: 12.5px 12.5px;
+}
+
 .add-playlist {
   border: none;
   font-size: 12.75px;

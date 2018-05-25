@@ -627,7 +627,6 @@ App.controller('TrackController', function($scope, $http){
     $scope.selectedPL = playlist;
     $scope.searchResults = playlist['tracks'];
     $scope.plData = getPLData(playlist['tracks']);
-    console.log($scope.plData);
   };
 
   $scope.isSelectedPL = function(playlist){
