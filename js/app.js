@@ -788,6 +788,7 @@ App.controller('TrackController', function($scope, $http){
   };
 
   $scope.isSelectedPL = function(playlist){
+    console.log(playlist);
     return $scope.selectedPL === playlist;
   };
 
