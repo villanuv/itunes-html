@@ -1309,6 +1309,10 @@ a.dock-item2 {
   margin-left: -8px;
 }
 
+.dock-item2:last-child span {
+  margin: 0 -10px 20px 0;
+}
+
 .dock-item2 img {
   border: none; 
 }
@@ -1327,4 +1331,8 @@ img.notiTunes {
 img.notStickies {
   width: 100%;
   margin-bottom: 3px; 
+}
+img.notTrash {
+  width: 95%;
+  margin: 0 -10px 3px 0;
 }

@@ -89,7 +89,7 @@
         <li>Search returns 1 result only</li>
         <li>New playlists last for session only</li>
         <li>Reordering of playlists not enabled</li>
-        <li>Shuffling unsyncs data</li>
+        <li>Shuffling and Repeating do not undo</li>
         <li>Buffering affects Recently Played</li>
         <li>2+ plays highlighted in Recently Played</li>
       </ul>
@@ -171,7 +171,7 @@
           <tr><td>All Playlists (Beta)</td></tr>
           <tr ng-repeat="playlist in playlists track by $index" ng-if="$index == 0" ng-class="{selected : isSelectedPL(playlist)}" ng-click="setMasterPL(playlist)" ng-dblclick="dblClickedPL(playlist)">
             <td ng-class="{activePL : isSelectedPL(playlist)}">
-              <div>{{playlist['name']}}</div></td>
+              <div>{{playlist.name}}</div></td>
           </tr>
           <tr ng-repeat="playlist in playlists track by $index" ng-if="$index > 0" ng-show="playlist.name" ng-class="{selected : isSelectedPL(playlist)}" ng-click="setMasterPL(playlist)" ng-dblclick="dblClickedPL(playlist)" ng-model="playlist">
             <td ng-class="{activePL : isSelectedPL(playlist)}">
@@ -229,6 +229,7 @@
       <a class="dock-item2" href="#" onclick="launchNotiTunes()"><span>Not iTunes</span><img src="images/itunes-app.png" alt="Not iTunes" class="notiTunes"></a>
       <a class="dock-item2" href="#" onclick="launchNotMail()"><span>Not Mail</span><img src="images/mail-app.png" alt="Not Mail" class="notMail"></a> 
       <a class="dock-item2" href="#" onclick="launchNotStickies()"><span>Not Stickies</span><img src="images/stickies-app.png" alt="Not Stickies" class="notStickies"></a>
+      <a class="dock-item2" href="#" onclick="#"><span>Not Trash</span><img src="images/trash-can.png" alt="Not Trash" class="notTrash"></a>
     </div>
   </div>
 

@@ -258,9 +258,12 @@ function getTimes() {
 
 function updateTrackData() {
   var playlistData = window.currentPlaylist['tracks'];
-  var playerCurrentIndex = player.getPlaylistIndex();
-  var nowPlayingObj = playlistData[playerCurrentIndex];
+  var nowPlayingId = player.getVideoData().video_id;
+  var allVideoIds = _.map(currentPlaylist.tracks, function (song) { return song.id });
+  var nowPlayingIndex = _.indexOf(allVideoIds, nowPlayingId);
+  var nowPlayingObj = playlistData[nowPlayingIndex];
   recentlyPlayedList['tracks'].push(nowPlayingObj);
+  localStorage.setItem('recentlyPlayedList', JSON.stringify(recentlyPlayedList));
 
   $('.mainText').css('background', 'none');
   $('.trackName').html(nowPlayingObj.title);
@@ -385,7 +388,8 @@ function changeImage(){
     }
     img = repeatImg[clickImg];
     $("#repeatContainer img").attr("src", img);
-    player.setLoop(!loop);
+    loop = !loop;
+    player.setLoop(loop);
   }
 }
 
@@ -396,7 +400,8 @@ var shuffle = false;
 $('#shuffleContainer img').click(function(){
   if(typeof(currentPlaylist) == 'object'){
     $('#shuffleContainer img').toggle();
-    player.setShuffle(!shuffle);
+    shuffle = !shuffle;
+    player.setShuffle(shuffle);
   }
 });
 
@@ -693,6 +698,10 @@ var App = angular.module('RdioApp', ['ngDragDrop']);
 
 App.controller('TrackController', function($scope, $http){
 
+  if(localStorage.getItem('recentlyPlayedList') != undefined){
+    recentlyPlayedList = JSON.parse(localStorage.getItem('recentlyPlayedList'));
+  }
+
   $scope.playlists = [
     recentlyPlayedList, 
     iTunesHTMLPlaylist, 
@@ -788,7 +797,6 @@ App.controller('TrackController', function($scope, $http){
   };
 
   $scope.isSelectedPL = function(playlist){
-    console.log(playlist);
     return $scope.selectedPL === playlist;
   };
 
@@ -834,6 +842,7 @@ App.controller('TrackController', function($scope, $http){
     $('#coverArt').attr('style', "background:url('" + $scope.selected.thumb + "');");
     player.loadVideoById($scope.selected.id);
     recentlyPlayedList['tracks'].push($scope.selected);
+    localStorage.setItem('recentlyPlayedList', JSON.stringify(recentlyPlayedList));
     $('#play').hide();
     $('#pause').show();
     $('.lblPlay').hide();
