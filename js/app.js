@@ -388,7 +388,8 @@ function changeImage(){
     }
     img = repeatImg[clickImg];
     $("#repeatContainer img").attr("src", img);
-    player.setLoop(!loop);
+    loop = !loop;
+    player.setLoop(loop);
   }
 }
 
@@ -399,7 +400,8 @@ var shuffle = false;
 $('#shuffleContainer img').click(function(){
   if(typeof(currentPlaylist) == 'object'){
     $('#shuffleContainer img').toggle();
-    player.setShuffle(!shuffle);
+    shuffle = !shuffle;
+    player.setShuffle(shuffle);
   }
 });
 
