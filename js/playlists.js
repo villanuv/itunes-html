@@ -56,25 +56,25 @@ thumb: "https://i.ytimg.com/vi/wQBHPn9sDfY/default.jpg", title: "Colin Hay - Wai
 var wysPlaylist = {name: "dj.WYSIWYG Mixes", tracks: [
       {id: "x3N-qe-bUR8", title: "New Wave Mix 1 (OMD • Erasure • New Order • Anything Box • etc)", duration: "PT38M21S", 
 channelTitle: "villanuv", publishedAt: "2014-01-29T09:23:10.000Z", thumb: "https://i.ytimg.com/vi/x3N-qe-bUR8/default.jpg",
-viewCount: "31451", likeCount: "171", dislikeCount: "14"},
+viewCount: "32131", likeCount: "174", dislikeCount: "14"},
       {id: "JY9MpGlAPgY", title: "New Wave Mix 2 (When in Rome • Kon Kan • Book of Love • The Other Two • etc)", duration: "PT36M16S",
 channelTitle: "dj.WYSIWYG", publishedAt: "2015-06-11T23:25:21.000Z", thumb: "https://i.ytimg.com/vi/JY9MpGlAPgY/default.jpg",
-viewCount: "2973", likeCount: "37", dislikeCount: "1"},
+viewCount: "3193", likeCount: "42", dislikeCount: "1"},
       {id: "19Z--3-InGE", title: "Halo-Halo Vol.3 (Pet Shop Boys • Blue System • Cause & Effect • Erasure • etc)", duration: "PT43M16S",
 channelTitle: "dj.WYSIWYG", publishedAt: "2015-06-14T01:10:47.000Z", thumb: "https://i.ytimg.com/vi/19Z--3-InGE/default.jpg",
-viewCount: "2143", likeCount: "25", dislikeCount: "3"},
+viewCount: "2254", likeCount: "28", dislikeCount: "3"},
       {id: "LAWiWxmOwB4", title: "Halo-Halo Vol.4 (Bad Boys Blue • Warren Rigg • Erasure • Info Society • etc)", duration: "PT40M24S",
 channelTitle: "dj.WYSIWYG", publishedAt: "2016-09-04T22:56:37.000Z", thumb: "https://i.ytimg.com/vi/LAWiWxmOwB4/default.jpg",
-viewCount: "1641", likeCount: "19", dislikeCount: "0"},
+viewCount: "1742", likeCount: "20", dislikeCount: "0"},
       {id: "JhUmGRppsOY", title: "Halo-Halo Vol.5 (Depeche Mode • OMD • Erasure • The Midnight Shift • etc)", duration: "PT43M33S",
 channelTitle: "dj.WYSIWYG", publishedAt: "2016-09-05T22:58:52.000Z", thumb: "https://i.ytimg.com/vi/JhUmGRppsOY/default.jpg",
-viewCount: "1203", likeCount: "18", dislikeCount: "1"},
+viewCount: "1283", likeCount: "18", dislikeCount: "1"},
       {id: "MPlRMywkdRo", title: "Halo-Halo Vol.6 (New Order • Bad Boys Blue • Red Flag • Erasure • etc)", duration: "PT40M3S",
 channelTitle: "dj.WYSIWYG", publishedAt: "2016-09-07T06:52:57.000Z", thumb: "https://i.ytimg.com/vi/MPlRMywkdRo/default.jpg",
-viewCount: "923", likeCount: "13", dislikeCount: "1"},
+viewCount: "986", likeCount: "14", dislikeCount: "1"},
       {id: "WfE9kbrZq4w", title: "Halo-Halo Vol.7 (Synthpop Megamix) - Bizarre Love Triangle, Living in Oblivion and more", duration: "PT1H25M34S",
 channelTitle: "dj.WYSIWYG", publishedAt: "2016-08-31T02:18:59.000Z", thumb: "https://i.ytimg.com/vi/WfE9kbrZq4w/default.jpg",
-viewCount: "2488", likeCount: "38", dislikeCount: "2"}
+viewCount: "2806", likeCount: "44", dislikeCount: "2"}
       ]};
 
 

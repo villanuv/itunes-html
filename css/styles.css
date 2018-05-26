@@ -1,17 +1,3 @@
-body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
-  /*font-weight: 600;*/
-/*  background: url('/images/bg.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
-  margin: 0; padding: 0;
-  color: #3e4246;
-}
-
-
 html {
   background: url('/images/bg.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -24,13 +10,20 @@ html {
     display: none; 
 }
 
-#api {
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  margin: 0; padding: 0;
+  color: #3e4246;
+}
+
+.api {
   height: 0;
   margin: 0; 
   padding: 0;
 }
 
-#osBar {
+.os-bar {
   width: auto;
   height: 23px;
   margin: 0;
@@ -70,7 +63,7 @@ html {
   display: none;
 }
 
-#osBar div {
+.os-bar div {
   float: left;
   margin: 0;
   padding: 5px 8px;
@@ -82,7 +75,7 @@ html {
   user-select: none;
 }
 
-#date {
+.date {
   float: right !important;
   padding-right: 10px !important;
 }
@@ -123,11 +116,11 @@ html {
 
 .menu-popup .about,
 .menu-popup .hide-not-itunes,
-.controls-popup .playPause,
-.controls-popup .next,
-.controls-popup .previous,
-.controls-popup .increaseVol,
-.controls-popup .decreaseVol,
+.controls-popup .play-pause,
+.controls-popup .next-video,
+.controls-popup .previous-video,
+.controls-popup .increase-vol,
+.controls-popup .decrease-vol,
 .controls-popup .shuffle,
 .controls-popup .repeat {
   display: block;
@@ -142,9 +135,9 @@ html {
 
 .menu-popup .hide-not-itunes,
 .menu-popup .show-not-itunes,
-.controls-popup .playPause,
-.controls-popup .next,
-.controls-popup .increaseVol,
+.controls-popup .play-pause,
+.controls-popup .next-video,
+.controls-popup .increase-vol,
 .controls-popup .shuffle,
 .controls-popup .repeat {
   margin-bottom: 0;
@@ -152,12 +145,12 @@ html {
 
 .menu-popup .hide-not-itunes,
 .menu-popup .show-not-itunes,
-.controls-popup .increaseVol,
+.controls-popup .increase-vol,
 .controls-popup .shuffle {
   margin-top: 4px;
 }
 
-.controls-popup .decreaseVol {
+.controls-popup .decrease-vol {
   margin-bottom: 4px;
 }
 
@@ -168,7 +161,7 @@ html {
   margin: 5px 0;
 }
 
-.lblPause {
+.lbl-pause {
   display: none;
 }
 
@@ -286,7 +279,7 @@ html {
   box-shadow: 0px 5px 43px 0px rgba(0,0,0,0.8);
 }
 
-.topBar {
+.top-bar {
   float: left;
   width: 803px;
   height: 44px;
@@ -301,21 +294,21 @@ html {
   border-top-right-radius: 5px;
 }
 
-#windowBtns {
+/*.window-btns {
   float: left;
   width: 72px;
   height: 30px;
   padding: 6px 0 0 8px;
 }
-
-#iTunesWinBtns {
+*/
+.notiTunes-win-btns {
   float: left;
   width: 74px;
   height: 30px; 
   padding: 15px 0 0 12px;
 }
 
-/*#windowBtns img,
+/*.window-btns img,
 .aboutWindowBtns img {
   padding-right: 5px;
 }*/
@@ -326,18 +319,18 @@ html {
   padding: 1px 0 0 2px; 
 }*/
 
-.aboutWinBtns {
+.about-win-btns {
   float: left;
   width: 66px;
   padding: 4px 0 0 0; 
 }
 
-#itunesController {
+.notiTunes-controller {
   float: left;
   padding-top: 11px;
 }
 
-#volume {
+.volume {
   float: left;
   width: 68px;
   height: 20px;   
@@ -345,7 +338,7 @@ html {
   position: relative;
 }
 
-#slider {
+.slider {
   width: 60px;
   height: 4px;
   position: absolute;
@@ -358,7 +351,7 @@ html {
   left: 18px; /* positions div */
 }
 
-#slider .ui-slider-handle {
+.slider .ui-slider-handle {
   position: absolute;
   z-index: 2;
   width: 30px;
@@ -371,7 +364,7 @@ html {
   margin-left: -9px;
 }
 
-#slider .ui-slider-handle:active {
+.slider .ui-slider-handle:active {
   background: url('/images/vol-handle-over-new.png') no-repeat;
   width: 30px;
   height: 30px;
@@ -380,7 +373,7 @@ html {
   margin-left: -9px;
 }
 
-#slider .ui-slider-range {
+.slider .ui-slider-range {
   /*background-color: #676767;*/
   position: absolute;
   border: 0;
@@ -392,7 +385,7 @@ html {
   border-radius: 6px;
 }
 
-#coverArt {
+.cover-art {
   float: left;
   width: 44px;
   height: 44px;
@@ -405,7 +398,7 @@ html {
   background-position:center center !important;
 }
 
-#info {
+.info {
   float: left;
   width: 251px;
   height: 44px;
@@ -417,27 +410,27 @@ html {
   /*border-bottom: 4px solid #bcbcbc;*/
 }
 
-#shuffleContainer {
+.shuffle-container {
   float: left;
   width: 30px;
   height: 20px;
   padding: 2px 0 0 4px;
 }
 
-#repeatContainer {
+.repeat-container {
   float: left;
   width: 30px;
   height: 20px;
   padding: 2px 2px 0 0;
 }
 
-#repeatContainer img,
-#shuffleContainer img {
+.repeat-container img,
+.shuffle-container img {
   width: 30px;
   height: 20px;
 }
 
-#time1, #time2 {
+.time1, .time2 {
   float: left;
   color: #a5a5a5;
   font-size: 11px;
@@ -446,13 +439,13 @@ html {
   position: relative;
 }
 
-#time1 {
+.time1 {
   /*width: 23px;*/
   padding-left: 4px;
   text-align: left;  
 }
 
-#time2 {
+.time2 {
   /*width: 25px;*/
   padding-right: 4px;
   text-align: right;  
@@ -514,7 +507,7 @@ p.trackName {
 }
 
 
-p#artistAlbum {
+.artistAlbum {
   margin-top: 20px; 
   padding: 0;
   font-size: 11px;
@@ -523,18 +516,18 @@ p#artistAlbum {
   font-size: 11px;
 }
 
-#scrobble, #progress {
+.scrobble, .progress {
   float: left;
   clear: both;
   width: 251px;
   height: 4px;
 }
 
-#scrobble { background-color: #c6c6c6; }
-#progress { background-color: #7f7f7f; }
+.scrobble { background-color: #c6c6c6; }
+.progress { background-color: #7f7f7f; }
 
-#scrobble .ui-slider-range { background-color: #7f7f7f; }
-#scrobble .ui-slider-handle { background-color: #000; }
+.scrobble .ui-slider-range { background-color: #7f7f7f; }
+.scrobble .ui-slider-handle { background-color: #000; }
 
 #searchContainer {
   float: right;
@@ -567,8 +560,8 @@ table td {
 }
 
 table td:hover,
-#osBar div,
-#info {
+.os-bar div,
+.info {
   cursor: default;
 }
 
@@ -908,7 +901,7 @@ h3 {
   padding: 20px 0 0;
 }
 
-#previous {
+.previous {
   position: relative;
   bottom: 4px;
   background: url('/images/itunes-back.png') no-repeat;
@@ -919,7 +912,7 @@ h3 {
   display: inline-block;
 }
 
-#play {
+.play {
   display: none;
   background: url('/images/itunes-play.png') no-repeat;
   background-size: 100%;
@@ -929,7 +922,7 @@ h3 {
   border: none;
 }
 
-#pause {
+.pause {
   display: inline-block;
   background: url('/images/itunes-pause.png') no-repeat;
   background-size: 100%;
@@ -939,7 +932,7 @@ h3 {
   border: none;
 }
 
-#next {
+.next {
   position: relative;
   bottom: 4px;
   display: inline-block;
@@ -951,7 +944,7 @@ h3 {
 }
 
 @-moz-document url-prefix() { 
-  #previous, #next {
+  .previous, .next {
     bottom: 0;
   }
 
@@ -1102,7 +1095,7 @@ iframe {
   padding-left: 2px;
 }
 
-.aboutWinBtns .yelBtn, .aboutWinBtns .greenBtn {
+.about-win-btns .yelBtn, .about-win-btns .greenBtn {
   padding-left: 1px;
 }
 
