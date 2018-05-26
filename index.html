@@ -169,7 +169,11 @@
       <div class="currentPlaylist droppableItem">
         <table border="0" cellspacing="0" class="currentPlaylist">
           <tr><td>All Playlists (Beta)</td></tr>
-          <tr ng-repeat="playlist in playlists track by $index" ng-show="playlist.name" ng-class="{selected : isSelectedPL(playlist)}" ng-click="setMasterPL(playlist)" ng-dblclick="dblClickedPL(playlist)" ng-model="playlist">
+          <tr ng-repeat="playlist in playlists track by $index" ng-if="$index == 0" ng-class="{selected : isSelectedPL(playlist)}" ng-click="setMasterPL(playlist)" ng-dblclick="dblClickedPL(playlist)">
+            <td ng-class="{activePL : isSelectedPL(playlist)}">
+              <div>{{playlist['name']}}</div></td>
+          </tr>
+          <tr ng-repeat="playlist in playlists track by $index" ng-if="$index > 0" ng-show="playlist.name" ng-class="{selected : isSelectedPL(playlist)}" ng-click="setMasterPL(playlist)" ng-dblclick="dblClickedPL(playlist)" ng-model="playlist">
             <td ng-class="{activePL : isSelectedPL(playlist)}">
               <div data-drop="true" ng-model="playlist.tracks" jqyoui-droppable="{multiple:true, onOver: 'onOver', onOut: 'onOut', onDrop: 'onDrop'}">{{playlist.name}}</div></td>
           </tr>
