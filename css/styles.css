@@ -50,10 +50,11 @@ body {
 
 .app-name-over,
 .menu-popup .about:hover,
-.menu-popup .new-playlist:hover,
 .menu-popup .feedback:hover,
 .menu-popup .hide-not-itunes:hover,
 .menu-popup .show-not-itunes:hover,
+.playlist-popup .new-playlist:hover,
+.playlist-popup .clear-recent:hover,
 .controls-popup div:hover {
   background-color: #2687fb;
   color: #fff;
@@ -81,6 +82,7 @@ body {
 }
 
 .menu-popup,
+.playlist-popup,
 .controls-popup {
   display: none;
   z-index: 100;
@@ -107,15 +109,21 @@ body {
 }
 
 .menu-popup {
-  left: 46px;
+  left: 47px;
+}
+
+.playlist-popup {
+  left: 129px;
 }
 
 .controls-popup {
-  left: 128px;
+  left: 186px;
 }
 
 .menu-popup .about,
 .menu-popup .hide-not-itunes,
+.playlist-popup .new-playlist,
+.playlist-popup .clear-recent,
 .controls-popup .play-pause,
 .controls-popup .next-video,
 .controls-popup .previous-video,
@@ -135,6 +143,7 @@ body {
 
 .menu-popup .hide-not-itunes,
 .menu-popup .show-not-itunes,
+.playlist-popup .clear-recent,
 .controls-popup .play-pause,
 .controls-popup .next-video,
 .controls-popup .increase-vol,
@@ -145,6 +154,7 @@ body {
 
 .menu-popup .hide-not-itunes,
 .menu-popup .show-not-itunes,
+.playlist-popup .clear-recent,
 .controls-popup .increase-vol,
 .controls-popup .shuffle {
   margin-top: 4px;
@@ -154,7 +164,6 @@ body {
   margin-bottom: 4px;
 }
 
-.menu-popup .new-playlist,
 .menu-popup .feedback {
   display: block;
   padding: 2px 12px 2px 19px;

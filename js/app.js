@@ -221,6 +221,9 @@ $(document).keydown(function(e) {
         player.setShuffle(shuffle);
       }
       break;
+    case 68:
+      localStorage.clear();
+      break;
     default: 
       return;
   }
@@ -441,16 +444,29 @@ getDateString();
 
 $('.app-name').click(function(){
   $('.app-name').toggleClass("app-name-over");
-  $('.app-menu').removeClass("app-name-over");
+  $('.playlist-dropdown').removeClass("app-name-over");
+  $('.controls-dropdown').removeClass("app-name-over");
+  $('.playlist-popup').hide();
   $('.controls-popup').hide();
   $('.menu-popup').toggle();
 });
 
-$('.app-menu').click(function(){
-  $('.app-menu').toggleClass("app-name-over");
+$('.controls-dropdown').click(function(){
   $('.app-name').removeClass("app-name-over");
+  $('.playlist-dropdown').removeClass("app-name-over");
+  $('.controls-dropdown').toggleClass("app-name-over");
   $('.menu-popup').hide();
+  $('.playlist-popup').hide();
   $('.controls-popup').toggle();
+});
+
+$('.playlist-dropdown').click(function(){
+  $('.app-name').removeClass("app-name-over");
+  $('.playlist-dropdown').toggleClass("app-name-over");
+  $('.controls-dropdown').removeClass("app-name-over");
+  $('.menu-popup').hide();
+  $('.controls-popup').hide();
+  $('.playlist-popup').toggle();
 });
 
 $.fn.center = function() {
@@ -459,13 +475,6 @@ $.fn.center = function() {
   this.css("left", ( jQuery(window).width() - this.width() ) / 2+jQuery(window).scrollLeft() + "px");
   return this;
 };
-
-$('.menu-popup .new-playlist').click(function(){
-  $('.app-name').toggleClass("app-name-over");
-  $('.menu-popup').toggle();
-  $('.rowToAddPlaylist').show();
-  $('.rowToAddPlaylist input').focus();
-});
 
 $('.menu-popup .about').click(function(){
   $('.app-name').toggleClass("app-name-over");
@@ -496,6 +505,19 @@ $('.menu-popup .show-not-itunes').click(function(){
   $('.menu-popup .hide-not-itunes').toggle();
 });
 
+$('.playlist-popup .new-playlist').click(function(){
+  $('.playlist-dropdown').toggleClass("app-name-over");
+  $('.playlist-popup').toggle();
+  $('.rowToAddPlaylist').show();
+  $('.rowToAddPlaylist input').focus();
+});
+
+$('.playlist-popup .clear-recent').click(function(){
+  $('.playlist-dropdown').toggleClass("app-name-over");
+  $('.playlist-popup').toggle();
+  localStorage.clear();
+});
+
 $('.controls-popup .play-pause').click(function(){
   $('.pause').toggle();
   $('.play').toggle();
@@ -507,7 +529,7 @@ $('.controls-popup .play-pause').click(function(){
   if (player.getPlayerState() == 1) {
     player.pauseVideo();
   }
-  $('.app-menu').toggleClass("app-name-over");
+  $('.controls-dropdown').toggleClass("app-name-over");
   $('.controls-popup').toggle();
 });
 
@@ -515,7 +537,7 @@ $('.controls-popup .next-video').click(function(){
   if(window.currentPlaylist != undefined){
     player.nextVideo();
   }
-  $('.app-menu').toggleClass("app-name-over");
+  $('.controls-dropdown').toggleClass("app-name-over");
   $('.controls-popup').toggle();
 });
 
@@ -523,7 +545,7 @@ $('.controls-popup .previous-video').click(function(){
   if(window.currentPlaylist != undefined){
     player.previousVideo();
   }
-  $('.app-menu').toggleClass("app-name-over");
+  $('.controls-dropdown').toggleClass("app-name-over");
   $('.controls-popup').toggle();
 });
 
@@ -531,7 +553,7 @@ $('.controls-popup .increase-vol').click(function(){
   player.setVolume(player.getVolume()+5);
   var newVolume = Math.floor(player.getVolume()/100*90);
   $('.slider').slider({value: newVolume});
-  $('.app-menu').toggleClass("app-name-over");
+  $('.controls-dropdown').toggleClass("app-name-over");
   $('.controls-popup').toggle();
 });
 
@@ -539,13 +561,13 @@ $('.controls-popup .decrease-vol').click(function(){
   player.setVolume(player.getVolume()-5);
   var newVolume = Math.floor(player.getVolume()/100*90);
   $('.slider').slider({value: newVolume});
-  $('.app-menu').toggleClass("app-name-over");
+  $('.controls-dropdown').toggleClass("app-name-over");
   $('.controls-popup').toggle();
 });
 
 $('.controls-popup .repeat').click(function(){
   changeImage();
-  $('.app-menu').toggleClass("app-name-over");
+  $('.controls-dropdown').toggleClass("app-name-over");
   $('.controls-popup').toggle();
 });
 
@@ -555,7 +577,7 @@ $('.controls-popup .shuffle').click(function(){
     shuffle = !shuffle;
     player.setShuffle(shuffle);
   }
-  $('.app-menu').toggleClass("app-name-over");
+  $('.controls-dropdown').toggleClass("app-name-over");
   $('.controls-popup').toggle();
 });
 
