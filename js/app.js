@@ -163,7 +163,7 @@ $(document).ready(function() {
   });
 
 });
-
+  
 
 $(document).keydown(function(e) {
   switch(event.altKey && e.which) {
@@ -581,6 +581,11 @@ $('.controls-popup .shuffle').click(function(){
   $('.controls-popup').toggle();
 });
 
+$('.date').click(function(){
+  $('.date').toggleClass("app-name-over");
+  $('.date-popup').toggle();
+});
+
 
 $('.rowToAddPlaylist input').blur(function(){
   $('.rowToAddPlaylist').hide();
@@ -896,6 +901,8 @@ App.controller('TrackController', function($scope, $http){
     checkText();
     // gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='" + playlist['name'] + "'"});
   };
+
+  $scope.dateToday = $.datepicker.formatDate("DD, M d, yy", new Date());
 
 });
 
