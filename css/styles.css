@@ -359,7 +359,7 @@ body {
 }
 
 .container {
-  width: 803px;
+  width: 880px;
   margin: 60px auto 0;
   padding: 0;
   background-color: #fff;
@@ -373,7 +373,7 @@ body {
 
 .top-bar {
   float: left;
-  width: 803px;
+  width: 880px;
   height: 44px;
   clear: both;
   border-bottom: 1px solid #aeaeae;
@@ -424,17 +424,16 @@ body {
 
 .volume {
   float: left;
-  width: 68px;
+  width: 88px;
   height: 20px;   
   margin: 20px 25px 0 0;
   position: relative;
 }
 
 .slider {
-  width: 60px;
+  width: 80px; /* from 60px */
   height: 4px;
   position: absolute;
-  /*background-color: #ababab;*/
   background: url('/images/vol-back.jpg') repeat top left;
   margin: 0 auto;
   -webkit-border-radius: 6px;
@@ -492,7 +491,7 @@ body {
 
 .info {
   float: left;
-  width: 251px;
+  width: 311px;
   height: 44px;
   text-align: center;
   font-weight: normal;
@@ -546,9 +545,9 @@ body {
 
 .mainText {
   background: url('/images/apl.png') no-repeat center center;
-  background-size: 20%;
+  background-size: 16%;
   float: left;
-  width: 185px;
+  width: 245px;
   height: 40px;
   font-weight: normal;
   overflow-y: hidden;
@@ -611,7 +610,7 @@ p.trackName {
 .scrobble, .progress {
   float: left;
   clear: both;
-  width: 251px;
+  width: 311px;
   height: 4px;
 }
 
@@ -658,7 +657,7 @@ table td:hover,
 }
 
 table.DraggableThings {
-  width: 582px;
+  width: 659px;
 }
 
 table.DraggableThings tr {
@@ -709,7 +708,7 @@ tr td.activePL {
 
 .searchColumn {
   float: left !important;
-  width: 582px;
+  width: 659px;
   min-height: 503px;
   /*border-right: 1px #d9d9d9 solid;*/
   /*border-bottom: 1px #d9d9d9 solid;*/
@@ -761,31 +760,41 @@ tr td.activePL {
   border-left: 1px solid #e6e5e6;
 }
 
+.heading table td.index {
+  border-left: none;
+}
+
+
 .searchPlaylist table td {
   border-left: none !important;
   padding: 2px 5px 3px 5px; /* old: 3px 5px 4px 5px; */
   white-space: nowrap;
 }
 
-.heading table td:first-child {
-  padding: 5px 0 3px 20px;
-  border-left: none;
-  width: 47%;
+.heading table td.index,
+.searchPlaylist table td.index {
+  width: 7%;
+  text-align: right;
+  padding-right: 23px;
 }
 
-.searchPlaylist table td:first-child {
-  padding: 2px 0 3px 20px; /* old: 3px 0 4px 20px; */
-  border-left: none;
-  width: 47%;
+.heading table td.song-title {
+  padding: 5px 0 3px 5px;
+  width: 39%;
+}
+
+.searchPlaylist table td.song-title {
+  padding: 2px 0 3px 5px; /* old: 3px 0 4px 20px; */
+  width: 39%;
 }
 
 .heading table td {
   padding: 5px 5px 3px 5px;
 }
 
-.heading table td:nth-child(2),
-.searchPlaylist table td:nth-child(2) {
-  width: 18%;
+.heading table td.channel,
+.searchPlaylist table td.channel {
+  width: 16%;
 }
 
 .searchPlaylist table td.channel,
@@ -794,9 +803,9 @@ tr td.activePL {
   padding-right: 0px !important;
 }
 
-.heading table td:nth-child(3),
-.searchPlaylist table td:nth-child(3) {
-  width: 10%;
+.heading table td.duration,
+.searchPlaylist table td.duration {
+  width: 8%;
   text-align: right;
 }
 
@@ -804,15 +813,15 @@ tr td.activePL {
   padding-left: 0px !important;
 }
 
-.heading table td:nth-child(4),
-.searchPlaylist table td:nth-child(4) {
-  width: 12%;
+.heading table td.plays,
+.searchPlaylist table td.plays {
+  width: 11%;
 }
 
-.heading table td:last-child,
-.searchPlaylist table td:last-child {
+.heading table td.date-added,
+.searchPlaylist table td.date-added {
   padding-right: 7px;
-  width: 13%;
+  width: 19%;
 }
 
 .searchBox {
@@ -1069,7 +1078,7 @@ button:hover {
 }
 
 iframe {
-  pointer-events: none;
+  /*pointer-events: none;*/
 }
 
 .mail {

@@ -189,12 +189,12 @@ $(document).keydown(function(e) {
       break;
     case 38:
       player.setVolume(player.getVolume()+3);
-      var newVolume = Math.floor(player.getVolume()/100*90);
+      var newVolume = Math.floor(player.getVolume()/100*95);
       $('.slider').slider({value: newVolume});
       break;
     case 40:
       player.setVolume(player.getVolume()-3);
-      var newVolume = Math.floor(player.getVolume()/100*90);
+      var newVolume = Math.floor(player.getVolume()/100*95);
       $('.slider').slider({value: newVolume});
       break;
     case 219:
@@ -365,10 +365,10 @@ function setVolume(volume) {
 
 $('.slider').slider({
   min: 0,
-  max: 90,
+  max: 95,
   value: 65,
   slide: function(event, ui) {
-    setVolume(Math.floor(ui.value/90*100));
+    setVolume(Math.floor(ui.value/95*100));
   }
 });
 
@@ -551,7 +551,7 @@ $('.controls-popup .previous-video').click(function(){
 
 $('.controls-popup .increase-vol').click(function(){
   player.setVolume(player.getVolume()+5);
-  var newVolume = Math.floor(player.getVolume()/100*90);
+  var newVolume = Math.floor(player.getVolume()/100*95);
   $('.slider').slider({value: newVolume});
   $('.controls-dropdown').toggleClass("app-name-over");
   $('.controls-popup').toggle();
@@ -559,7 +559,7 @@ $('.controls-popup .increase-vol').click(function(){
 
 $('.controls-popup .decrease-vol').click(function(){
   player.setVolume(player.getVolume()-5);
-  var newVolume = Math.floor(player.getVolume()/100*90);
+  var newVolume = Math.floor(player.getVolume()/100*95);
   $('.slider').slider({value: newVolume});
   $('.controls-dropdown').toggleClass("app-name-over");
   $('.controls-popup').toggle();
@@ -960,7 +960,23 @@ App.filter('convertYTDate', function() {
       if(ytArr[1][0] == '0'){
         ytArr[1] = ytArr[1][1];
       }
-      return ytArr.join("/");
+      var date = ytArr.join("/");
+      var time = string.split("T")[1].split(":");
+      var timestampHr = time[0];
+      var timestampMin = time[1];
+      if(parseInt(timestampHr) > 11){
+        var ampm = "PM";
+        timestampHr = String(parseInt(timestampHr) - 12);
+      } else {
+        var ampm = "AM";
+      }
+      if(timestampHr == "00" || timestampHr == "0"){
+        timestampHr = "12";
+      }
+      if(timestampHr[0] == "0"){
+        timestampHr = timestampHr[1];
+      }
+      return date + ', ' + timestampHr + ':' + timestampMin + ' ' + ampm;
     } else {
       return '';
     }

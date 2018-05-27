@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
   <meta property="og:title" content="Not iTunes" />
-  <meta property="og:description" content="Not iTunes v0.51 Beta: An experimental UX/UI and JavaScript exercise from dj.WYSIWYG" />
+  <meta property="og:description" content="Not iTunes v0.52 Beta: An experimental UX/UI and JavaScript exercise from dj.WYSIWYG" />
   <meta property="og:image" content="http://not-itunes.djwysiwyg.com/images/screen_fb.jpg" />
 
   <meta charset="UTF-8">
@@ -129,7 +129,7 @@
       <div class="txtPopup">
         <span>Not iTunes</span>
         <div class="details">
-          <p><strong>Not iTunes v0.51 Beta</strong></p>
+          <p><strong>Not iTunes v0.52 Beta</strong></p>
           <p><strong>For promotional and educational purposes only.</strong> Not iTunes is a designer/developer's "Passion Project" - an exploration of Apple's Desktop UI behavior using only HTML/CSS, JavaScript and images. Powered by AngularJS and adapted to use YouTube's API.</p>
 
           <p>Patrick is available for contract work as Web Developer or Software Engineer. <a href="#" onclick="launchNotMail()">Contact him here</a>.</p>
@@ -206,18 +206,19 @@
       <div class="heading">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr>
-            <td valign="middle">Name</td>
-            <td>Channel</td>
-            <td>Time</td>
-            <td>Plays</td>
-            <td>Date Added</td>
-            <!-- <td>Channel</td> -->
+            <td class="index"></td>
+            <td valign="middle" class="song-title">Name</td>
+            <td class="channel">Channel</td>
+            <td class="duration">Time</td>
+            <td class="plays">Plays</td>
+            <td class="date-added">Date Added</td>
           </tr>
         </table>
       </div>
       <div class="searchPlaylist">
         <table border="0" cellpadding="0" cellspacing="0" class="DraggableThings">
           <tr ng-repeat="song in searchResults track by $index" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" jqyoui-draggable="{index: {{$index}}, placeholder: 'keep'}" data-drag="{{item.drag}}" ng-show="song.title" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClicked()" ng-model="searchResults">
+            <td class="index">{{$index+1}}</td>
             <td class="song-title">{{song['title'] | limitTo:39}}{{song['title'].length > 39 ? '...' : ''}}</td>
             <td class="channel">{{song['channelTitle'] | limitTo:13}}{{song['channelTitle'].length > 13 ? '...' : ''}}</td>
             <td class="duration">{{song['duration'] | convertYTDuration}}</td>
