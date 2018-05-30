@@ -879,6 +879,16 @@ App.controller('TrackController', function($scope, $http){
     // cobrakaiPlaylist 
   ];
 
+  if(localStorage.getItem('userCreatedPlaylists') != undefined){
+    userCreatedPlaylists = JSON.parse(localStorage.getItem('userCreatedPlaylists'));
+  }
+
+  if(userCreatedPlaylists.length > 0){
+    for(i=0; i<userCreatedPlaylists.length; i++){
+      $scope.playlists.push(userCreatedPlaylists[i]);
+    }
+  }
+
   $scope.searchResults = iTunesHTMLPlaylist['tracks'];
   $scope.plData = getPLData($scope.searchResults);
 
@@ -949,6 +959,8 @@ App.controller('TrackController', function($scope, $http){
     $('.rowToAddPlaylist').hide();
     $('.rowToAddPlaylist input').val('');
     $scope.playlists.push(newPlaylistObject);
+    userCreatedPlaylists.push(newPlaylistObject);
+    localStorage.setItem('userCreatedPlaylists', JSON.stringify(userCreatedPlaylists));
   };
 
   $scope.setMaster = function(song){
@@ -1002,6 +1014,7 @@ App.controller('TrackController', function($scope, $http){
 
   $scope.onDrop = function(e) {
     angular.element(e.target).removeClass("dropPlaylist");
+    localStorage.setItem('userCreatedPlaylists', JSON.stringify(userCreatedPlaylists));
   };
 
   $scope.dblClicked = function(){

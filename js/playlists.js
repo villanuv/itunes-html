@@ -1,5 +1,5 @@
+var userCreatedPlaylists = [];
 var recentlyPlayedList = {name: "Recently Played", tracks: []};
-
 
 var iTunesHTMLPlaylist = {name: "iTunes HTML", tracks: [
       {channelTitle: "adhon", dislikeCount: "0", duration: "PT7M56S",
