@@ -30,6 +30,7 @@ function onYouTubeIframeAPIReady() {
 function onPlayerReady() {
   $('.pause').hide();
   $('.play').show();
+  $('.not-safari').center();
 }
 
 function checkText() {
@@ -88,6 +89,10 @@ function launchNotiTunes() {
 
 function launchNotStickies() {
   $('.stickies').show();
+}
+
+function launchNotSafari() {
+  $('.not-safari').show();
 }
 
 
@@ -218,7 +223,7 @@ $(document).keydown(function(e) {
       toggleShuffle();
       break;
     case 68:
-      localStorage.clear();
+      localStorage.removeItem("recentlyPlayedList")
       break;
     default: 
       return;
@@ -334,17 +339,27 @@ $('.container').draggable({
 
 $('.about-popup').draggable({
   handle: ".popup-top",
-  delay: 300
+  delay: 300,
+  containment: "window"
 });
 
 $('.mail').draggable({
   handle: ".mail-top",
-  delay: 300
+  delay: 300,
+  containment: "window"
+});
+
+$('.not-safari').draggable({
+  handle: ".not-safari-top",
+  delay: 300,
+  iframeFix: true,
+  containment: "window"
 });
 
 $('.stickies').draggable({
   handle: ".handle",
-  delay: 300
+  delay: 300,
+  containment: "window"
 });
 
 // $('.stickies .handle').dblclick(function(){
@@ -606,7 +621,7 @@ $('.playlist-popup .new-playlist').click(function(){
 $('.playlist-popup .clear-recent').click(function(){
   $('.playlist-dropdown').toggleClass("app-name-over");
   $('.playlist-popup').toggle();
-  localStorage.clear();
+  localStorage.removeItem("recentlyPlayedList")
 });
 
 $('.controls-popup .play-pause').click(function(){
@@ -694,7 +709,23 @@ $('.popup-top img:first-child').click(function(){
   $('.about-popup').toggle();
 });
 
+var isChrome = !!window.chrome && !!window.chrome.webstore;
+$('.dock-item2:nth-child(5)').click(function(){
+  if($(window).width() > 1100 && $(window).height() > 600){
+    $('.not-safari').center();
+    $('.not-safari').show(); 
+  }
+});
+
 $('.mail-top img.redBtn')
+  .mouseover(function() { 
+    $(this).attr("src", "images/btn-red-over.jpg");
+  })
+  .mouseout(function() {
+    $(this).attr("src", "images/btn-red.jpg");
+  });
+
+$('.not-safari-top img.redBtn')
   .mouseover(function() { 
     $(this).attr("src", "images/btn-red-over.jpg");
   })
@@ -704,6 +735,11 @@ $('.mail-top img.redBtn')
 
 $('.mail-top img.redBtn').click(function(){
   $('.mail').toggle();
+});
+
+$('.not-safari-top img.redBtn').click(function(){
+  $('.not-safari').toggle();
+  $('.not-safari iframe').attr('src', 'http://djwysiwyg.com');
 });
 
 $('.notiTunes-win-btns img:first-child')
@@ -894,6 +930,19 @@ App.controller('TrackController', function($scope, $http){
 
     });
   };
+
+  $('#urlSearch input').val('http://djwysiwyg.com');
+  $scope.kindaSurfTheWeb = function(){
+    var url = $('#urlSearch input').val();
+    if (url.slice(0, 7) != 'http://'){
+      url = "http://" + url;
+    }
+    $('.not-safari iframe').attr('src', url);
+  };
+
+  $('#urlSearch input').on('focus', function(){
+    $('#urlSearch input').val("");
+  }); 
 
   $scope.addPlaylist = function(playlistName){
     var newPlaylistObject = {name: playlistName, tracks: []};
