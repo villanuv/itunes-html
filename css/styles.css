@@ -1469,6 +1469,84 @@ iframe {
   clear: both;
 }
 
+.rc-menu-search,
+.rc-menu-playlist {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: 45px;
+  left: 20px;
+  background-color: #f6f6f6;
+
+  /*padding: 6px 19px 5px 19px;*/
+  font-family: Arial, sans-serif;
+  font-size: 13.25px;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px #c1c3c6 solid;
+  user-select: none;
+  -webkit-box-shadow: 0px 5px 9px 1px rgba(0,0,0,0.13);
+  -moz-box-shadow: 0px 5px 9px 1px rgba(0,0,0,0.13);
+  box-shadow: 0px 5px 9px 1px rgba(0,0,0,0.13);
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.rc-menu-search p,
+.rc-menu-playlist p {
+  margin: 5px 0 0px;
+  padding: 3px 19px 2px;
+  /*background-color: red;*/
+}
+
+.rc-menu-search ul,
+.rc-menu-search ul li,
+.rc-menu-playlist ul,
+.rc-menu-playlist ul li {
+  margin: 0;
+  list-style-type: none;
+}
+
+.rc-menu-search ul,
+.rc-menu-playlist ul {
+  padding: 0;
+}
+
+.rc-menu-search li,
+.rc-menu-playlist li {
+  padding: 3px 19px 2px;
+}
+
+.rc-menu-search li:nth-last-child(3),
+.rc-menu-playlist li:nth-last-child(3) {
+  margin-bottom: 3px !important;
+}
+
+.rc-menu-playlist li:first-child {
+  margin-top: 3px !important;
+}
+
+.remove-from-pl, .delete-pl {
+  margin: 3px 0 4px !important;
+}
+
+.rc-menu-search li:hover,
+.rc-menu-search .remove-from-pl:hover,
+.rc-menu-playlist li:hover,
+.rc-menu-playlist .delete-pl:hover {
+  background-color: #2687fb;
+  color: #fff;
+}
+
+.label {
+  color: #ccc;
+}
+
+.menu-fix {
+  margin-bottom: 3px !important;
+}
+
 
 /* dock - all */
 .dock {

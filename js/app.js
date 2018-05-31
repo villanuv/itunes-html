@@ -60,7 +60,7 @@ function onPlayerStateChange(event) {
   }
   if(event.data == 1 && isSkipping() == false && window.selected == undefined) {
     $('.trackName').css('opacity', 0);
-    console.log('one track update');
+    // console.log('one track update');
     updateOneTrackData();
     checkText();
   }
@@ -151,9 +151,38 @@ $(document).ready(function() {
     return valid;
   }
 
-  // $(this).bind("contextmenu", function(e) {
-  //   e.preventDefault();
-  // });
+  $(this).not('body .searchPlaylist tr').bind("contextmenu", function(e) {
+    e.preventDefault();
+  });
+
+  $('.searchPlaylist tr').bind("contextmenu", function(e) {
+    e.preventDefault();
+    $('.rc-menu-search').css("left", e.pageX);
+    $('.rc-menu-search').css("top", e.pageY);
+    $('.rc-menu-search').show();   
+  });
+
+  $('.currentPlaylist tr').bind("contextmenu", function(e) {
+    e.preventDefault();
+    $('.rc-menu-playlist').css("left", e.pageX);
+    $('.rc-menu-playlist').css("top", e.pageY);
+    $('.rc-menu-playlist').show();   
+  });  
+
+  document.addEventListener("click", function(e){
+    if(!$(e.target).closest('.rc-menu-search').length) {
+      if($('.rc-menu-search').is(":visible")) {
+        $('.rc-menu-search').hide();
+      }
+    }   
+
+    if(!$(e.target).closest('.rc-menu-playlist').length) {
+      if($('.rc-menu-playlist').is(":visible")) {
+        $('.rc-menu-playlist').hide();
+      }
+    } 
+  });
+
 
   $('#dock2').Fisheye({
     maxWidth: 60,
@@ -284,7 +313,6 @@ function updateTrackData() {
   getTimes();
 }
 
-// edit here
 function updateOneTrackData() {
   if(window.selected == undefined) {
     var track = player.getVideoData();
@@ -618,6 +646,12 @@ $('.playlist-popup .new-playlist').click(function(){
   $('.rowToAddPlaylist input').focus();
 });
 
+$('.rc-menu-playlist .newPL').click(function(){
+  $('.rowToAddPlaylist').show();
+  $('.rowToAddPlaylist input').focus();
+  $('.rc-menu-playlist').hide();
+});
+
 $('.playlist-popup .clear-recent').click(function(){
   $('.playlist-dropdown').toggleClass("app-name-over");
   $('.playlist-popup').toggle();
@@ -869,23 +903,27 @@ App.controller('TrackController', function($scope, $http){
     slowJamsPlaylist,
     freestylePlaylist,
     // filamOPMPlaylist,
-    adultContemporaryPlaylist,
+    // adultContemporaryPlaylist,
     // shermervillePlaylist,
-    early80sPlaylist,
-    abbaGoldPlaylist,
+    // early80sPlaylist,
+    // abbaGoldPlaylist,
     internationalPlaylist,
     wonderYearsPlaylist,
     // newEditionStoryPlaylist, 
     // cobrakaiPlaylist 
   ];
 
+  $scope.manualPlaylistsCount = $scope.playlists.length-1; //excludes recentlyPlayedList
+
   if(localStorage.getItem('userCreatedPlaylists') != undefined){
-    userCreatedPlaylists = JSON.parse(localStorage.getItem('userCreatedPlaylists'));
+    $scope.userCreatedPlaylists = JSON.parse(localStorage.getItem('userCreatedPlaylists'));
+  } else {
+    $scope.userCreatedPlaylists = userCreatedPlaylists;
   }
 
-  if(userCreatedPlaylists.length > 0){
-    for(i=0; i<userCreatedPlaylists.length; i++){
-      $scope.playlists.push(userCreatedPlaylists[i]);
+  if($scope.userCreatedPlaylists.length > 0){
+    for(i=0; i<$scope.userCreatedPlaylists.length; i++){
+      $scope.playlists.push($scope.userCreatedPlaylists[i]);
     }
   }
 
@@ -918,7 +956,7 @@ App.controller('TrackController', function($scope, $http){
         });
       }).then(function(response) { 
         var returnObj = {};
-        console.log(response.result.items);
+        // console.log(response.result.items);
         if(response.result.pageInfo.totalResults != 0) {
           returnObj['id'] = response.result.items[0].id;
           returnObj['title'] = response.result.items[0].snippet.title;
@@ -932,7 +970,7 @@ App.controller('TrackController', function($scope, $http){
         }
         return returnObj;
       }).then(function(returnObj) {
-        console.log(returnObj);
+        // console.log(returnObj);
         $scope.$apply(function() {
           $scope.searchResults = [returnObj];
         });
@@ -954,22 +992,38 @@ App.controller('TrackController', function($scope, $http){
     $('#urlSearch input').val("");
   }); 
 
+  $scope.hidePlaylistMenu = function(){
+    $('.rc-menu-playlist').hide();
+  };
+
   $scope.addPlaylist = function(playlistName){
     var newPlaylistObject = {name: playlistName, tracks: []};
     $('.rowToAddPlaylist').hide();
     $('.rowToAddPlaylist input').val('');
     $scope.playlists.push(newPlaylistObject);
-    userCreatedPlaylists.push(newPlaylistObject);
-    localStorage.setItem('userCreatedPlaylists', JSON.stringify(userCreatedPlaylists));
+    $scope.userCreatedPlaylists.push(newPlaylistObject);
+    localStorage.setItem('userCreatedPlaylists', JSON.stringify($scope.userCreatedPlaylists));
   };
 
   $scope.setMaster = function(song){
     $scope.selected = song;
+    $scope.activePL = $scope.selectedPL;
     $scope.selectedPL = "";
   };
 
   $scope.isSelected = function(song){
     return $scope.selected === song;
+  };
+
+  $scope.setRightSelected = function(song, index){
+    $scope.rightSelected = song;
+    $scope.targetIndex = index;
+  };
+
+  $scope.setRightSelectedPL = function(playlist, index){
+    $scope.rightSelectedPL = playlist;
+    $scope.targetIndexPL = index;
+    // console.log($scope.targetIndexPL);
   };
 
   $scope.setMasterPL = function(playlist){
@@ -983,10 +1037,26 @@ App.controller('TrackController', function($scope, $http){
     return $scope.selectedPL === playlist;
   };
 
+  $scope.addToPlaylist = function(array, song){
+    array.push(song);
+    $('.rc-menu-search').hide();
+    localStorage.setItem('userCreatedPlaylists', JSON.stringify($scope.userCreatedPlaylists));
+  };
 
-  // $scope.addThis = function(){
-  //   var newSong = $scope.playlist[$scope.playlist.length-1].id;
-  //   playlistArray.unshift(newSong);
+  $scope.removeFromPlaylist = function(index){
+    $scope.activePL.tracks.splice(index, 1);
+    $('.rc-menu-search').hide();
+    localStorage.setItem('userCreatedPlaylists', JSON.stringify($scope.userCreatedPlaylists));
+  };
+
+  $scope.deletePlaylist = function(){
+    var adjustedIndexPL = $scope.targetIndexPL - 8;
+    $scope.userCreatedPlaylists.splice(adjustedIndexPL, 1);
+    $scope.playlists[$scope.targetIndexPL].deleted = true;
+    $('.rc-menu-playlist').hide();
+    $scope.$apply();
+    localStorage.setItem('userCreatedPlaylists', JSON.stringify($scope.userCreatedPlaylists));
+  };
 
 // for new playlist
 // a = player.getPlaylist();
@@ -998,11 +1068,6 @@ App.controller('TrackController', function($scope, $http){
 // player.playVideoAt(b);
 // player.seekTo(c);
 
-  // };
-
-  // $scope.songDrag = function(){
-  //   console.log();
-  // };
 
   $scope.onOver = function(e) {
     angular.element(e.target).toggleClass("dropPlaylist");
@@ -1014,7 +1079,7 @@ App.controller('TrackController', function($scope, $http){
 
   $scope.onDrop = function(e) {
     angular.element(e.target).removeClass("dropPlaylist");
-    localStorage.setItem('userCreatedPlaylists', JSON.stringify(userCreatedPlaylists));
+    localStorage.setItem('userCreatedPlaylists', JSON.stringify($scope.userCreatedPlaylists));
   };
 
   $scope.dblClicked = function(){
@@ -1115,5 +1180,20 @@ App.filter('truncatePlays', function() {
       return string;
     }
   }
+
+});
+
+
+App.directive('ngRightClick', function($parse) {
+
+  return function(scope, element, attrs) {
+    var fn = $parse(attrs.ngRightClick);
+    element.bind('contextmenu', function(event) {
+      scope.$apply(function() {
+        event.preventDefault();
+        fn(scope, {$event:event});
+      });
+    });
+  };
 
 });

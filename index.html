@@ -139,7 +139,6 @@
       <p>LIMITATIONS & KNOWN ISSUES</p>
       <ul>
         <li>Search returns 1 result only</li>
-        <li>New playlists last for session only</li>
         <li>Reordering of playlists not enabled</li>
         <li>2+ plays highlighted in Recently Played</li>
       </ul>
@@ -177,6 +176,24 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="rc-menu-search">
+    <p class="label">Add to Playlist</p>
+    <ul>
+      <li ng-repeat="playlist in userCreatedPlaylists" ng-click="addToPlaylist(playlist.tracks, rightSelected)">{{playlist.name}}</li>
+      <div class="divider"></div>
+      <li class="remove-from-pl" ng-click="removeFromPlaylist(targetIndex)">Remove From Playlist</li>
+    </ul>
+  </div>
+
+  <div class="rc-menu-playlist">
+    <ul ng-model="rightSelectedPL">
+      <li class="playPL" ng-click="dblClickedPL(rightSelectedPL); hidePlaylistMenu()" >Play {{rightSelectedPL.name}}</li>
+      <li class="newPL" ng-class="targetIndexPL <= manualPlaylistsCount ? 'menu-fix' : ''">New Playlist</li>
+      <div class="divider" ng-if="targetIndexPL > manualPlaylistsCount"></div>
+      <li class="delete-pl" ng-click="deletePlaylist()" ng-if="targetIndexPL > manualPlaylistsCount">Delete {{rightSelectedPL.name}}</li>
+    </ul>
   </div>
 
   <div class="container">
@@ -219,12 +236,12 @@
       <div class="currentPlaylist droppableItem">
         <table border="0" cellspacing="0" class="currentPlaylist">
           <tr><td>All Playlists (Beta)</td></tr>
-          <tr ng-repeat="playlist in playlists track by $index" ng-if="$index == 0" ng-class="{selected : isSelectedPL(playlist)}" ng-click="setMasterPL(playlist)" ng-dblclick="dblClickedPL(playlist)">
+          <tr ng-repeat="playlist in playlists track by $index" ng-if="$index < 8" ng-class="{selected : isSelectedPL(playlist)}" ng-click="setMasterPL(playlist)" ng-dblclick="dblClickedPL(playlist)" ng-right-click="setRightSelectedPL(playlist, $index)">
             <td ng-class="{activePL : isSelectedPL(playlist)}">
               <div>{{playlist.name}}</div></td>
           </tr>
-          <tr ng-repeat="playlist in playlists track by $index" ng-if="$index > 0" ng-show="playlist.name" ng-class="{selected : isSelectedPL(playlist)}" ng-click="setMasterPL(playlist)" ng-dblclick="dblClickedPL(playlist)" ng-model="playlist">
-            <td ng-class="{activePL : isSelectedPL(playlist)}">
+          <tr ng-repeat="playlist in playlists track by $index" ng-if="$index > 7" ng-show="playlist.name" ng-class="{selected : isSelectedPL(playlist)}" ng-click="setMasterPL(playlist)" ng-dblclick="dblClickedPL(playlist)" ng-right-click="setRightSelectedPL(playlist, $index)" ng-model="playlist">
+            <td ng-class="{activePL : isSelectedPL(playlist)}" ng-if="!playlist.deleted">
               <div data-drop="true" ng-model="playlist.tracks" jqyoui-droppable="{multiple:true, onOver: 'onOver', onOut: 'onOut', onDrop: 'onDrop'}">{{playlist.name}}</div></td>
           </tr>
           <!--
@@ -258,7 +275,7 @@
       </div>
       <div class="searchPlaylist">
         <table border="0" cellpadding="0" cellspacing="0" class="DraggableThings">
-          <tr ng-repeat="song in searchResults track by $index" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" jqyoui-draggable="{index: {{$index}}, placeholder: 'keep'}" data-drag="{{item.drag}}" ng-show="song.title" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClicked()" ng-model="searchResults">
+          <tr ng-repeat="song in searchResults track by $index" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" jqyoui-draggable="{index: {{$index}}, placeholder: 'keep'}" ng-show="song.title" ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)" ng-dblclick="dblClicked()" ng-right-click="setRightSelected(song, $index)" ng-model="searchResults">
             <td class="index">{{$index+1}}</td>
             <td class="song-title">{{song['title'] | limitTo:39}}{{song['title'].length > 39 ? '...' : ''}}</td>
             <td class="channel">{{song['channelTitle'] | limitTo:13}}{{song['channelTitle'].length > 13 ? '...' : ''}}</td>
