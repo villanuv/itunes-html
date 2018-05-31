@@ -297,7 +297,11 @@
               ng-dblclick="dblClicked()" 
               ng-right-click="setRightSelected(song, $index)" 
               ng-model="searchResults">
-            <td class="index">{{$index+1}}</td>
+            <td class="index" 
+                ng-class="{playing : isPlaying(song) && isSelected(song), 
+                'playing-unhighlighted' : isPlaying(song) && isSelected(song) == false && $index % 2 == 0,
+                'playing-ltgray' : isPlaying(song) && isSelected(song) == false && $index % 2 == 1
+                }">{{$index+1}}</td>
             <td class="song-title">{{song['title'] | limitTo:39}}{{song['title'].length > 39 ? '...' : ''}}</td>
             <td class="channel">{{song['channelTitle'] | limitTo:13}}{{song['channelTitle'].length > 13 ? '...' : ''}}</td>
             <td class="duration">{{song['duration'] | convertYTDuration}}</td>
@@ -307,6 +311,7 @@
         </table>      
       </div>        
     </div>
+    <div class="clear"></div>
     <div class="bottomBar">&nbsp;{{plData}}&nbsp;</div>
   </div>
 

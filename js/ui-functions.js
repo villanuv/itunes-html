@@ -338,16 +338,6 @@ $(document).keydown(function(e) {
   e.preventDefault();
 });
 
-// sortable things
-
-$("table.DraggableThings").sortable( {
-  update: function( event, ui ) {
-    $(this).children().each(function(index) {
-      $(this).find('td').last().html(index + 1)
-    });
-  }
-});
-
 
 // interface
 
@@ -791,6 +781,7 @@ $('.mailSend').on('click', function(e) {
   }
 });
 
+
 // dock
 
 $('#dock2').Fisheye({
@@ -804,3 +795,18 @@ $('#dock2').Fisheye({
   valign: 'bottom',
   halign : 'center'
 });
+
+
+// for scrobble
+
+// $('.info').click(function(e){
+//   console.log(e.pageX + ', ' + e.pageY);
+// });
+
+
+// toggle status bar
+
+// $('.bottomBar').hide();
+// $('.searchColumn').addClass('bottom-corner-right');
+// $('#player').addClass('bottom-corner-left');
+// $('.mainWindow').addClass('bottom-corner-left');

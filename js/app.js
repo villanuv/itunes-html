@@ -218,6 +218,14 @@ App.controller('TrackController', function($scope, $http){
     return $scope.selected === song;
   };
 
+  $scope.isPlaying = function(song){
+    if($scope.currentlyPlaying != undefined){
+      return $scope.currentlyPlaying.id === song.id;
+    } else {
+      return false;
+    }
+  };
+
   $scope.setRightSelected = function(song, index){
     $scope.rightSelected = song;
     $scope.targetIndex = index;
@@ -285,6 +293,7 @@ App.controller('TrackController', function($scope, $http){
   };
 
   $scope.dblClicked = function(){
+    $scope.currentlyPlaying = $scope.selected;
     $('.trackName').css('opacity', 0);
     window.currentPlaylist = player.getPlaylist();
     $('.mainText').css('background', 'none');
