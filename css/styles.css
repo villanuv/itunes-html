@@ -133,6 +133,7 @@ body {
 .menu-popup .show-not-itunes:hover,
 .playlist-popup .new-playlist:hover,
 .playlist-popup .clear-recent:hover,
+.view-popup div:hover,
 .controls-popup div:hover {
   background-color: #2687fb;
   color: #fff;
@@ -239,6 +240,7 @@ body {
 
 .menu-popup,
 .playlist-popup,
+.view-popup,
 .controls-popup,
 .date-popup {
   display: none;
@@ -273,8 +275,12 @@ body {
   left: 129px;
 }
 
-.controls-popup {
+.view-popup {
   left: 186px;
+}
+
+.controls-popup {
+  left: 230px;
 }
 
 .date-popup {
@@ -286,6 +292,8 @@ body {
 .menu-popup .hide-not-itunes,
 .playlist-popup .new-playlist,
 .playlist-popup .clear-recent,
+.view-popup .status-bar,
+.view-popup .full-screen,
 .controls-popup .play-pause,
 .controls-popup .next-video,
 .controls-popup .previous-video,
@@ -314,6 +322,7 @@ body {
 .menu-popup .hide-not-itunes,
 .menu-popup .show-not-itunes,
 .playlist-popup .clear-recent,
+.view-popup .full-screen,
 .controls-popup .play-pause,
 .controls-popup .next-video,
 .controls-popup .increase-vol,
@@ -325,6 +334,7 @@ body {
 .menu-popup .hide-not-itunes,
 .menu-popup .show-not-itunes,
 .playlist-popup .clear-recent,
+.view-popup .full-screen,
 .controls-popup .increase-vol,
 .controls-popup .shuffle {
   margin-top: 4px;
@@ -341,6 +351,10 @@ body {
 }
 
 .lbl-pause {
+  display: none;
+}
+
+.lbl-show, .lbl-exit {
   display: none;
 }
 
@@ -768,13 +782,16 @@ table.DraggableThings td {
   background: url('/images/playing-on-highlight.jpg') no-repeat 28px 3.5px !important;
   background-size: 30% !important;
 }
-.playing-unhighlighted {
+.playing-white {
   background: url('/images/playing-on.jpg') no-repeat 28px 3.5px !important;
   background-size: 30% !important;
 }
 .playing-ltgray {
   background: url('/images/playing-on-visited.jpg') no-repeat 28px 3.5px !important;
   background-size: 30% !important;
+}
+.playing-stopped {
+  background: none !important;
 }
 
 .selected, .selectedPL {
@@ -803,6 +820,12 @@ tr:nth-child(2) td.activePL {
 
 tr td.activePL {
   background: url('/images/playlist-selected.jpg') no-repeat !important;
+  background-size: contain !important;
+  background-size: 20px 21px !important;
+}
+
+tr td.activePLDim {
+  background: url('/images/playlist-selected-inactive.jpg') no-repeat !important;
   background-size: contain !important;
   background-size: 20px 21px !important;
 }
@@ -1699,6 +1722,10 @@ img.notSafari {
 img.notTrash {
   width: 95%;
   margin: 0 -10px 3px 0;
+}
+
+.bottom-bar-height-fix {
+  height: 548px !important;
 }
 
 .bottom-corner-right {

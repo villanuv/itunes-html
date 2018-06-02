@@ -29,6 +29,7 @@
     <div class="apl-logo"></div>
     <div class="app-name">Not iTunes</div>
     <div class="playlist-dropdown">Playlist</div>
+    <div class="view-dropdown">View</div>
     <div class="controls-dropdown">Controls</div>
     <div class="notification-ctr"></div>
     <div class="spotlight"></div>
@@ -90,7 +91,13 @@
   <div class="playlist-popup">
     <div class="new-playlist">New Playlist <span class="cmd">&#8997;N</span></div>    
     <div class="divider"></div>
-    <div class="clear-recent">Clear Recently Played <span class="cmd">&#8997;D</div>
+    <div class="clear-recent">Clear Recently Played <span class="cmd">&#8997;D</span></div>
+  </div>
+
+  <div class="view-popup">
+    <div class="status-bar"><span class="lbl-show">Show</span><span class="lbl-hide">Hide</span> Status Bar<span class="cmd">&#8997;/</span></div>
+    <div class="divider"></div>
+    <div class="full-screen"><span class="lbl-enter">Enter</span><span class="lbl-exit">Exit</span> Full Screen<span class="cmd">&#8997;F</span></div>
   </div>
 
   <div class="controls-popup">
@@ -238,22 +245,22 @@
           <tr><td>All Playlists (Beta)</td></tr>
           <tr ng-repeat="playlist in playlists track by $index" 
               ng-if="$index < manualPlaylistsCount" 
-              ng-class="{selected : isSelectedPL(playlist)}" 
-              ng-click="setMasterPL(playlist)" 
+              ng-class="{selected : isViewingPL(playlist)}" 
+              ng-click="setViewingPL(playlist)" 
               ng-dblclick="dblClickedPL(playlist)" 
               ng-right-click="setRightSelectedPL(playlist, $index)">
-            <td ng-class="{activePL : isSelectedPL(playlist)}">
+            <td ng-class="{activePL : isViewingPL(playlist)}">
               <div>{{playlist.name}}</div></td>
           </tr>
           <tr ng-repeat="playlist in playlists track by $index" 
               ng-if="$index >= manualPlaylistsCount"
               ng-show="playlist.name" 
-              ng-class="{selected : isSelectedPL(playlist)}" 
-              ng-click="setMasterPL(playlist)" 
+              ng-class="{selected : isViewingPL(playlist)}" 
+              ng-click="setViewingPL(playlist)" 
               ng-dblclick="dblClickedPL(playlist)" 
               ng-right-click="setRightSelectedPL(playlist, $index)" 
               ng-model="playlist">
-            <td ng-class="{activePL : isSelectedPL(playlist)}" ng-if="!playlist.deleted">
+            <td ng-class="{activePL : isViewingPL(playlist)}" ng-if="!playlist.deleted">
               <div data-drop="true" ng-model="playlist.tracks" jqyoui-droppable="{multiple:true, onOver: 'onOver', onOut: 'onOut', onDrop: 'onDrop'}">{{playlist.name}}</div></td>
           </tr>
           <!--
@@ -263,7 +270,7 @@
           data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" 
           jqyoui-draggable="{index: {{$index}},animate:false}"
 
-          ng-class="{selected : isSelected(song)}" ng-click="setMaster(song)"
+          ng-class="{selected : isSelected(song)}" ng-click="setSelectedSong(song)"
 
           -->
           <tr class="rowToAddPlaylist"><td><input ng-model="newPlaylist" type="text" class="add-playlist" autocomplete="off" spellcheck="false" placeholder="Playlist" ng-keyup="$event.keyCode == 13 && addPlaylist(newPlaylist)" /></td></tr>
@@ -293,15 +300,11 @@
               jqyoui-draggable="{index: {{$index}}, placeholder: 'keep'}" 
               ng-show="song.title" 
               ng-class="{selected : isSelected(song)}" 
-              ng-click="setMaster(song)" 
-              ng-dblclick="dblClicked()" 
+              ng-click="setSelectedSong(song); iconHackSwap($index); setViewingPLDim()" 
+              ng-dblclick="dblClicked(song); iconHackSwapSingle($index)" 
               ng-right-click="setRightSelected(song, $index)" 
               ng-model="searchResults">
-            <td class="index" 
-                ng-class="{playing : isPlaying(song) && isSelected(song), 
-                'playing-unhighlighted' : isPlaying(song) && isSelected(song) == false && $index % 2 == 0,
-                'playing-ltgray' : isPlaying(song) && isSelected(song) == false && $index % 2 == 1
-                }">{{$index+1}}</td>
+            <td class="index">{{$index+1}}</td>
             <td class="song-title">{{song['title'] | limitTo:39}}{{song['title'].length > 39 ? '...' : ''}}</td>
             <td class="channel">{{song['channelTitle'] | limitTo:13}}{{song['channelTitle'].length > 13 ? '...' : ''}}</td>
             <td class="duration">{{song['duration'] | convertYTDuration}}</td>
