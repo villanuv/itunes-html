@@ -728,7 +728,7 @@ p.trackName {
   font-size: 11px;
 }
 
-.scrobble, .progress {
+.scrobble, .progress, .seekable {
   float: left;
   clear: both;
   width: 311px;
@@ -737,6 +737,7 @@ p.trackName {
 
 .scrobble { background-color: #c6c6c6; }
 .progress { background-color: #7f7f7f; }
+.seekable { opacity: 0.9; }
 
 .scrobble .ui-slider-range { background-color: #7f7f7f; }
 .scrobble .ui-slider-handle { background-color: #000; }
@@ -1076,6 +1077,10 @@ tr td.activePLDim {
 
 #searchForm input:not(:root:root){
   padding: 1px 6px 1px 16px !important;
+}
+
+#searchContainer:not(:root:root){
+  padding: 9px 11px 0 0;
 }
 
 input:focus {

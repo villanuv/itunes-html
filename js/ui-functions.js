@@ -919,15 +919,9 @@ $('#dock2').Fisheye({
 
 // for scrobble
 
-// $('.info').click(function(e){
-//   console.log(e.pageX + ', ' + e.pageY);
-// });
-
-// for playlist playing icons
-
-// player.getPlaylistIndex() => same number as nth-child(number)
-// $('.DraggableThings tr:nth-child(' + number + ') td.index').removeClass('playing-white')
-// other classes: playing or playing-ltgray
-
-
+$('.seekable').click(function(e){
+  var start = $('.progress').offset().left;
+  var marker = (e.pageX-start)/311;
+  player.seekTo(player.getDuration()*marker);
+});
 
