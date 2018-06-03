@@ -1271,8 +1271,8 @@ iframe {
 }
 
 .finder-video iframe {
-  pointer-events: auto !important;
-/*  -webkit-border-radius: 5px;
+/*  pointer-events: auto !important;
+  -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;*/
   -webkit-border-bottom-left-radius: 5px;

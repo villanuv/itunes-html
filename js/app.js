@@ -352,14 +352,15 @@ App.controller('TrackController', function($scope, $http){
   };
 
   $scope.removeFromPlaylist = function(index){
-    window.viewingPL.tracks.splice(index, 1);
+    // window.viewingPL.tracks.splice(index, 1);
     $scope.viewingPL.tracks.splice(index, 1);
+    console.log($scope.viewingPL.tracks);
     $('.rc-menu-search').hide();
     localStorage.setItem('userCreatedPlaylists', JSON.stringify($scope.userCreatedPlaylists));
   };
 
   $scope.deletePlaylist = function(){
-    var adjustedIndexPL = $scope.targetIndexPL - manualPlaylistsCount;
+    var adjustedIndexPL = $scope.targetIndexPL - $scope.manualPlaylistsCount;
     $scope.userCreatedPlaylists.splice(adjustedIndexPL, 1);
     $scope.playlists[$scope.targetIndexPL].deleted = true;
     $('.rc-menu-playlist').hide();
