@@ -1058,6 +1058,7 @@ tr td.activePLDim {
 }
 
 #searchForm input {
+   -webkit-appearance: none;
   border: 1px solid #ccc;
   padding: 3px 6px 4px 24px;
   outline: none;
@@ -1073,10 +1074,15 @@ tr td.activePLDim {
   /*box-shadow: inset 0px 0px 6px -1px rgba(0,0,0,0.5);*/
 }
 
+#searchForm input:not(:root:root){
+  padding: 1px 6px 1px 16px !important;
+}
+
 input:focus {
-  box-shadow: 0 0 2pt 1pt #669bcb;
+/*  box-shadow: 0 0 2pt 1pt #669bcb;
   -webkit-box-shadow: 0 0 2pt 1pt #669bcb;
-  -moz-box-shadow: 0 0 2pt 1pt #669bcb;
+  -moz-box-shadow: 0 0 2pt 1pt #669bcb;*/
+  outline: 0;
 }
 
 #searchField::-webkit-search-cancel-button{
@@ -1319,6 +1325,7 @@ iframe {
 }
 
 .not-finder input.notFinderSearch {
+   -webkit-appearance: none;
   width: 678px;
   border: 1px #989898 solid;
   font-size: 26px !important;
