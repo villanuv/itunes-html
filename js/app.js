@@ -205,6 +205,20 @@ App.controller('TrackController', function($scope, $http){
     });
   };
 
+  $scope.notFinderSubmit = function(event){
+    if(event.keyCode == 13){
+      $('.not-finder').hide();
+      $('.not-finder input').val('');
+      $('.finder-video').center();
+      $('.finder-video').show();
+      $('.finder-video iframe')[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+    }
+    if(event.keyCode == 27){
+      $('.not-finder').hide();
+      $('.not-finder input').val('');
+    }
+  };
+
   $('#urlSearch input').val('http://djwysiwyg.com');
   $scope.kindaSurfTheWeb = function(){
     var url = $('#urlSearch input').val();
@@ -345,7 +359,7 @@ App.controller('TrackController', function($scope, $http){
   };
 
   $scope.deletePlaylist = function(){
-    var adjustedIndexPL = $scope.targetIndexPL - 8; //edit this
+    var adjustedIndexPL = $scope.targetIndexPL - manualPlaylistsCount;
     $scope.userCreatedPlaylists.splice(adjustedIndexPL, 1);
     $scope.playlists[$scope.targetIndexPL].deleted = true;
     $('.rc-menu-playlist').hide();
