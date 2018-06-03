@@ -53,6 +53,8 @@ body {
   right: -320px;
   /*padding: 15px 12px;*/
   background-color: #374247;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
   user-select: none;  
   -webkit-box-shadow: 0px 4px 8px -1px rgba(0,0,0,0.5);
   -moz-box-shadow: 0px 4px 8px -1px rgba(0,0,0,0.5);
@@ -263,6 +265,8 @@ body {
   font-weight: normal;
   background-color: rgba(259, 232, 230, 0.9);
   border: 1px #c1c3c6 solid;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
   user-select: none;
   -webkit-box-shadow: 0px 5px 9px 1px rgba(0,0,0,0.13);
   -moz-box-shadow: 0px 5px 9px 1px rgba(0,0,0,0.13);
@@ -395,6 +399,8 @@ body {
   font-family: Arial, sans-serif;
   font-size: 12px;
   font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
   user-select: none;
   background-color: #fff;
 
@@ -486,6 +492,9 @@ body {
   width: 880px;
   height: 44px;
   clear: both;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
+  user-select: none;
   border-bottom: 1px solid #aeaeae;
   background: url('/images/itunes-top.jpg') repeat-x; 
   -webkit-border-top-left-radius: 5px;
@@ -671,6 +680,8 @@ p.trackName {
   color: #3f3f3f;
   white-space: nowrap;
   position: absolute; /* relative */
+  -webkit-user-select: none;
+  -moz-user-select: none; 
   user-select: none;
   font-size: 13px;
 }
@@ -853,7 +864,6 @@ tr td.activePLDim {
 }
 
 .bottomBar {
-  user-select: none;
   clear: both;
   display block;
   font-size: 10.5px;
@@ -863,6 +873,9 @@ tr td.activePLDim {
   background: url('/images/itunes-bottom.jpg') repeat-x;
   background-size: 5%;
   border-top: 1px #a2a2a2 solid;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
+  user-select: none;
 
   -webkit-border-bottom-right-radius: 5px;
   -moz-border-radius-bottomright: 5px;
@@ -872,8 +885,86 @@ tr td.activePLDim {
   border-bottom-left-radius: 5px;
 }
 
-.heading {
+.playlist-header {
+  height: 139px;
+  font-size: 24px;
+  font-weight: bold !important;
+  letter-spacing: -1px;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
+  user-select: none;
+}
+
+.playlist-header .generic-icon {
+  background: url('/images/playlist-header-bg.jpg') no-repeat;
+  background-size: contain;
+  height: 80px;
+  width: 80px;
+  margin: 40px 0 0 40px;
   float: left;
+}
+
+.playlist-header .overview {
+  float: left;
+  margin: 60px 0 0 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
+  user-select: none;
+}
+
+.overview .data {
+  font-size: 12px;  
+  font-weight: normal;
+  color: #9a9aa2;
+  letter-spacing: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
+  user-select: none;
+}
+
+.shuffle-area {
+  width: 148px;
+  height: 33px;
+  float: right;
+  font-size: 12px;
+  margin: 64px 40px 0 0;
+}
+
+.shuffle-text {
+  float: right;
+  text-align: right;
+  height: 33px;
+  line-height: 33px;
+  vertical-align: middle;
+  letter-spacing: 0;
+  color: #2687fc;
+  font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
+  user-select: none;
+}
+
+.shuffle-playlist {
+  float: right;
+  background: url('/images/playlist-header-shuffle.jpg') no-repeat;  
+  background-size: contain;
+  background-position: center center;
+  width: 22px;
+  height: 33px;
+  margin-left: 5px;
+}
+
+.blue-button {
+  float: right;
+  background: url('/images/playlist-header-btn.jpg') no-repeat;  
+  background-size: contain;
+  width: 33px;
+  height: 33px;
+  margin-left: 10px;
+}
+
+.heading {
+  float: right;
   width:100%;
   height:23px;
   vertical-align: middle;
@@ -883,6 +974,7 @@ tr td.activePLDim {
 .heading table {
   width: 100%;
   font-size: 10px;
+  border-top: 1px solid #e6e5e6;
   border-bottom: 1px solid #e6e5e6;
 }
 
@@ -993,7 +1085,7 @@ input:focus {
 
 .searchPlaylist {
   float: left;
-  height: 475px;
+  height: 335px;
   width: 100%;
   max-height: 475px;
   min-width: 300px;
@@ -1261,6 +1353,9 @@ iframe {
   height: 21px;
   background-color: #0a0a0a;
   border-bottom: 1px #282828 solid;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
+  user-select: none;
 
   -webkit-border-top-left-radius: 5px;
   -webkit-border-top-right-radius: 5px;
@@ -1295,6 +1390,8 @@ iframe {
   border: 1px #bababa solid;
   font-size: 12px;
   font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
   user-select: none;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -1306,6 +1403,8 @@ iframe {
 
 .not-safari-top {
   width: 1100px !important;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
   user-select: none;
 }
 
@@ -1545,6 +1644,8 @@ iframe {
   border: 1px #bca903 solid;
   font-size: 17px;
   color: #000;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
   user-select: none;
   -webkit-box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.5);
   -moz-box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.5);
@@ -1607,6 +1708,8 @@ iframe {
   font-size: 13.25px;
   background-color: rgba(255, 255, 255, 1);
   border: 1px #c1c3c6 solid;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
   user-select: none;
   -webkit-box-shadow: 0px 5px 9px 1px rgba(0,0,0,0.13);
   -moz-box-shadow: 0px 5px 9px 1px rgba(0,0,0,0.13);

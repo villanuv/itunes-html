@@ -151,6 +151,7 @@ App.controller('TrackController', function($scope, $http){
   window.viewingPL = iTunesHTMLPlaylist;
   $scope.searchResults = iTunesHTMLPlaylist['tracks'];
   $scope.plData = getPLData($scope.searchResults);
+  $scope.plDataSubdata = $scope.plData.replace(",", " •");
 
   $scope.submit = function(){
     $('.DraggableThings tr td.index').removeClass('playing');
@@ -200,6 +201,7 @@ App.controller('TrackController', function($scope, $http){
         $scope.$apply(function() {
           $scope.searchResults = [returnObj];
         });
+        $('.playlist-header').hide();
       });
 
     });
@@ -328,7 +330,9 @@ App.controller('TrackController', function($scope, $http){
     // $scope.viewingPLDim = false;
     $scope.searchResults = playlist['tracks'];
     $scope.plData = getPLData(playlist['tracks']);
+    $scope.plDataSubdata = $scope.plData.replace(",", " •");
 
+    $('.playlist-header').show();
     $('.DraggableThings tr td.index').removeClass('playing');
     $('.DraggableThings tr td.index').removeClass('playing-white');
     $('.DraggableThings tr td.index').removeClass('playing-ltgray');
