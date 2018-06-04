@@ -925,3 +925,18 @@ $('.seekable').click(function(e){
   player.seekTo(player.getDuration()*marker);
 });
 
+
+// for playlist header name edit
+
+$('.editable-name').click(function(){
+  $('.editVLName').css('width', $('.editable-name').innerWidth());
+  $('.editVLName').show();
+  $('.editVLName').focus();
+  $('.editable-name').hide();
+});
+
+$('.editVLName').blur(function() {
+  $('.editable-name').show();
+  $('.editVLName').hide();
+  $('.editVLName').val('');
+});

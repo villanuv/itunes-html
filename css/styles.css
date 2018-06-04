@@ -896,6 +896,13 @@ tr td.activePLDim {
   user-select: none;
 }
 
+.playlist-header .editVLName {
+  display: none;
+  width: auto;
+  font-size: 24px;
+  letter-spacing: -1px;
+}
+
 .playlist-header .generic-icon {
   background: url('/images/playlist-header-bg.jpg') no-repeat;
   background-size: contain;
@@ -1076,14 +1083,14 @@ tr td.activePLDim {
 }
 
 #searchForm input:not(:root:root){
-  padding: 1px 6px 1px 16px !important;
+  padding: 1px 1px 1px 16px !important;
 }
 
 #searchContainer:not(:root:root){
   padding: 9px 11px 0 0;
 }
 
-input:focus {
+#searchForm input:focus {
 /*  box-shadow: 0 0 2pt 1pt #669bcb;
   -webkit-box-shadow: 0 0 2pt 1pt #669bcb;
   -moz-box-shadow: 0 0 2pt 1pt #669bcb;*/
@@ -1123,6 +1130,7 @@ input:focus {
   border: none;
   font-size: 12.75px;
   padding-left: 3px;
+  /*outline: auto;*/
 }
 
 .mainWindow {
@@ -1855,6 +1863,9 @@ a.dock-item2 {
   text-align: center;
   text-decoration: none;
   padding: 0 10px;
+
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 .dock-item2 span {
   display: none;

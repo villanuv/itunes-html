@@ -238,13 +238,20 @@ App.controller('TrackController', function($scope, $http){
     $('.rc-menu-playlist').hide();
   };
 
-  $scope.addPlaylist = function(playlistName){
-    var newPlaylistObject = {name: playlistName, tracks: []};
-    $('.rowToAddPlaylist').hide();
-    $('.rowToAddPlaylist input').val('');
-    $scope.playlists.push(newPlaylistObject);
-    $scope.userCreatedPlaylists.push(newPlaylistObject);
-    localStorage.setItem('userCreatedPlaylists', JSON.stringify($scope.userCreatedPlaylists));
+  // editViewingPLName
+  $scope.addPlaylist = function(playlistName, event){
+    if(event.keyCode == 13){
+      var newPlaylistObject = {name: playlistName, tracks: []};
+      $('.rowToAddPlaylist').hide();
+      $('.rowToAddPlaylist input').val('');
+      $scope.playlists.push(newPlaylistObject);
+      $scope.userCreatedPlaylists.push(newPlaylistObject);
+      localStorage.setItem('userCreatedPlaylists', JSON.stringify($scope.userCreatedPlaylists));
+    }
+    if(event.keyCode == 27){
+      $('.rowToAddPlaylist').hide();
+      $('.rowToAddPlaylist input').val('');
+    }
   };
 
   $scope.setSelectedSong = function(song){
@@ -444,6 +451,46 @@ App.controller('TrackController', function($scope, $http){
   };
 
   $scope.dateToday = $.datepicker.formatDate("DD, M d, yy", new Date());
+
+  // $scope.viewingPLName = $scope.viewingPL.name;
+
+  $scope.editViewingPLName = function(event){
+    if(event.keyCode == 13){
+      var newName = $('.editVLName').val();
+      $scope.viewingPL.name = newName;
+      localStorage.setItem('userCreatedPlaylists', JSON.stringify($scope.userCreatedPlaylists));
+      $('.editVLName').val('');
+      $('.editVLName').hide();
+      $('.editable-name').show();
+    }
+    if(event.keyCode == 27){
+      $('.editVLName').val('');
+      $('.editVLName').hide();
+      $('.editable-name').show();
+    }
+  };
+
+  $scope.shufflePL = function(playlist){
+    window.viewingPL = playlist;
+    window.currentPlayingPL = playlist;
+    var allTrackIDs = [];
+    var tracks = playlist.tracks;
+    for(i=0;i<tracks.length;i++){
+      allTrackIDs.push(tracks[i].id);
+    }
+    var randomStart = Math.floor((Math.random() * allTrackIDs.length) + 1);
+    player.loadPlaylist({playlist: allTrackIDs, index: randomStart});
+
+    $('.play').hide();
+    $('.pause').show();
+    $('.lbl-play').hide();
+    $('.lbl-pause').show();
+    $('.DraggableThings tr td.index').removeClass('playing');
+    $('.DraggableThings tr td.index').removeClass('playing-white');
+    $('.DraggableThings tr td.index').removeClass('playing-ltgray');
+    checkText();
+    setTimeout(toggleShuffle, 2000);
+  };
 
 });
 

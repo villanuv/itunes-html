@@ -292,7 +292,7 @@
           ng-class="{selected : isSelected(song)}" ng-click="setSelectedSong(song)"
 
           -->
-          <tr class="rowToAddPlaylist"><td><input ng-model="newPlaylist" type="text" class="add-playlist" autocomplete="off" spellcheck="false" placeholder="Playlist" ng-keyup="$event.keyCode == 13 && addPlaylist(newPlaylist)" /></td></tr>
+          <tr class="rowToAddPlaylist"><td><input ng-model="newPlaylist" type="text" class="add-playlist" autocomplete="off" spellcheck="false" placeholder="Playlist" ng-keyup="addPlaylist(newPlaylist, $event)" /></td></tr>
         </table>
       </div>
       <div id="player"></div>
@@ -302,13 +302,13 @@
       <div class="playlist-header" ng-model="viewingPL">
         <div class="generic-icon"></div>
         <div class="overview">
-          <div>{{viewingPL.name}}</div>
+          <div><span class="editable-name">{{viewingPL.name}}</span><input type="text" class="editVLName" placeholder="{{viewingPL['name']}}" ng-keyup="editViewingPLName($event)" /></div>
           <div class="data">{{plDataSubdata}}</div>
         </div>
-        <div class="shuffle-area">
+        <div class="shuffle-area" ng-model="viewingPL">
           <div class="blue-button"></div>
-          <div class="shuffle-playlist"></div>
-          <div class="shuffle-text">Shuffle All</div>
+          <div class="shuffle-playlist" ng-click="shufflePL(viewingPL)"></div>
+          <div class="shuffle-text" ng-click="shufflePL(viewingPL)">Shuffle All</div>
         </div>
       </div>
       <div class="heading">
