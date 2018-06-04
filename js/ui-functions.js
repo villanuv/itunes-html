@@ -766,12 +766,14 @@ $('.playlist-popup .clear-recent').click(function(){
 });
 
 $('.view-popup .status-bar').click(function(){
+  // gtag('event', 'view menu: status bar toggle');
   $('.view-dropdown').toggleClass("app-name-over");
   $('.view-popup').toggle();
   toggleStatusBar();
 });
 
 $('.view-popup .full-screen').click(function(){
+  // gtag('event', 'view menu: full screen toggle');
   $('.view-dropdown').toggleClass("app-name-over");
   $('.view-popup').toggle();
   $('.lbl-enter').toggle();
@@ -780,6 +782,7 @@ $('.view-popup .full-screen').click(function(){
 });
 
 $('.controls-popup .play-pause').click(function(){
+  // gtag('event', 'controls menu: play/pause');
   $('.pause').toggle();
   $('.play').toggle();
   $('.lbl-play').toggle();
@@ -796,6 +799,7 @@ $('.controls-popup .play-pause').click(function(){
 
 $('.controls-popup .next-video').click(function(){
   if(window.currentPlayingPL != undefined){
+    // gtag('event', 'controls menu: next');
     player.nextVideo();
   }
   $('.controls-dropdown').toggleClass("app-name-over");
@@ -804,6 +808,7 @@ $('.controls-popup .next-video').click(function(){
 
 $('.controls-popup .previous-video').click(function(){
   if(window.currentPlayingPL != undefined){
+    // gtag('event', 'controls menu: previous');
     player.previousVideo();
   }
   $('.controls-dropdown').toggleClass("app-name-over");
@@ -811,6 +816,7 @@ $('.controls-popup .previous-video').click(function(){
 });
 
 $('.controls-popup .increase-vol').click(function(){
+  // gtag('event', 'controls menu: volume up');
   player.setVolume(player.getVolume()+5);
   var newVolume = Math.floor(player.getVolume()/100*95);
   $('.slider').slider({value: newVolume});
@@ -819,6 +825,7 @@ $('.controls-popup .increase-vol').click(function(){
 });
 
 $('.controls-popup .decrease-vol').click(function(){
+  // gtag('event', 'controls menu: volume down');
   player.setVolume(player.getVolume()-5);
   var newVolume = Math.floor(player.getVolume()/100*95);
   $('.slider').slider({value: newVolume});
@@ -827,6 +834,7 @@ $('.controls-popup .decrease-vol').click(function(){
 });
 
 $('.controls-popup .repeat').click(function(){
+  // gtag('event', 'controls menu: repeat');
   toggleRepeat();
   $('.controls-dropdown').toggleClass("app-name-over");
   $('.controls-popup').toggle();
@@ -834,6 +842,7 @@ $('.controls-popup .repeat').click(function(){
 
 $('.controls-popup .shuffle').click(function(){
   if(player.getPlaylist().length > 1){
+    // gtag('event', 'controls menu: shuffle');
     $('.shuffle-container img').toggle();
     shuffle = !shuffle;
     player.setShuffle(shuffle);
