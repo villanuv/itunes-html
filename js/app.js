@@ -71,6 +71,7 @@ function updateTrackData() {
   $('.cover-art').attr('style', "background:url('" + nowPlayingObj.thumb + "');");
   $('.play').hide();
   $('.pause').show();
+  // gtag('event', 'track data updated');
   // gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='" + window.currentPlayingPL['name'] + "'&title='"+nowPlayingObj.title + "'&id='" + nowPlayingObj.id + "'"});
   getTimes();
 
@@ -100,6 +101,7 @@ function updateOneTrackData() {
     $('.mainText').css('background', 'none');
     $('.trackName').html(track['title']);
     $('.artistAlbum').html(track['author']);
+    // gtag('event', 'single track data updated');
     // gtag('config', 'UA-118583968-1', {'page_path': "/?title='" + track['title'] + "'&id='" + track['video_id'] + "'"});
     getTimes();
   }
@@ -163,6 +165,7 @@ App.controller('TrackController', function($scope, $http){
 
       var q = $('#searchField').val();
       // gtag('config', 'UA-118583968-1', {'page_path': "/?q='"+q+"'"});
+      // gtag('event', 'search');
       $scope.viewingPL = "";
 
       var request = gapi.client.youtube.search.list({
@@ -209,11 +212,14 @@ App.controller('TrackController', function($scope, $http){
 
   $scope.notFinderSubmit = function(event){
     if(event.keyCode == 13){
+      var notfinderq = $('.not-finder input').val();
       $('.not-finder').hide();
       $('.not-finder input').val('');
       $('.finder-video').center();
       $('.finder-video').show();
+      // gtag('event', 'finder video seen');
       $('.finder-video iframe')[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+      // gtag('config', 'UA-118583968-1', {'page_path': "/?notfinderq='"+notfinderq+"'"});
     }
     if(event.keyCode == 27){
       $('.not-finder').hide();
@@ -240,6 +246,7 @@ App.controller('TrackController', function($scope, $http){
 
   // editViewingPLName
   $scope.addPlaylist = function(playlistName, event){
+    // gtag('event', 'playlist created');
     if(event.keyCode == 13){
       var newPlaylistObject = {name: playlistName, tracks: []};
       $('.rowToAddPlaylist').hide();
@@ -357,6 +364,7 @@ App.controller('TrackController', function($scope, $http){
   };
 
   $scope.addToPlaylist = function(array, song){
+    // gtag('event', 'single added via contextmenu');
     array.push(song);
     $('.rc-menu-search').hide();
     localStorage.setItem('userCreatedPlaylists', JSON.stringify($scope.userCreatedPlaylists));
@@ -371,6 +379,7 @@ App.controller('TrackController', function($scope, $http){
   };
 
   $scope.deletePlaylist = function(){
+    // gtag('event', 'playlist deleted');
     var adjustedIndexPL = $scope.targetIndexPL - $scope.manualPlaylistsCount;
     $scope.userCreatedPlaylists.splice(adjustedIndexPL, 1);
     $scope.playlists[$scope.targetIndexPL].deleted = true;
@@ -398,6 +407,7 @@ App.controller('TrackController', function($scope, $http){
   };
 
   $scope.onDrop = function(e) {
+    // gtag('event', 'single added via drop');
     angular.element(e.target).removeClass("dropPlaylist");
     localStorage.setItem('userCreatedPlaylists', JSON.stringify($scope.userCreatedPlaylists));
   };
@@ -420,7 +430,8 @@ App.controller('TrackController', function($scope, $http){
     $('.DraggableThings tr td.index').removeClass('playing');
     $('.DraggableThings tr td.index').removeClass('playing-white');
     $('.DraggableThings tr td.index').removeClass('playing-ltgray');
-    // gtag('config', 'UA-118583968-1', {'page_path': "/?title='" + song.title + "'&id='" + $scope.selected.id + "'"});
+    // gtag('event', 'single play');
+    // gtag('config', 'UA-118583968-1', {'page_path': "/?title='" + song.title + "'&id='" + song.id + "'"});
     getTimes();
     checkText();
   };
@@ -447,6 +458,7 @@ App.controller('TrackController', function($scope, $http){
     $('.DraggableThings tr td.index').removeClass('playing-white');
     $('.DraggableThings tr td.index').removeClass('playing-ltgray');
     checkText();
+    // gtag('event', 'playlist double clicked');
     // gtag('config', 'UA-118583968-1', {'page_path': "/?playlist='" + playlist['name'] + "'"});
   };
 
@@ -456,6 +468,7 @@ App.controller('TrackController', function($scope, $http){
 
   $scope.editViewingPLName = function(event){
     if(event.keyCode == 13){
+      // gtag('event', 'renamed from header');
       var newName = $('.editVLName').val();
       $scope.viewingPL.name = newName;
       localStorage.setItem('userCreatedPlaylists', JSON.stringify($scope.userCreatedPlaylists));
@@ -489,6 +502,7 @@ App.controller('TrackController', function($scope, $http){
     $('.DraggableThings tr td.index').removeClass('playing-white');
     $('.DraggableThings tr td.index').removeClass('playing-ltgray');
     checkText();
+    // gtag('event', 'shuffle from header');
     setTimeout(toggleShuffle, 2000);
   };
 

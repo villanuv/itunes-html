@@ -29,16 +29,19 @@ function isSkipping() {
 }
 
 function launchNotMail() {
+  // gtag('event', 'dock: launch not mail');
   $('.mail').show();
 }
 
 function launchNotiTunes() {
+  // gtag('event', 'dock: launch not itunes');
   $('.container').show();
   $('.menu-popup .show-not-itunes').hide();
   $('.menu-popup .hide-not-itunes').show();
 }
 
 function launchNotStickies() {
+  // gtag('event', 'dock: launch not stickies');
   $('.stickies').show();
 }
 
@@ -80,18 +83,30 @@ function setVolume(volume) {
 };
 
 function toggleRepeat(){
+  loop = !loop;
   if (clickImg == 1){
     clickImg = 0;
   } else {
     clickImg = 1;
   }
   if(player.getPlaylist().length == 1){
+    if(loop == true && clickImg == 1){
+    // gtag('event', 'single repeat on');
+    }
+    if(loop == false && clickImg == 1){
+    // gtag('event', 'single repeat off');
+    }
     img = repeatImg2[clickImg];
   } else {
+    if(loop == true && clickImg == 1){
+    // gtag('event', 'repeat all on');
+    }
+    if(loop == false && clickImg == 1){
+    // gtag('event', 'repeat all off');
+    }
     img = repeatImg1[clickImg];
   }
   $('.repeat-container img').attr("src", img);
-  loop = !loop;
   player.setLoop(loop); 
 }
 
@@ -100,7 +115,11 @@ function toggleShuffle(){
     $('.shuffle-container img').toggle();
     shuffle = !shuffle;
     player.setShuffle(shuffle);
-
+    if (shuffle == true){
+    // gtag('event', 'shuffle on');
+    } else {
+    // gtag('event', 'shuffle off');
+    }
     // $('.DraggableThings tr td.index').removeClass('playing-white');
     // $('.DraggableThings tr td.index').removeClass('playing-ltgray');
     // $('.DraggableThings tr td.index').removeClass('playing');
@@ -384,6 +403,7 @@ $('.progress').css('width', 0+'%');
 $('.notification-ctr-block').css('height', $(window).height()-23);
 
 $('.previous').click(function() { 
+  // gtag('event', 'button: previous video');
   var currentTime = player.getCurrentTime();
   var playlistCheck = player.getPlaylist();
   if(currentTime < 5 && playlistCheck != null){
@@ -394,6 +414,7 @@ $('.previous').click(function() {
 });
 
 $('.play').click(function() { 
+  // gtag('event', 'button: play video');
   player.playVideo();
   $('.play').hide();
   $('.pause').show();
@@ -402,6 +423,7 @@ $('.play').click(function() {
 });
 
 $('.pause').click(function() { 
+  // gtag('event', 'button: pause video');
   player.pauseVideo();
   $('.pause').hide();
   $('.play').show();
@@ -410,6 +432,7 @@ $('.pause').click(function() {
 });
 
 $('.next').click(function() {
+  // gtag('event', 'button: next video');
   var playlistCheck = player.getPlaylist();
   if(playlistCheck != null){
     player.nextVideo();
@@ -475,6 +498,7 @@ $('.finder-video img.redBlkBtn').click(function(){
 // });
 
 $('.stickies img').click(function(){
+  // gtag('event', 'closed stickies note');
   $(this).closest(".stickies").hide();
 });
 
@@ -503,6 +527,7 @@ $('.shuffle-container img').click(function(){
 });
 
 $('.app-name').click(function(){
+  // gtag('event', 'top bar: not itunes');
   $('.app-name').toggleClass("app-name-over");
   $('.playlist-dropdown').removeClass("app-name-over");
   $('.view-dropdown').removeClass("app-name-over");
@@ -525,6 +550,7 @@ $('.app-name').click(function(){
 });
 
 $('.playlist-dropdown').click(function(){
+  // gtag('event', 'top bar: playlist');
   $('.app-name').removeClass("app-name-over");
   $('.playlist-dropdown').toggleClass("app-name-over");
   $('.view-dropdown').removeClass("app-name-over");
@@ -547,6 +573,7 @@ $('.playlist-dropdown').click(function(){
 });
 
 $('.view-dropdown').click(function(){
+  // gtag('event', 'top bar: view');
   $('.app-name').removeClass("app-name-over");
   $('.playlist-dropdown').removeClass("app-name-over");
   $('.view-dropdown').toggleClass("app-name-over");
@@ -569,6 +596,7 @@ $('.view-dropdown').click(function(){
 });
 
 $('.controls-dropdown').click(function(){
+  // gtag('event', 'top bar: controls');
   $('.app-name').removeClass("app-name-over");
   $('.playlist-dropdown').removeClass("app-name-over");
   $('.view-dropdown').removeClass("app-name-over");
@@ -591,6 +619,7 @@ $('.controls-dropdown').click(function(){
 });
 
 $('.date').click(function(){
+  // gtag('event', 'top bar: date');
   $('.app-name').removeClass("app-name-over");
   $('.playlist-dropdown').removeClass("app-name-over");
   $('.view-dropdown').removeClass("app-name-over");
@@ -613,6 +642,7 @@ $('.date').click(function(){
 });
 
 $('.notification-ctr').click(function(){
+  // gtag('event', 'top bar: notification ctr');
   $('.notification-ctr-block').show();
   if($('.notification-ctr-block').position().left == $(window).width()){
     if($('.date-popup').css('display') == 'block'){
@@ -648,6 +678,7 @@ $('.notification-ctr')
   });
 
 $('.spotlight').click(function(){
+  // gtag('event', 'top bar: spotlight');
   $('.not-finder').center();
   $('.not-finder').toggle();
   $('.not-finder input').focus();
@@ -669,6 +700,7 @@ $.fn.center = function() {
 };
 
 $('.menu-popup .about').click(function(){
+  // gtag('event', 'about Not iTunes popup');
   $('.app-name').toggleClass("app-name-over");
   $('.menu-popup').toggle();
   $('.about-popup').center();
@@ -676,6 +708,7 @@ $('.menu-popup .about').click(function(){
 });
 
 $('.menu-popup .feedback').click(function(){
+  // gtag('event', 'not mail via feedback');
   $('.app-name').toggleClass("app-name-over");
   $('.menu-popup').toggle();
   $('.mail').show();
@@ -698,6 +731,7 @@ $('.menu-popup .show-not-itunes').click(function(){
 });
 
 $('.playlist-popup .new-playlist').click(function(){
+  // gtag('event', 'playlist menu: new playlist');
   $('.playlist-dropdown').toggleClass("app-name-over");
   $('.playlist-popup').toggle();
   $('.rowToAddPlaylist').show();
@@ -705,12 +739,14 @@ $('.playlist-popup .new-playlist').click(function(){
 });
 
 $('.rc-menu-playlist .newPL').click(function(){
+  // gtag('event', 'right click: new playlist');
   $('.rowToAddPlaylist').show();
   $('.rowToAddPlaylist input').focus();
   $('.rc-menu-playlist').hide();
 });
 
 $('.playlist-popup .clear-recent').click(function(){
+  // gtag('event', 'playlist menu: clear recently played');
   $('.playlist-dropdown').toggleClass("app-name-over");
   $('.playlist-popup').toggle();
   localStorage.removeItem("recentlyPlayedList")
@@ -889,6 +925,7 @@ $('.mailSend').on('click', function(e) {
       dataType: "json"
     }).done(function(data) {
       if(data.success) {
+        // gtag('event', 'not mail sent');
         $('.contactName').val('');
         $('.contactEmail').val('');
         $('.contactMessage').val('');
@@ -920,6 +957,7 @@ $('#dock2').Fisheye({
 // for scrobble
 
 $('.seekable').click(function(e){
+  // gtag('event', 'scrobble');
   var start = $('.progress').offset().left;
   var marker = (e.pageX-start)/311;
   player.seekTo(player.getDuration()*marker);
