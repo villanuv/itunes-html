@@ -342,52 +342,65 @@ $(document).keydown(function(e) {
         $('.lbl-play').toggle();
         $('.lbl-pause').toggle();
       }
+      // gtag('event', 'kb: play/pause');
       break;
     case 37:
       player.seekTo(player.getCurrentTime()-3);
+      // gtag('event', 'kb: backwards skip');
       break;
     case 39:
       player.seekTo(player.getCurrentTime()+3);
+      // gtag('event', 'kb: forward skip');
       break;
     case 38:
       player.setVolume(player.getVolume()+3);
       var newVolume = Math.floor(player.getVolume()/100*95);
       $('.slider').slider({value: newVolume});
+      // gtag('event', 'kb: volume up');
       break;
     case 40:
       player.setVolume(player.getVolume()-3);
       var newVolume = Math.floor(player.getVolume()/100*95);
       $('.slider').slider({value: newVolume});
+      // gtag('event', 'kb: volume down');
       break;
     case 70:
       $('.lbl-enter').toggle();
       $('.lbl-exit').toggle();
+      // gtag('event', 'kb: full screen toggle');
       requestFullScreen();
       break;
     case 191:
+      // gtag('event', 'kb: status bar toggle');
       toggleStatusBar();
       break;
     case 219:
       if(window.currentPlayingPL != undefined){
+        // gtag('event', 'kb: previous');
         player.previousVideo();
       }
       break;
     case 221:
       if(window.currentPlayingPL != undefined){
+        // gtag('event', 'kb: next');
         player.nextVideo();
       }
       break;
     case 78:
+      // gtag('event', 'kb: new playlist');
       $('.rowToAddPlaylist').show();
       $('.rowToAddPlaylist input').focus();
       break;
     case 82:
+      // gtag('event', 'kb: repeat');
       toggleRepeat();
       break;
     case 83:
+      // gtag('event', 'kb: shuffle');
       toggleShuffle();
       break;
     case 68:
+      // gtag('event', 'kb: clear recent');
       localStorage.removeItem("recentlyPlayedList")
       break;
     default: 
