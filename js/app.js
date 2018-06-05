@@ -372,6 +372,7 @@ App.controller('TrackController', function($scope, $http){
 
   $scope.removeFromPlaylist = function(index){
     // window.viewingPL.tracks.splice(index, 1);
+    // gtag('event', 'single removed via contextmenu');
     $scope.viewingPL.tracks.splice(index, 1);
     console.log($scope.viewingPL.tracks);
     $('.rc-menu-search').hide();
@@ -506,5 +507,94 @@ App.controller('TrackController', function($scope, $http){
     setTimeout(toggleShuffle, 2000);
   };
 
+  $scope.songRating = function(song, index){
+    var likes = parseInt(song.likeCount);
+    var dislikes = parseInt(song.dislikeCount);
+    var total = likes + dislikes;
+    var stars = Math.round(5*likes/total);
+    if(stars == 5){
+      if($scope.selected == song){
+        return 'stars5over';
+      }     
+      if(index % 2 == 0){
+        return 'stars5odd';
+      }
+      if(index % 2 == 1){
+        return 'stars5even';
+      }
+    }
+
+    if(stars == 4){
+      if($scope.selected == song){
+        return 'stars4over';
+      }   
+      if(index % 2 == 0){
+        return 'stars4odd';
+      }
+      if(index % 2 == 1){
+        return 'stars4even';
+      }
+    }
+
+    if(stars == 3){
+      if($scope.selected == song){
+        return 'stars3over';
+      }   
+      if(index % 2 == 0){
+        return 'stars3odd';
+      }
+      if(index % 2 == 1){
+        return 'stars3even';
+      }
+    }
+
+    if(stars == 2){
+      if($scope.selected == song){
+        return 'stars2over';
+      }   
+      if(index % 2 == 0){
+        return 'stars2odd';
+      }
+      if(index % 2 == 1){
+        return 'stars2even';
+      }
+    }
+
+    if(stars == 1){
+      if($scope.selected == song){
+        return 'stars1over';
+      }   
+      if(index % 2 == 0){
+        return 'stars1odd';
+      }
+      if(index % 2 == 1){
+        return 'stars1even';
+      }
+    }
+  };
+
+  // $scope.songRatingSwap = function(song, index){
+  //   var likes = parseInt(song.likeCount);
+  //   var dislikes = parseInt(song.dislikeCount);
+  //   var total = likes + dislikes;
+  //   var stars = Math.round(5*likes/total);
+  //   var adjustedIndex = index + 1;
+  //   if(stars == 5){
+  //     $('.DraggableThings tr:nth-child(' + adjustedIndex + ') td.rating').addClass('stars5even');
+  //   }
+
+  //   if(stars == 4){
+
+  //   }
+  //   if(stars == 3){
+  //     // return 'stars4odd';
+  //   }
+  //   if(stars == 2){
+  //     // return 'stars4even';
+  //   }
+  //   if(stars == 1){
+  //     // return 'stars3odd';
+  //   }
+  // };
 });
 

@@ -475,7 +475,7 @@ body {
 }
 
 .container {
-  width: 880px;
+  width: 960px;
   margin: 60px auto 0;
   padding: 0;
   background-color: #fff;
@@ -489,7 +489,7 @@ body {
 
 .top-bar {
   float: left;
-  width: 880px;
+  width: 960px;
   height: 44px;
   clear: both;
   -webkit-user-select: none;
@@ -539,6 +539,12 @@ body {
 .notiTunes-controller {
   float: left;
   padding-top: 11px;
+}
+
+@-moz-document url-prefix() { 
+  .notiTunes-controller {
+    padding-top: 9px;
+  }
 }
 
 .volume {
@@ -610,7 +616,7 @@ body {
 
 .info {
   float: left;
-  width: 311px;
+  width: 391px;
   height: 44px;
   text-align: center;
   font-weight: normal;
@@ -664,9 +670,9 @@ body {
 
 .mainText {
   background: url('/images/apl.png') no-repeat center center;
-  background-size: 15%;
+  background-size: 11.5%;
   float: left;
-  width: 245px;
+  width: 325px;
   height: 40px;
   font-weight: normal;
   overflow-y: hidden;
@@ -731,7 +737,7 @@ p.trackName {
 .scrobble, .progress, .seekable {
   float: left;
   clear: both;
-  width: 311px;
+  width: 391px;
   height: 4px;
 }
 
@@ -779,7 +785,7 @@ table td:hover,
 }
 
 table.DraggableThings {
-  width: 659px;
+  width: 739px;
 }
 
 table.DraggableThings tr {
@@ -800,15 +806,15 @@ table.DraggableThings td {
 
 /*table.DraggableThings td:first-child,*/
 .playing {
-  background: url('/images/playing-on-highlight.jpg') no-repeat 28px 3.5px !important;
+  background: url('/images/playing-on-highlight.jpg') no-repeat 24px 3.4px !important;
   background-size: 30% !important;
 }
 .playing-white {
-  background: url('/images/playing-on.jpg') no-repeat 28px 3.5px !important;
+  background: url('/images/playing-on.jpg') no-repeat 24px 3.4px !important;
   background-size: 30% !important;
 }
 .playing-ltgray {
-  background: url('/images/playing-on-visited.jpg') no-repeat 28px 3.5px !important;
+  background: url('/images/playing-on-visited.jpg') no-repeat 24px 3.4px !important;
   background-size: 30% !important;
 }
 .playing-stopped {
@@ -853,7 +859,7 @@ tr td.activePLDim {
 
 .searchColumn {
   float: left !important;
-  width: 659px;
+  width: 739px;
   min-height: 503px;
   /*border-right: 1px #d9d9d9 solid;*/
   /*border-bottom: 1px #d9d9d9 solid;*/
@@ -1008,17 +1014,17 @@ tr td.activePLDim {
 .searchPlaylist table td.index {
   width: 7%;
   text-align: right;
-  padding-right: 23px;
+  padding-right: 32px;
 }
 
 .heading table td.song-title {
   padding: 5px 0 3px 5px;
-  width: 39%;
+  width: 33%;
 }
 
 .searchPlaylist table td.song-title {
   padding: 2px 0 3px 5px; /* old: 3px 0 4px 20px; */
-  width: 39%;
+  width: 33%;
 }
 
 .heading table td {
@@ -1027,7 +1033,7 @@ tr td.activePLDim {
 
 .heading table td.channel,
 .searchPlaylist table td.channel {
-  width: 16%;
+  width: 14%;
 }
 
 .searchPlaylist table td.channel,
@@ -1038,7 +1044,7 @@ tr td.activePLDim {
 
 .heading table td.duration,
 .searchPlaylist table td.duration {
-  width: 8%;
+  width: 7%;
   text-align: right;
 }
 
@@ -1048,13 +1054,93 @@ tr td.activePLDim {
 
 .heading table td.plays,
 .searchPlaylist table td.plays {
-  width: 11%;
+  width: 10%;
 }
 
 .heading table td.date-added,
 .searchPlaylist table td.date-added {
   padding-right: 7px;
-  width: 19%;
+  width: 17%;
+}
+
+.heading table td.rating,
+.searchPlaylist table td.rating {
+  width: 12%;
+}
+
+.stars5odd {
+  background: url('/images/stars5-odd.jpg') no-repeat 6px 4px;
+  background-size: 73%;
+}
+
+.stars5even {
+  background: url('/images/stars5-even.jpg') no-repeat 6px 4px;
+  background-size: 73%;
+}
+
+.stars5over {
+  background: url('/images/stars5-over.jpg') no-repeat 6px 4px;
+  background-size: 73%;
+}
+
+.stars4odd {
+  background: url('/images/stars4-odd.jpg') no-repeat 6px 4px;
+  background-size: 73%;
+}
+
+.stars4even {
+  background: url('/images/stars4-even.jpg') no-repeat 6px 4px;
+  background-size: 73%;
+}
+
+.stars4over {
+  background: url('/images/stars4-over.jpg') no-repeat 6px 4px;
+  background-size: 73%;
+}
+
+.stars3odd {
+  background: url('/images/stars3-odd.jpg') no-repeat 6px 4px;
+  background-size: 73%;
+}
+
+.stars3even {
+  background: url('/images/stars3-even.jpg') no-repeat 6px 4px;
+  background-size: 73%;
+}
+
+.stars3over {
+  background: url('/images/stars3-over.jpg') no-repeat 6px 4px;
+  background-size: 73%;
+}
+
+.stars2odd {
+  background: url('/images/stars2-odd.jpg') no-repeat 6px 4px;
+  background-size: 73%;
+}
+
+.stars2even {
+  background: url('/images/stars2-even.jpg') no-repeat 6px 4px;
+  background-size: 73%;
+}
+
+.stars2over {
+  background: url('/images/stars2-over.jpg') no-repeat 6px 4px;
+  background-size: 73%;
+}
+
+.stars1odd {
+  background: url('/images/stars1-odd.jpg') no-repeat 6px 4px;
+  background-size: 73%;
+}
+
+.stars1even {
+  background: url('/images/stars1-even.jpg') no-repeat 6px 4px;
+  background-size: 73%;
+}
+
+.stars1over {
+  background: url('/images/stars1-over.jpg') no-repeat 6px 4px;
+  background-size: 73%;
 }
 
 .searchBox {

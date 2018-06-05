@@ -2,21 +2,21 @@
 <html ng-app='RdioApp'>
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118583968-1"></script>
+  <!--script async src="https://www.googletagmanager.com/gtag/js?id=UA-118583968-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'UA-118583968-1');
-  </script>
+  </script-->
 
 
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:600,400' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
   <meta property="og:title" content="Not iTunes" />
-  <meta property="og:description" content="Not iTunes v0.52 Beta: An experimental UX/UI and JavaScript exercise from dj.WYSIWYG" />
+  <meta property="og:description" content="Not iTunes v0.53 Beta: An experimental UX/UI and JavaScript exercise from dj.WYSIWYG" />
   <meta property="og:image" content="http://not-itunes.djwysiwyg.com/images/screen_fb.jpg" />
 
   <meta charset="UTF-8">
@@ -44,6 +44,13 @@
     <div class="entry-container">
       <div class="icon-type"></div>
       <div class="entry-text">
+        <div class="entry-header">Not iTunes 0.53 Release</div>
+        <div class="entry-body">Main interface extended with ratings. Playlist header added with name editing and shuffle play. Also new: scrobbling, view dropdown and context menus, playing icons, Spotlight section.</div><!-- maxlength: 167chars -->
+      </div>
+    </div>
+    <div class="entry-container">
+      <div class="icon-type"></div>
+      <div class="entry-text">
         <div class="entry-header">Not iTunes 0.52 Release</div>
         <div class="entry-body">New Notifications area. Main interface extended with more data. Added playlist count, upload times. Top bar with Playlist, Controls and Date dropdowns. More icons.</div><!-- maxlength: 167chars -->
       </div>
@@ -55,13 +62,13 @@
         <div class="entry-body">Longer titles now scroll, while shorter titles stay put. New status bar, with playlist count and duration. Added fullscreen. Enabled clearing Recently Played. Keyboard commands synced.</div><!-- maxlength: 167chars -->
       </div>
     </div>
-    <div class="entry-container">
+<!--     <div class="entry-container">
       <div class="icon-type"></div>
       <div class="entry-text">
         <div class="entry-header">Bugs Fixed</div>
-        <div class="entry-body">Individual plays can be repeated. Shuffle fixed, shows associated data with current plays. Dragging to Recently Played is fixed/disabled. Recenty Played stored to browser.</div><!-- maxlength: 167chars -->
-      </div>
-    </div>
+        <div class="entry-body">Individual plays can be repeated. Shuffle fixed, shows associated data with current plays. Dragging to Recently Played is fixed/disabled. Recenty Played stored to browser.</div> --><!-- maxlength: 167chars -->
+<!--       </div>
+    </div> -->
     <div class="entry-container">
       <div class="icon-type"></div>
       <div class="entry-text border-disabled">
@@ -191,7 +198,7 @@
       <div class="txtPopup">
         <span>Not iTunes</span>
         <div class="details">
-          <p><strong>Not iTunes v0.52 Beta</strong></p>
+          <p><strong>Not iTunes v0.53 Beta</strong></p>
           <p><strong>For promotional and educational purposes only.</strong> Not iTunes is a designer/developer's "Passion Project" - an exploration of Apple's Desktop UI behavior using only HTML/CSS, JavaScript and images. Powered by AngularJS and adapted to use YouTube's API.</p>
 
           <p>Patrick is available for contract work as Web Developer or Software Engineer. <a href="#" onclick="launchNotMail()">Contact him here</a>.</p>
@@ -320,6 +327,7 @@
             <td class="duration">Time</td>
             <td class="plays">Plays</td>
             <td class="date-added">Date Added</td>
+            <td class="rating">Rating</td>
           </tr>
         </table>
       </div>
@@ -341,6 +349,23 @@
             <td class="duration">{{song['duration'] | convertYTDuration}}</td>
             <td class="plays">{{song['viewCount'] | truncatePlays}}</td>
             <td class="date-added">{{song['publishedAt'] | convertYTDate}}</td>
+            <td class="rating" ng-class="{
+              stars5odd : songRating(song, $index) == 'stars5odd',
+              stars5even : songRating(song, $index) == 'stars5even',
+              stars5over : songRating(song, $index) == 'stars5over',
+              stars4odd : songRating(song, $index) == 'stars4odd',
+              stars4even : songRating(song, $index) == 'stars4even',
+              stars4over : songRating(song, $index) == 'stars4over',
+              stars3odd : songRating(song, $index) == 'stars3odd',
+              stars3even : songRating(song, $index) == 'stars3even',
+              stars3over : songRating(song, $index) == 'stars3over',
+              stars2odd : songRating(song, $index) == 'stars2odd',
+              stars2even : songRating(song, $index) == 'stars2even',
+              stars2over : songRating(song, $index) == 'stars2over',
+              stars1odd : songRating(song, $index) == 'stars1odd',
+              stars1even : songRating(song, $index) == 'stars1even',
+              stars1over : songRating(song, $index) == 'stars1over'
+              }"></td>
           </tr>
         </table>      
       </div>        

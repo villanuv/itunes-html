@@ -981,7 +981,7 @@ $('#dock2').Fisheye({
 $('.seekable').click(function(e){
   // gtag('event', 'scrobble');
   var start = $('.progress').offset().left;
-  var marker = (e.pageX-start)/311;
+  var marker = (e.pageX-start)/391;
   player.seekTo(player.getDuration()*marker);
 });
 
